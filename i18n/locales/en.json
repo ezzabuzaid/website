@@ -17,7 +17,7 @@
           "guides": "Guides",
           "learn": "Learn",
           "security": "Security",
-          "certification": "Certification",
+          "roadmap": "Roadmap",
           "blog": "Blog"
         }
       }
@@ -247,7 +247,7 @@
         "all": "Everything",
         "announcements": "Announcements",
         "release": "Releases",
-        "vulnerability": "Vulnerabilities",
+        "javascript-bites": "JavaScript Bites",
         "advisory-board": "Advisory Board",
         "community": "Community",
         "feature": "Feature",

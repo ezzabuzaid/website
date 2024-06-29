@@ -1,5 +1,6 @@
 'use strict';
 
+import Button from './components/Common/Button';
 import DownloadButton from './components/Downloads/DownloadButton';
 import DownloadLink from './components/Downloads/DownloadLink';
 import DownloadReleasesTable from './components/Downloads/DownloadReleasesTable';
@@ -37,6 +38,7 @@ export const mdxComponents = {
   WithBadge: WithBadge,
   // Renders a Download Button
   DownloadButton: DownloadButton,
+  Button: Button,
   // Renders a Download Link
   DownloadLink: DownloadLink,
   // Renders a Search Page

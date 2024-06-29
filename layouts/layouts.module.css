@@ -106,7 +106,7 @@
 
       > div {
         @apply flex
-          max-w-[400px]
+          max-w-[500px]
           flex-col
           gap-4;
 

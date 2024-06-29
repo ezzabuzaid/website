@@ -29,8 +29,7 @@
 }
 
 .nodeIconWrapper {
-  @apply h-[30px]
-    flex-1;
+  @apply flex-1;
 }
 
 .navInteractionIcon {

@@ -49,8 +49,7 @@ const BlogLayout: FC = async () => {
             categories={mapCategoriesToTabs([
               'all',
               'announcements',
-              'release',
-              'vulnerability',
+              'javascript-bites',
             ])}
           />
         </main>

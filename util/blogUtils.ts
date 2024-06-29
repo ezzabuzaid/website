@@ -6,8 +6,7 @@ import { getGitHubAvatarUrl } from './gitHubUtils';
 export const mapBlogCategoryToPreviewType = (type: string): BlogPreviewType => {
   switch (type) {
     case 'announcements':
-    case 'release':
-    case 'vulnerability':
+    case 'javascript-bites':
       return type;
     case 'events':
       return 'announcements';

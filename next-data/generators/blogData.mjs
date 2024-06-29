@@ -26,7 +26,7 @@ const blogCategories = new Set(['all']);
 const getFrontMatter = (filename, source) => {
   const {
     title = 'Untitled',
-    author = 'The Node.js Project',
+    author = 'January Team',
     username,
     date = new Date(),
     category = 'uncategorized',

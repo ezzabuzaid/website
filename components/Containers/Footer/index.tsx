@@ -2,6 +2,7 @@ import { useTranslations } from 'next-intl';
 import type { FC, SVGProps } from 'react';
 
 import NavItem from '@/components/Containers/NavBar/NavItem';
+import Discord from '@/components/Icons/Social/Discord';
 import GitHub from '@/components/Icons/Social/GitHub';
 import LinkedIn from '@/components/Icons/Social/LinkedIn';
 import Mastodon from '@/components/Icons/Social/Mastodon';
@@ -17,6 +18,7 @@ const footerSocialIcons: Record<string, React.FC<SVGProps<SVGSVGElement>>> = {
   twitter: Twitter,
   slack: Slack,
   linkedin: LinkedIn,
+  discord: Discord,
 };
 
 const Footer: FC = () => {

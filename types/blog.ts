@@ -1,4 +1,4 @@
-export type BlogPreviewType = 'announcements' | 'release' | 'vulnerability';
+export type BlogPreviewType = 'announcements' | 'javascript-bites';
 
 export interface BlogPost {
   title: string;

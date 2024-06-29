@@ -2,6 +2,7 @@
 
 import diffLanguage from 'shiki/langs/diff.mjs';
 import dockerLanguage from 'shiki/langs/docker.mjs';
+import htmlLanguage from 'shiki/langs/html.mjs';
 import javaScriptLanguage from 'shiki/langs/javascript.mjs';
 import jsonLanguage from 'shiki/langs/json.mjs';
 import powershellLanguage from 'shiki/langs/powershell.mjs';
@@ -12,6 +13,12 @@ import shikiNordTheme from 'shiki/themes/nord.mjs';
 
 /** @type {Array<import('shiki').LanguageRegistration>} */
 export const LANGUAGES = [
+  {
+    ...htmlLanguage[0],
+    scopeName: 'source.html',
+    aliases: ['htm', 'html'],
+    displayName: 'HTML',
+  },
   {
     ...javaScriptLanguage[0],
     scopeName: 'source.js',

@@ -9,80 +9,8 @@
       "destination": "/api"
     },
     {
-      "source": "/changelog.html",
-      "destination": "https://github.com/nodejs/node/blob/HEAD/CHANGELOG.md"
-    },
-    {
-      "source": "/calendar",
-      "destination": "https://calendar.google.com/calendar/embed?src=nodejs.org_nr77ama8p7d7f9ajrpnu506c98%40group.calendar.google.com"
-    },
-    {
-      "source": "/calendar.ics",
-      "destination": "https://calendar.google.com/calendar/ical/nodejs.org_nr77ama8p7d7f9ajrpnu506c98%40group.calendar.google.com/public/basic.ics"
-    },
-    {
-      "source": "/:locale/security",
-      "destination": "https://github.com/nodejs/node/security/policy#security"
-    },
-    {
-      "source": "/:locale/contribute/accepting_contributions.html",
-      "destination": "https://github.com/nodejs/dev-policy"
-    },
-    {
-      "source": "/:locale/advisory-board",
-      "destination": "https://github.com/nodejs/TSC"
-    },
-    {
-      "source": "/:locale/about/advisory-board",
-      "destination": "https://github.com/nodejs/TSC"
-    },
-    {
-      "source": "/:locale/about/organization",
-      "destination": "https://github.com/nodejs/TSC"
-    },
-    {
-      "source": "/:locale/about/organization/tsc-meetings",
-      "destination": "https://github.com/nodejs/TSC/tree/HEAD/meetings"
-    },
-    {
-      "source": "/:locale/about/trademark",
-      "destination": "https://trademark-policy.openjsf.org"
-    },
-    {
-      "source": "/:locale/foundation",
-      "destination": "https://openjsf.org"
-    },
-    {
-      "source": "/:locale/foundation/case-studies",
-      "destination": "https://openjsf.org/projects"
-    },
-    {
-      "source": "/:locale/foundation/members",
-      "destination": "https://openjsf.org/about/members"
-    },
-    {
-      "source": "/:locale/foundation/board",
-      "destination": "https://openjsf.org/about/governance"
-    },
-    {
-      "source": "/:locale/foundation/tsc",
-      "destination": "https://github.com/nodejs/TSC"
-    },
-    {
-      "source": "/:locale/foundation/certification",
-      "destination": "https://openjsf.org/certification"
-    },
-    {
-      "source": "/:locale/foundation/in-the-news",
-      "destination": "https://openjsf.org"
-    },
-    {
-      "source": "/:locale/foundation/announcements",
-      "destination": "https://openjsf.org/blog"
-    },
-    {
-      "source": "/:locale/foundation/education",
-      "destination": "https://openjsf.org/certification"
+      "source": "/roadmap",
+      "destination": "https://github.com/orgs/JanuaryLabs/projects/12/views/1"
     },
     {
       "source": "/guides",
@@ -94,7 +22,7 @@
     },
     {
       "source": "/community",
-      "destination": "/en/get-involved"
+      "destination": "https://discord.gg/CQCCpr3Xs7"
     },
     {
       "source": "/contribute/:path*",
@@ -271,18 +199,6 @@
     {
       "source": "/:locale/about/releases",
       "destination": "/:locale/about/previous-releases"
-    },
-    {
-      "source": "/:locale/blog/weekly-updates/:path*",
-      "destination": "/:locale/blog/weekly/:path*"
-    },
-    {
-      "source": "/:locale/download",
-      "destination": "/:locale/download/package-manager"
-    },
-    {
-      "source": "/:locale/download/current",
-      "destination": "/:locale/download/package-manager/current"
     }
   ],
   "internal": []

@@ -3,14 +3,13 @@
 import Hamburger from '@heroicons/react/24/solid/Bars3Icon';
 import XMark from '@heroicons/react/24/solid/XMarkIcon';
 import * as Label from '@radix-ui/react-label';
+import type { ComponentProps, FC, HTMLAttributeAnchorTarget } from 'react';
 import { useState } from 'react';
-import type { FC, ComponentProps, HTMLAttributeAnchorTarget } from 'react';
 
-import LanguageDropdown from '@/components/Common/LanguageDropDown';
+import type LanguageDropdown from '@/components/Common/LanguageDropDown';
 import { SearchButton } from '@/components/Common/Search';
 import ThemeToggle from '@/components/Common/ThemeToggle';
 import NavItem from '@/components/Containers/NavBar/NavItem';
-import GitHub from '@/components/Icons/Social/GitHub';
 import Link from '@/components/Link';
 import WithNodejsLogo from '@/components/withNodejsLogo';
 import type { FormattedMessage } from '@/types';
@@ -32,11 +31,7 @@ type NavbarProps = {
   onThemeTogglerClick: () => void;
 };
 
-const NavBar: FC<NavbarProps> = ({
-  navItems,
-  languages,
-  onThemeTogglerClick,
-}) => {
+const NavBar: FC<NavbarProps> = ({ navItems, onThemeTogglerClick }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
@@ -70,7 +65,7 @@ const NavBar: FC<NavbarProps> = ({
           <SearchButton />
 
           <ThemeToggle onClick={onThemeTogglerClick} />
-
+          {/*
           <LanguageDropdown
             onChange={languages.onChange}
             availableLanguages={languages.availableLanguages}
@@ -83,7 +78,7 @@ const NavBar: FC<NavbarProps> = ({
             aria-label="Node.js Github"
           >
             <GitHub />
-          </Link>
+          </Link> */}
         </div>
       </div>
     </nav>
