@@ -1,8 +1,8 @@
 import { ArrowUpRightIcon } from '@heroicons/react/24/solid';
+import classNames from 'classnames';
 import type { ComponentProps, FC, PropsWithChildren } from 'react';
 
 import Tabs from '@/components/Common/Tabs';
-import { Link } from '@/navigation.mjs';
 
 import styles from './index.module.css';
 
@@ -10,27 +10,27 @@ type CodeTabsProps = Pick<
   ComponentProps<typeof Tabs>,
   'tabs' | 'defaultValue'
 > & {
-  linkUrl?: string;
-  linkText?: string;
+  hint?: string;
+  tabsListClassName?: string;
 };
 
 const CodeTabs: FC<PropsWithChildren<CodeTabsProps>> = ({
   children,
-  linkUrl,
-  linkText,
+  hint,
+  tabsListClassName,
   ...props
 }) => (
   <Tabs
     {...props}
-    className={styles.root}
+    className={classNames(styles.root)}
     triggerClassName={styles.trigger}
+    tabsListClassName={tabsListClassName}
     addons={
-      linkUrl &&
-      linkText && (
-        <Link className={styles.link} href={linkUrl}>
-          {linkText}
+      hint && (
+        <p className={styles.link}>
+          {hint}
           <ArrowUpRightIcon className={styles.icon} />
-        </Link>
+        </p>
       )
     }
   >

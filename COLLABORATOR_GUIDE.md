@@ -80,8 +80,6 @@ The Website also uses several other Open Source libraries (not limited to) liste
 - [Tailwind][] is used as our CSS Framework and the Foundation of our Design System
 - [Hero Icons](https://heroicons.com/) is an SVG Icon Library used within our Codebase
 - [Radix UI][] is a collection of customizable UI components
-- [Shiki][] is a Syntax Highlighter used for our Codeboxes
-  - The syntax highlighting is done within the processing of the Markdown files with the MDX compiler as a Rehype plugin.
 - [MDX][] and Markdown are used for structuring the Content of the Website
 - [`next-intl`][] is the i18n Library adopted within the Website
   - It provides an excellent integration with Next.js, But it also supports standalone support for i18n if it eventually migrates from Next.js to something else.
@@ -453,10 +451,6 @@ MDX is becoming the standard for parsing human-content on React/Next.js-based Ap
 - `rehype-autolink-headings`: Allows us to add Anchor Links to Markdown Headings
 - `rehype-slug`: Allows us to add IDs to Markdown Headings
 
-#### Syntax Highlighting (Shiki) and Vercel
-
-Shiki is integrated on our workflow as a Rehype Plugin, see the `next.mdx.shiki.mjs` file. We also use the `nord` theme for Shiki and a subset of the supported languages as defined on the `shiki.config.mjs` file.
-
 ### Vercel
 
 We use Vercel as our hosting provider. It is a great platform that offers an excellent CI/CD pipeline which allows us to deploy our website with ease.
@@ -496,6 +490,5 @@ If you're unfamiliar or curious about something, we recommend opening a Discussi
 [MDX]: https://mdxjs.com/
 [PostCSS]: https://postcss.org/
 [React]: https://react.dev/
-[Shiki]: https://github.com/shikijs/shiki
 [Tailwind]: https://tailwindcss.com/
 [Radix UI]: https://www.radix-ui.com/

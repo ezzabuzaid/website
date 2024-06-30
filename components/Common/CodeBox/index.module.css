@@ -14,7 +14,7 @@
         overflow-x-auto
         bg-transparent
         p-0
-        font-ibm-plex-mono
+        font-fira-code
         text-sm
         font-regular
         leading-snug
@@ -38,7 +38,7 @@
             mr-4
             w-4.5
             text-right
-            font-ibm-plex-mono
+            font-fira-code
             text-neutral-600
             [content:counter(line)]
             [counter-increment:line];

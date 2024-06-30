@@ -17,3 +17,16 @@ body {
     dark:bg-neutral-950
     dark:text-white;
 }
+.prose {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-merriweather-sans;
+  }
+  p {
+    @apply my-3 text-lg text-neutral-800;
+  }
+}

@@ -57,8 +57,7 @@ export const Default: Story = {};
 
 export const WithMoreOptions: Story = {
   args: {
-    linkUrl: 'https://github.com/nodejs/nodejs.org',
-    linkText: 'More options',
+    hint: 'More options',
   },
 };
 

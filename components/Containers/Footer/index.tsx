@@ -24,8 +24,6 @@ const footerSocialIcons: Record<string, React.FC<SVGProps<SVGSVGElement>>> = {
 const Footer: FC = () => {
   const t = useTranslations();
 
-  const openJSlink = siteNavigation.footerLinks.at(-1)!;
-
   return (
     <footer className={styles.footer}>
       <div className={styles.sectionPrimary}>
@@ -37,10 +35,6 @@ const Footer: FC = () => {
       </div>
 
       <div className={styles.sectionSecondary}>
-        <NavItem type="footer" href={openJSlink.link}>
-          &copy; {openJSlink.text}
-        </NavItem>
-
         <div className={styles.social}>
           {siteNavigation.socialLinks.map(link => {
             const SocialIcon = footerSocialIcons[link.icon];

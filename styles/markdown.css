@@ -59,14 +59,11 @@ main {
   }
 
   code {
-    @apply rounded
-      bg-neutral-100
-      px-1
-      font-ibm-plex-mono
+    @apply px-0.5
+      font-fira-code
       text-base
       font-semibold
       text-neutral-900
-      dark:bg-neutral-900
       dark:text-white;
   }
 

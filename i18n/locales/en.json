@@ -2,12 +2,7 @@
   "components": {
     "containers": {
       "footer": {
-        "links": {
-          "trademarkPolicy": "Trademark Policy",
-          "privacyPolicy": "Privacy Policy",
-          "codeOfConduct": "Code of Conduct",
-          "security": "Security Policy"
-        }
+        "links": {}
       },
       "navBar": {
         "links": {
@@ -116,13 +111,7 @@
         }
       },
       "getInvolved": {
-        "links": {
-          "getInvolved": "Get Involved",
-          "collabSummit": "Collaboration Summit",
-          "upcomingEvents": "Upcoming Events",
-          "contribute": "Contribute to Node.js",
-          "codeOfConduct": "Code of Conduct"
-        }
+        "links": {}
       }
     },
     "downloadList": {

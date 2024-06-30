@@ -41,5 +41,6 @@ export default {
     'media-feature-range-notation': 'prefix',
     // Adopts the import notation from `postcss-import`
     'import-notation': 'string',
+    'rule-empty-line-before': null,
   },
 };

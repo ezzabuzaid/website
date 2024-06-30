@@ -13,20 +13,6 @@ export const Announcement: Story = {
   },
 };
 
-export const Release: Story = {
-  args: {
-    type: 'release',
-    title: 'Node v20.5.0 (Current)',
-  },
-};
-
-export const Vulnerability: Story = {
-  args: {
-    type: 'vulnerability',
-    title: 'OpenSSL update assessment, and Node.js project plans',
-  },
-};
-
 export const CustomSize: Story = {
   args: {
     title:

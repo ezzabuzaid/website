@@ -28,8 +28,8 @@ const PostLayout: FC<PropsWithChildren> = ({ children }) => {
 
       <ContentLayout>
         <div className={styles.postLayout}>
-          <main>
-            <h1>{frontmatter.title}</h1>
+          <main className="prose">
+            <h1 className="font-merriweather-sans">{frontmatter.title}</h1>
 
             <section>
               <AvatarGroup

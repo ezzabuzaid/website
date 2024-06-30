@@ -1,52 +1,74 @@
 'use client';
-
 import * as TabsPrimitive from '@radix-ui/react-tabs';
-import type { ComponentProps, FC, ReactElement } from 'react';
+import classNames from 'classnames';
+import type { ComponentProps, FC, ReactNode } from 'react';
 
 import CodeTabs from '@/components/Common/CodeTabs';
 
-type MDXCodeTabsProps = Pick<
-  ComponentProps<typeof CodeTabs>,
-  'linkText' | 'linkUrl'
-> & {
-  children: Array<ReactElement>;
-  languages: string;
-  displayNames?: string;
-  defaultTab?: string;
+import styles from './index.module.css';
+
+export type NestedExampleTab = {
+  id: string;
+  title: string;
+  hint?: string;
+  content: ReactNode;
+};
+export type ExampleTab = {
+  id: string;
+  title: string;
+  children?: Array<NestedExampleTab>;
+};
+type MDXCodeTabsProps = Pick<ComponentProps<typeof CodeTabs>, 'hint'> & {
+  examples: Array<ExampleTab>;
 };
 
-const MDXCodeTabs: FC<MDXCodeTabsProps> = ({
-  languages: rawLanguages,
-  displayNames: rawDisplayNames,
-  children: codes,
-  defaultTab = '0',
-  ...props
-}) => {
-  const languages = rawLanguages.split('|');
-  const displayNames = rawDisplayNames?.split('|') ?? [];
-
-  const tabs = languages.map((language, index) => {
-    const displayName = displayNames[index];
-
+const MDXCodeTabs: FC<MDXCodeTabsProps> = ({ ...props }) => {
+  const tabs = props.examples.map(example => {
     return {
-      key: `${language}-${index}`,
-      label: displayName?.length ? displayName : language.toUpperCase(),
+      key: example.id,
+      label: example.title,
     };
   });
 
   return (
-    <CodeTabs
-      tabs={tabs}
-      defaultValue={tabs[Number(defaultTab)].key}
-      {...props}
-    >
-      {languages.map((_, index) => (
-        <TabsPrimitive.Content key={tabs[index].key} value={tabs[index].key}>
-          {codes[index]}
+    <CodeTabs tabs={tabs} defaultValue={props.examples[0].id} {...props}>
+      {props.examples.map(item => (
+        <TabsPrimitive.Content key={item.id} value={item.id}>
+          <NestedTabs examples={item.children ?? []} />
         </TabsPrimitive.Content>
       ))}
     </CodeTabs>
   );
 };
+
+const NestedTabs: FC<{ examples: Array<NestedExampleTab> }> = props => {
+  const tabs = props.examples.map(example => {
+    return {
+      key: example.id,
+      label: example.title,
+    };
+  });
+  return (
+    <>
+      <CodeTabs
+        tabsListClassName="!rounded-t-none"
+        tabs={tabs}
+        defaultValue={props.examples[0].id}
+        {...props}
+      >
+        {props.examples.map(item => (
+          <TabsPrimitive.Content
+            className={classNames(styles.tabsRoot)}
+            value={item.id}
+            key={item.id}
+          >
+            {item.content}
+          </TabsPrimitive.Content>
+        ))}
+      </CodeTabs>
+    </>
+  );
+};
+NestedTabs.displayName = 'NestedTabs';
 
 export default MDXCodeTabs;

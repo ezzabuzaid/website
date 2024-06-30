@@ -14,6 +14,7 @@ import {
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  transpilePackages: ['next-mdx-remote'],
   // Just to ensure that React is always on strict mode
   reactStrictMode: true,
   // We intentionally disable Next.js's built-in i18n support
@@ -109,7 +110,6 @@ const nextConfig = {
       '@radix-ui/react-select',
       '@radix-ui/react-toast',
       'tailwindcss',
-      'shiki',
     ],
     // Removes the warning regarding the WebPack Build Worker
     webpackBuildWorker: false,
@@ -117,7 +117,6 @@ const nextConfig = {
     instrumentationHook: true,
   },
   // To import ESM-only packages with next dev --turbo. Source: https://github.com/vercel/next.js/issues/63318#issuecomment-2079677098
-  transpilePackages: ['shiki'],
 };
 
 /** @type {import('@sentry/cli').SentryCliOptions} */

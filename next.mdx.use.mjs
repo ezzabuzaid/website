@@ -11,7 +11,6 @@ import ReleaseDownloadButton from './components/Downloads/Release/DownloadButton
 import NpmLink from './components/Downloads/Release/NpmLink';
 import OperatingSystemDropdown from './components/Downloads/Release/OperatingSystemDropdown';
 import PlatformDropdown from './components/Downloads/Release/PlatformDropdown';
-import ReleaseCodeBox from './components/Downloads/Release/ReleaseCodeBox';
 import ReleaseStatus from './components/Downloads/Release/ReleaseStatus';
 import ReleaseVersion from './components/Downloads/Release/ReleaseVersion';
 import SourceButton from './components/Downloads/Release/SourceButton';
@@ -21,7 +20,6 @@ import UpcomingMeetings from './components/MDX/Calendar/UpcomingMeetings';
 import SearchPage from './components/MDX/SearchPage';
 import WithBadge from './components/withBadge';
 import WithBanner from './components/withBanner';
-import WithNodeRelease from './components/withNodeRelease';
 
 /**
  * A full list of React Components that we want to pass through to MDX
@@ -31,7 +29,6 @@ import WithNodeRelease from './components/withNodeRelease';
 export const mdxComponents = {
   DownloadReleasesTable: DownloadReleasesTable,
   // HOC for getting Node.js Release Metadata
-  WithNodeRelease: WithNodeRelease,
   // HOC for providing Banner Data
   WithBanner: WithBanner,
   // HOC for providing Badge Data
@@ -70,8 +67,6 @@ export const mdxComponents = {
     DownloadButton: ReleaseDownloadButton,
     // Renders a Source Download Button for the selected release
     SourceButton: SourceButton,
-    // Renders a Release CodeBox
-    ReleaseCodeBox: ReleaseCodeBox,
     // Renders a Changelog Modal Link Button
     ChangelogLink: ChangelogLink,
   },

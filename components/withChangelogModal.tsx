@@ -23,7 +23,6 @@ type WithChangelogModalProps = {
 
 // We only need the base components for our ChangelogModal, this avoids/eliminates
 // the need of Next.js bundling on the client-side all our MDX components
-// Note that this already might increase the client-side bundle due to Shiki
 const clientComponents = { ...clientMdxComponents, ...htmlComponents };
 
 const WithChangelogModal: FC<WithChangelogModalProps> = ({

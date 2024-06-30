@@ -71,7 +71,7 @@ dist
 
 <figure>
 
-![TypeScript Code Generation](../../assets/typescript-code-generation.excalidraw.svg)
+![TypeScript Code Generation](/static/images/blog/javascript-bites/gentle-introduction-to-typescript-compiler-api/typescript-code-generation.excalidraw.svg)
 
 <figcaption>
 
@@ -251,7 +251,7 @@ will be transformed into the following AST:
 
 <figure>
 
-![AST For Function Declaration Node](../../assets/ast.png)
+![AST For Function Declaration Node](/static/images/blog/javascript-bites/gentle-introduction-to-typescript-compiler-api/ast.png)
 
 <figcaption>
 
@@ -348,7 +348,7 @@ const first = 1,
 
 <figure>
 
-![Variable List AST](../../assets/var-ast.svg)
+![Variable List AST](/static/images/blog/javascript-bites/gentle-introduction-to-typescript-compiler-api/var-ast.svg)
 
 <figcaption>
 
@@ -886,7 +886,7 @@ Worth mentioning that the printer doesn't preserve the original formatting of th
 
 <figure>
 
-![How The TypeScript Compiler Works](../../assets/how-the-ts-compiler-works.svg)
+![How The TypeScript Compiler Works](/static/images/blog/javascript-bites/gentle-introduction-to-typescript-compiler-api/how-the-ts-compiler-works.svg)
 
 <figcaption>
   <center>

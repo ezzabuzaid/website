@@ -116,6 +116,8 @@ export default {
     fontFamily: {
       'open-sans': ['var(--font-open-sans)'],
       'ibm-plex-mono': ['var(--font-ibm-plex-mono)'],
+      'fira-code': ['var(--font-fira-code)'],
+      'merriweather-sans': ['var(--font-merriweather-sans)'],
     },
     extend: {
       screens: { xs: '670px' },

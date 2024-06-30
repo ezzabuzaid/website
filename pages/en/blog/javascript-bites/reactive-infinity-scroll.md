@@ -335,7 +335,7 @@ For the task at hand, the scroll event will be the primary focus. However, I've 
 
 _Note: When I say "the content," I mean the entirety of what's contained within the HTML element._
 
-![Client-Height-Scroll-Height.](../../assets/client-height-scroll-height.svg)
+![Client-Height-Scroll-Height.](/static/images/blog/javascript-bites/reactive-infinity-scroll/client-height-scroll-height.svg)
 
 <center>
   The green box is the element while the black box on the left is the width overflow
@@ -355,7 +355,7 @@ function calculateDistanceFromBottom(element: HTMLElement) {
 
 Take a look at the below image.
 
-![Scroll-Top.](../../assets/scroll-top.svg)
+![Scroll-Top.](/static/images/blog/javascript-bites/reactive-infinity-scroll/scroll-top.svg)
 
 <center>scrollPosition indicates to what point the user scrolled</center>
 
@@ -374,7 +374,7 @@ function calculateRemainingDistanceOnXAxis(element: HTMLElement): number {
 Presuming the `totalWidth` is `750px`, `clientWidth` `500px` and the `scrollPosition` is `150px`, deducting the sum of `scrollPosition` and `clientWidth` from `totalWidth` would result in `100px` which is the remaining distance to reach the end of the XAxis.
 You might have noticed the `Math.abs` being used and that due to RTL direction where the user has to go in the reverse direction which would make the `scrollPosition` value to be negative so using `Math.abs` to unify it in both directions.
 
-![Scroll-XAxis.](../../assets/scroll-end-xaxis.svg)
+![Scroll-XAxis.](/static/images/blog/javascript-bites/reactive-infinity-scroll/scroll-end-xaxis.svg)
 
 Side tip: Using the information you have about the element's sizes, you can also make a function to check if the element can be scrolled or not.
 
@@ -592,7 +592,7 @@ With each scroll event, `mergeMap` subscribes to the inner observable without re
 
 [Edit in CodePen](https://codepen.io/ezzabuzaid/pen/Jjwboxj)
 
-![Issues with using merge map.](../../assets/mergeMap.gif)
+![Issues with using merge map.](/static/images/blog/javascript-bites/reactive-infinity-scroll/mergeMap.gif)
 
 ### Using switchMap
 
@@ -600,7 +600,7 @@ With each scroll event, `switchMap` will cancel/unsubscribe from the previous su
 
 [Edit in CodePen](https://codepen.io/ezzabuzaid/pen/abPBmNQ)
 
-![Issues with using switch map.](../../assets/switchMap.gif)
+![Issues with using switch map.](/static/images/blog/javascript-bites/reactive-infinity-scroll/switchMap.gif)
 
 ### Using concatMap
 
@@ -608,7 +608,7 @@ With each scroll event, `concatMap` will subscribe to the inner observable, bloc
 
 [Edit in CodePen](https://codepen.io/ezzabuzaid/pen/gOZLwow)
 
-![Issues with using concat map.](../../assets/concatMap.gif)
+![Issues with using concat map.](/static/images/blog/javascript-bites/reactive-infinity-scroll/concatMap.gif)
 
 ### Using exaustMap
 
