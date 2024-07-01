@@ -110,9 +110,7 @@
           "security": "Security Reporting"
         }
       },
-      "getInvolved": {
-        "links": {}
-      }
+      "getInvolved": {}
     },
     "downloadList": {
       "links": {

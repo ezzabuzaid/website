@@ -43,7 +43,7 @@ it correctly.
 Ensure that the WebServer handles socket errors properly, for instance, when a
 server is created without an error handler, it will be vulnerable to DoS
 
-```cjs
+```ts
 const net = require('node:net');
 
 const server = net.createServer(function (socket) {
@@ -55,7 +55,7 @@ const server = net.createServer(function (socket) {
 server.listen(5000, '0.0.0.0');
 ```
 
-```mjs
+```ts
 import net from 'node:net';
 
 const server = net.createServer(function (socket) {

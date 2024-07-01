@@ -11,7 +11,7 @@ const AboutLayout: FC<PropsWithChildren> = ({ children }) => (
     <WithNavBar />
 
     <ArticleLayout>
-      <WithSidebar navKeys={['about', 'getInvolved']} />
+      <WithSidebar navKeys={['about']} />
 
       <div>
         <main>{children}</main>
@@ -19,7 +19,7 @@ const AboutLayout: FC<PropsWithChildren> = ({ children }) => (
         <WithMetaBar />
       </div>
 
-      <WithBreadcrumbs navKeys={['about', 'getInvolved']} />
+      <WithBreadcrumbs navKeys={['about']} />
     </ArticleLayout>
   </>
 );

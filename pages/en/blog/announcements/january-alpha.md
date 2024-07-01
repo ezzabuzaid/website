@@ -1,5 +1,5 @@
 ---
-date: '2024-06-1T00:00:00+00:00'
+date: '2024-06-01T00:00:00.000'
 category: announcements
 title: 'Announcing January Alpha'
 layout: blog-post

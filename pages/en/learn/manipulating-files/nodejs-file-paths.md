@@ -22,7 +22,7 @@ Given a path, you can extract information out of it using those methods:
 
 ### Example
 
-```cjs
+```ts
 const path = require('node:path');
 
 const notes = '/users/joe/notes.txt';
@@ -32,7 +32,7 @@ path.basename(notes); // notes.txt
 path.extname(notes); // .txt
 ```
 
-```mjs
+```ts
 import path from 'node:path';
 
 const notes = '/users/joe/notes.txt';

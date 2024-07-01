@@ -1,7 +1,7 @@
 ---
 description: 'Implement Infinity Scroll in Angular using Directive and Pipe and see the pros and cons of each approach.'
 title: Implementing Infinity Scroll In Angular
-date: 2023-09-15T00:00:00Z
+date: '2023-09-15T00:00:00Z'
 category: javascript-bites
 layout: blog-post
 author: ezzabuzaid

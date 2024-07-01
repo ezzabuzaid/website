@@ -116,15 +116,7 @@
           "security": "安全报告"
         }
       },
-      "getInvolved": {
-        "links": {
-          "getInvolved": "参与贡献",
-          "collabSummit": "协作者峰会",
-          "upcomingEvents": "近期活动",
-          "contribute": "为Node.js做出贡献",
-          "codeOfConduct": "行为准则"
-        }
-      }
+      "getInvolved": {}
     },
     "downloadList": {
       "links": {

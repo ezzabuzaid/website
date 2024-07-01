@@ -14,13 +14,13 @@ This module, in particular, offers the `EventEmitter` class, which we'll use to 
 
 You initialize that using
 
-```cjs
+```ts
 const EventEmitter = require('node:events');
 
 const eventEmitter = new EventEmitter();
 ```
 
-```mjs
+```ts
 import EventEmitter from 'node:events';
 
 const eventEmitter = new EventEmitter();

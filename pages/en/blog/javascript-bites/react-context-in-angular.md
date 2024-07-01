@@ -1,7 +1,7 @@
 ---
 title: React Context In Angular
 description: 'Mimic React Context API in Angular'
-date: 2021-9-10T00:00:00+00:00
+date: '2021-09-10T00:00:00.000'
 category: javascript-bites
 layout: blog-post
 author: ezzabuzaid

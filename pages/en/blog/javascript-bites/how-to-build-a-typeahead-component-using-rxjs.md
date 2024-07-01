@@ -1,7 +1,7 @@
 ---
 title: 'How To Build a Typeahead Component Using RxJS'
 description: 'Learn how to build a typeahead component using RxJS. Improve the user experience and performance of your application.'
-date: 2023-09-19T17:00:00.00Z
+date: '2023-09-19T17:00:00.00Z'
 category: javascript-bites
 layout: blog-post
 author: ezzabuzaid

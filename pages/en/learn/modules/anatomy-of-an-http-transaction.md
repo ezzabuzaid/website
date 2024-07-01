@@ -17,7 +17,7 @@ the API docs for each of those.
 Any node web server application will at some point have to create a web server
 object. This is done by using [`createServer`][].
 
-```cjs
+```ts
 const http = require('node:http');
 
 const server = http.createServer((request, response) => {
@@ -25,7 +25,7 @@ const server = http.createServer((request, response) => {
 });
 ```
 
-```mjs
+```ts
 import http from 'node:http';
 
 const server = http.createServer((request, response) => {
@@ -146,7 +146,7 @@ At this point, we've covered creating a server, and grabbing the method, URL,
 headers and body out of requests. When we put that all together, it might look
 something like this:
 
-```cjs
+```ts
 const http = require('node:http');
 
 http
@@ -169,7 +169,7 @@ http
   .listen(8080); // Activates this server, listening on port 8080.
 ```
 
-```mjs
+```ts
 import http from 'node:http';
 
 http
@@ -285,7 +285,7 @@ Building on the earlier example, we're going to make a server that sends back
 all of the data that was sent to us by the user. We'll format that data as JSON
 using `JSON.stringify`.
 
-```cjs
+```ts
 const http = require('node:http');
 
 http
@@ -325,7 +325,7 @@ http
   .listen(8080);
 ```
 
-```mjs
+```ts
 import http from 'node:http';
 
 http
@@ -372,7 +372,7 @@ sends whatever data is received in the request right back in the response. All
 we need to do is grab the data from the request stream and write that data to
 the response stream, similar to what we did previously.
 
-```cjs
+```ts
 const http = require('node:http');
 
 http
@@ -390,7 +390,7 @@ http
   .listen(8080);
 ```
 
-```mjs
+```ts
 import http from 'node:http';
 
 http
@@ -416,7 +416,7 @@ conditions:
 
 In any other case, we want to simply respond with a 404.
 
-```cjs
+```ts
 const http = require('node:http');
 
 http
@@ -439,7 +439,7 @@ http
   .listen(8080);
 ```
 
-```mjs
+```ts
 import http from 'node:http';
 
 http
@@ -472,7 +472,7 @@ is a [`ReadableStream`][] and the `response` object is a [`WritableStream`][].
 That means we can use [`pipe`][] to direct data from one to the other. That's
 exactly what we want for an echo server!
 
-```cjs
+```ts
 const http = require('node:http');
 
 http
@@ -487,7 +487,7 @@ http
   .listen(8080);
 ```
 
-```mjs
+```ts
 import http from 'node:http';
 
 http

@@ -1,7 +1,7 @@
 ---
 title: Build Infinity Scroll Using RxJS
 description: 'Learn how to build infinite scrolling using RxJS. Improve user experience, optimize resource usage, and fetch data incrementally!'
-date: 2023-09-10T00:00:00.00Z
+date: '2023-09-10T00:00:00.00Z'
 category: javascript-bites
 layout: blog-post
 author: ezzabuzaid

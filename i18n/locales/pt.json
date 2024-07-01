@@ -115,15 +115,7 @@
           "security": "Relatórios de Segurança"
         }
       },
-      "getInvolved": {
-        "links": {
-          "getInvolved": "Participar",
-          "collabSummit": "Cimeira de Colaboração",
-          "upcomingEvents": "Próximos Eventos",
-          "contribute": "Colaborar com a Node.js",
-          "codeOfConduct": "Código de Conduta"
-        }
-      }
+      "getInvolved": {}
     },
     "downloadList": {
       "links": {

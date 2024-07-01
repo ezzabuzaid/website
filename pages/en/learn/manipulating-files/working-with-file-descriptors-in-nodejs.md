@@ -10,7 +10,7 @@ Before you're able to interact with a file that sits in your filesystem, you mus
 
 A file descriptor is a reference to an open file, a number (fd) returned by opening the file using the `open()` method offered by the `fs` module. This number (`fd`) uniquely identifies an open file in operating system:
 
-```cjs
+```ts
 const fs = require('node:fs');
 
 fs.open('/Users/joe/test.txt', 'r', (err, fd) => {
@@ -18,7 +18,7 @@ fs.open('/Users/joe/test.txt', 'r', (err, fd) => {
 });
 ```
 
-```mjs
+```ts
 import fs from 'node:fs';
 
 fs.open('/Users/joe/test.txt', 'r', (err, fd) => {
@@ -41,7 +41,7 @@ That flag means we open the file for reading.
 
 You can also open the file by using the `fs.openSync` method, which returns the file descriptor, instead of providing it in a callback:
 
-```cjs
+```ts
 const fs = require('node:fs');
 
 try {
@@ -51,7 +51,7 @@ try {
 }
 ```
 
-```mjs
+```ts
 import fs from 'node:fs';
 
 try {
@@ -67,7 +67,7 @@ You can also open the file by using the promise-based `fsPromises.open` method o
 
 The `fs/promises` module is available starting only from Node.js v14. Before v14, after v10, you can use `require('fs').promises` instead. Before v10, after v8, you can use `util.promisify` to convert `fs` methods into promise-based methods.
 
-```cjs
+```ts
 const fs = require('node:fs/promises');
 // Or const fs = require('fs').promises before v14.
 async function example() {
@@ -83,7 +83,7 @@ async function example() {
 example();
 ```
 
-```mjs
+```ts
 import fs from 'node:fs/promises';
 // Or const fs = require('fs').promises before v14.
 let filehandle;
@@ -98,7 +98,7 @@ try {
 
 Here is an example of `util.promisify`:
 
-```cjs
+```ts
 const fs = require('node:fs');
 const util = require('node:util');
 
@@ -109,7 +109,7 @@ async function example() {
 example();
 ```
 
-```mjs
+```ts
 import fs from 'node:fs';
 import util from 'node:util';
 

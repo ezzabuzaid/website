@@ -8,7 +8,6 @@ import { useState } from 'react';
 
 import type LanguageDropdown from '@/components/Common/LanguageDropDown';
 import { SearchButton } from '@/components/Common/Search';
-import ThemeToggle from '@/components/Common/ThemeToggle';
 import NavItem from '@/components/Containers/NavBar/NavItem';
 import Link from '@/components/Link';
 import WithNodejsLogo from '@/components/withNodejsLogo';
@@ -28,10 +27,10 @@ type NavbarProps = {
     target?: HTMLAttributeAnchorTarget | undefined;
   }>;
   languages: ComponentProps<typeof LanguageDropdown>;
-  onThemeTogglerClick: () => void;
+  onThemeTogglerClick?: () => void;
 };
 
-const NavBar: FC<NavbarProps> = ({ navItems, onThemeTogglerClick }) => {
+const NavBar: FC<NavbarProps> = ({ navItems }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
@@ -64,7 +63,7 @@ const NavBar: FC<NavbarProps> = ({ navItems, onThemeTogglerClick }) => {
         <div className={style.actionsWrapper}>
           <SearchButton />
 
-          <ThemeToggle onClick={onThemeTogglerClick} />
+          {/* <ThemeToggle onClick={onThemeTogglerClick} /> */}
           {/*
           <LanguageDropdown
             onChange={languages.onChange}

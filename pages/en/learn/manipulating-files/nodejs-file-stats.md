@@ -10,7 +10,7 @@ Every file comes with a set of details that we can inspect using Node.js. In par
 
 You call it passing a file path, and once Node.js gets the file details it will call the callback function you pass, with 2 parameters: an error message, and the file stats:
 
-```cjs
+```ts
 const fs = require('node:fs');
 
 fs.stat('/Users/joe/test.txt', (err, stats) => {
@@ -21,7 +21,7 @@ fs.stat('/Users/joe/test.txt', (err, stats) => {
 });
 ```
 
-```mjs
+```ts
 import fs from 'node:fs';
 
 fs.stat('/Users/joe/test.txt', (err, stats) => {
@@ -34,7 +34,7 @@ fs.stat('/Users/joe/test.txt', (err, stats) => {
 
 Node.js also provides a sync method, which blocks the thread until the file stats are ready:
 
-```cjs
+```ts
 const fs = require('node:fs');
 
 try {
@@ -44,7 +44,7 @@ try {
 }
 ```
 
-```mjs
+```ts
 import fs from 'node:fs';
 
 try {
@@ -64,7 +64,7 @@ The file information is included in the stats variable. What kind of information
 
 There are other advanced methods, but the bulk of what you'll use in your day-to-day programming is this.
 
-```cjs
+```ts
 const fs = require('node:fs');
 
 fs.stat('/Users/joe/test.txt', (err, stats) => {
@@ -80,7 +80,7 @@ fs.stat('/Users/joe/test.txt', (err, stats) => {
 });
 ```
 
-```mjs
+```ts
 import fs from 'node:fs';
 
 fs.stat('/Users/joe/test.txt', (err, stats) => {
@@ -98,7 +98,7 @@ fs.stat('/Users/joe/test.txt', (err, stats) => {
 
 You can also use promise-based `fsPromises.stat()` method offered by the `fs/promises` module if you like:
 
-```cjs
+```ts
 const fs = require('node:fs/promises');
 
 async function example() {
@@ -115,7 +115,7 @@ async function example() {
 example();
 ```
 
-```mjs
+```ts
 import fs from 'node:fs/promises';
 
 try {

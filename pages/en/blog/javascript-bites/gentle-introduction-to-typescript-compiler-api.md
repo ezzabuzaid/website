@@ -1,7 +1,7 @@
 ---
 description: Dive deep into the inner workings of the TypeScript Compiler API and discover how it can enhance your development workflow. From manual type checking to code generation and transformation, this guide provides a detailed walkthrough of the API's functionalities.
 title: Gentle Introduction To Typescript Compiler API
-date: 2023-11-17T11:00:00.00Z
+date: '2023-11-17T11:00:00.00Z'
 category: javascript-bites
 layout: blog-post
 author: ezzabuzaid

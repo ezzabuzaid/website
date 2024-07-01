@@ -39,6 +39,10 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
+        hostname: 'dev-to-uploads.s3.amazonaws.com',
+      },
+      {
+        protocol: 'https',
         hostname: 'raw.githubusercontent.com',
         port: '',
         pathname: '/nodejs/**',

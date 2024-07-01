@@ -24,7 +24,7 @@ In Node.js the new ECMAScript standards can be used without problems, as you don
 
 The most common example Hello World of Node.js is a web server:
 
-```cjs
+```ts
 const { createServer } = require('node:http');
 
 const hostname = '127.0.0.1';
@@ -41,7 +41,7 @@ server.listen(port, hostname, () => {
 });
 ```
 
-```mjs
+```ts
 import { createServer } from 'node:http';
 
 const hostname = '127.0.0.1';

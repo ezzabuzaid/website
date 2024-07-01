@@ -1,7 +1,7 @@
 ---
 title: Gentle Introduction To ESLint Rules
 description: Unlock the power of custom linting by learning how to write your own ESLint rules tailored for your specific coding requirements.
-date: 2022-07-07T12:34:56+00:00
+date: '2022-07-07T12:34:56+00:00'
 category: javascript-bites
 layout: blog-post
 author: ezzabuzaid

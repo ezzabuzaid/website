@@ -65,7 +65,6 @@ const useSiteNavigation = () => {
       (acc, key) => ({ ...acc, [key]: siteNavigation.sideNavigation[key] }),
       {}
     );
-
     return mapNavigationEntries(navigationEntries, context);
   };
 

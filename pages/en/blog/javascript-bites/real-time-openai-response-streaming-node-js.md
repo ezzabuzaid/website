@@ -1,7 +1,7 @@
 ---
 title: Real-time OpenAI Response Streaming with Node.js
 description: Do what ChatGPT does, continuously show the results as it becomes available, don't wait for the completion, rather show what the model have generated right away."
-date: 2023-10-25T12:51:21.697Z
+date: '2023-10-25T12:51:21.697Z'
 category: javascript-bites
 layout: blog-post
 author: ezzabuzaid

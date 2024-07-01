@@ -23,7 +23,7 @@ and what is the outcome.
 
 For the proposal of this guide, we'll use this script:
 
-```mjs
+```ts
 // script.mjs
 
 import os from 'node:os';
@@ -246,7 +246,7 @@ our entries, we could use a file.
 
 Let's modify our script a bit:
 
-```mjs
+```ts
 // script-fix.mjs
 import os from 'node:os';
 import fs from 'node:fs/promises';
@@ -332,7 +332,7 @@ v8.setFlagsFromString('--notrace-gc');
 In Node.js, you can use [performance hooks][] to trace
 garbage collection.
 
-```cjs
+```ts
 const { PerformanceObserver } = require('node:perf_hooks');
 
 // Create a performance observer

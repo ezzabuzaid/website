@@ -36,7 +36,7 @@ pipes, sockets, and signals. In Node.js, we find a similar mechanism called
 part of the internal codebase utilizes that module. As a developer, you
 are more than encouraged to use them too!
 
-```cjs
+```ts
 const readline = require('node:readline');
 
 // process.stdin and process.stdout are both instances of Streams.
@@ -52,7 +52,7 @@ rl.question('Why should you use streams? ', answer => {
 });
 ```
 
-```mjs
+```ts
 import readline from 'node:readline';
 
 // process.stdin and process.stdout are both instances of Streams.
@@ -83,7 +83,7 @@ While that will take a few minutes to complete, in another shell we may run
 a script that takes Node.js' module [`zlib`][], that wraps around another
 compression tool, [`gzip(1)`][].
 
-```cjs
+```ts
 const gzip = require('node:zlib').createGzip();
 const fs = require('node:fs');
 
@@ -93,7 +93,7 @@ const out = fs.createWriteStream('The.Matrix.1080p.mkv.gz');
 inp.pipe(gzip).pipe(out);
 ```
 
-```mjs
+```ts
 import { createGzip } from 'node:zlib';
 import { createReadStream, createWriteStream } from 'node:fs';
 
@@ -123,7 +123,7 @@ cleaning up and providing a callback when the pipeline is complete.
 
 Here is an example of using pipeline:
 
-```cjs
+```ts
 const { pipeline } = require('node:stream/promises');
 const fs = require('node:fs');
 const zlib = require('node:zlib');
@@ -146,7 +146,7 @@ pipeline(
 );
 ```
 
-```mjs
+```ts
 import { pipeline } from 'node:stream/promises';
 import fs from 'node:fs';
 import zlib from 'node:zlib';
@@ -171,7 +171,7 @@ pipeline(
 
 You can also call [`promisify`][] on pipeline to use it with `async` / `await`:
 
-```cjs
+```ts
 const stream = require('node:stream');
 const fs = require('node:fs');
 const zlib = require('node:zlib');
@@ -193,7 +193,7 @@ async function run() {
 }
 ```
 
-```mjs
+```ts
 import stream from 'node:stream';
 import fs from 'node:fs';
 import zlib from 'node:zlib';
@@ -577,7 +577,7 @@ readable.on('data', data => writable.write(data));
 
 Here's an example of using [`.push()`][] with a Readable stream.
 
-```cjs
+```ts
 const { Readable } = require('node:stream');
 
 // Create a custom Readable stream
@@ -599,7 +599,7 @@ myReadableStream.on('data', chunk => {
 // { message: 'Hello, world!' }
 ```
 
-```mjs
+```ts
 import { Readable } from 'node:stream';
 
 // Create a custom Readable stream

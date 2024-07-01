@@ -59,31 +59,6 @@
         }
       }
     },
-    "getInvolved": {
-      "label": "components.navigation.getInvolved.links.getInvolved",
-      "items": {
-        "getInvolved": {
-          "link": "/about/get-involved",
-          "label": "components.navigation.getInvolved.links.getInvolved"
-        },
-        "collabSummit": {
-          "link": "/about/get-involved/collab-summit",
-          "label": "components.navigation.getInvolved.links.collabSummit"
-        },
-        "events": {
-          "link": "/about/get-involved/events",
-          "label": "components.navigation.getInvolved.links.upcomingEvents"
-        },
-        "contribute": {
-          "link": "/about/get-involved/contribute",
-          "label": "components.navigation.getInvolved.links.contribute"
-        },
-        "codeOfConduct": {
-          "link": "https://github.com/nodejs/admin/blob/main/CODE_OF_CONDUCT.md",
-          "label": "components.navigation.getInvolved.links.codeOfConduct"
-        }
-      }
-    },
     "learn": {
       "items": {
         "gettingStarted": {
