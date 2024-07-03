@@ -25,11 +25,16 @@ const getBlogCategory = async (pathname: string) => {
 const BlogLayout: FC = async () => {
   const { pathname } = getClientContext();
 
-  const mapCategoriesToTabs = (categories: Array<string>) =>
+  const mapCategoriesToTabs = (
+    categories: Array<{
+      label: string;
+      link: string;
+    }>
+  ) =>
     categories.map(category => ({
-      key: category,
-      label: category,
-      link: `/blog/${category}`,
+      key: category.label,
+      label: category.label,
+      link: `/blog/${category.link}`,
     }));
 
   const blogData = await getBlogCategory(pathname);
@@ -45,10 +50,22 @@ const BlogLayout: FC = async () => {
           <WithBlogCategories
             blogData={blogData}
             categories={mapCategoriesToTabs([
-              'All',
-              'Announcements',
-              'Javascript Bites',
-              `What's New`,
+              {
+                label: 'All',
+                link: 'all',
+              },
+              {
+                label: 'Announcements',
+                link: 'announcements',
+              },
+              {
+                label: 'Javascript Bites',
+                link: 'javascript-bites',
+              },
+              {
+                label: `What's New`,
+                link: 'whats-new',
+              },
             ])}
           />
         </main>

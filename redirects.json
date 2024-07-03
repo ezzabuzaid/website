@@ -85,10 +85,6 @@
       "destination": "/guides"
     },
     {
-      "source": "/docs/guides/domain-postmortem",
-      "destination": "/blog/community/domain-postmortem"
-    },
-    {
       "source": "/docs/es6",
       "destination": "/learn/getting-started/ecmascript-2015-es6-and-beyond"
     },
