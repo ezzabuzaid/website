@@ -51,7 +51,7 @@ const BlogLayout: FC = async () => {
             blogData={blogData}
             categories={mapCategoriesToTabs([
               {
-                label: 'All',
+                label: 'Everything',
                 link: 'all',
               },
               {

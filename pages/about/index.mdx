@@ -1,82 +1,55 @@
 ---
-title: About Node.js®
+title: About January
 layout: about
 ---
 
-# About Node.js®
+# About January
 
-As an asynchronous event-driven JavaScript runtime, Node.js is designed to build
-scalable network applications. In the following "hello world" example, many
-connections can be handled concurrently. Upon each connection, the callback is
-fired, but if there is no work to be done, Node.js will sleep.
+January is an API development platform designed to simplify the process of creating and running APIs by leveraging a powerful declarative language that seamlessly integrates various tools and services, acting as an intermediary between business logic and server-side code.
 
 ```ts
-const { createServer } = require('node:http');
-
-const hostname = '127.0.0.1';
-const port = 3000;
-
-const server = createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  res.end('Hello World');
-});
-
-server.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}/`);
+workflow('HelloWorld', {
+  tag: 'example',
+  trigger: trigger.http({
+    method: 'post',
+    path: '/hello',
+  }),
+  actions: {
+    sayHello: action.database.insert({
+      table: useTable('greetings'),
+      columns: [useField('message', '@trigger:body.message')],
+    }),
+  },
 });
 ```
 
+This workflow uses an HTTP routing extension (such as hono.dev, express.js, etc.) and a database extension (such as PostgreSQL, MySQL, etc.) to create a fully functional API. It listens for POST requests on the `/example/hello` endpoint and inserts the message from the request body into a database table called `greetings`. The resulting Node.js code is pushed to a Git repository and can be deployed to a server through a deployment extension (such as Fly.io, Vercel, etc.).
+
+January differs from traditional API development by abstracting imperative code and boilerplate, focusing on business logic with a "What to do" rather than "How to do it" approach. Furthermore, traditional development tends to be complex and resource-inefficient due to the numerous tools and services that need integration and maintenance. Through extensions, January simplifies this process by focusing on use-cases rather than specific tools.
+
 ```ts
-import { createServer } from 'node:http';
-
-const hostname = '127.0.0.1';
-const port = 3000;
-
-const server = createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  res.end('Hello World');
-});
-
-server.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}/`);
+trigger.schedule({
+  pattern: '0 0 * * *',
 });
 ```
 
-This is in contrast to today's more common concurrency model, in which OS threads
-are employed. Thread-based networking is relatively inefficient and very
-difficult to use. Furthermore, users of Node.js are free from worries of
-dead-locking the process, since there are no locks. Almost no function in
-Node.js directly performs I/O, so the process never blocks except when the I/O is performed using
-synchronous methods of Node.js standard library. Because nothing blocks, scalable systems are very
-reasonable to develop in Node.js.
-
-If some of this language is unfamiliar, there is a full article on
-[Blocking vs. Non-Blocking][].
+This trigger is available through a scheduling extension (such as node-cron, bullmq, etc.), and moving from one library to another doesn't require changing the workflow, only the extension; January itself doesn't provide abstraction primitives but uses the code to provide instructions to the compiler to generate the necessary code.
 
 ---
 
-Node.js is similar in design to, and influenced by, systems like Ruby's
-[Event Machine][] and Python's [Twisted][]. Node.js takes the event model a bit
-further. It presents an event loop as a runtime construct instead of as a library. In other systems,
-there is always a blocking call to start the event-loop.
-Typically, behavior is defined through callbacks at the beginning of a script, and
-at the end a server is started through a blocking call like `EventMachine::run()`.
-In Node.js, there is no such start-the-event-loop call. Node.js simply enters the event loop after executing the input script. Node.js
-exits the event loop when there are no more callbacks to perform. This behavior
-is like browser JavaScript — the event loop is hidden from the user.
+Key features:
 
-HTTP is a first-class citizen in Node.js, designed with streaming and low
-latency in mind. This makes Node.js well suited for the foundation of a web
-library or framework.
+- **Portability**
+  GitHub, a first-class citizen of January, emphasizes portability as a key feature and serves as a platform for deploying and hosting the resulting code, allowing you to take and customize it as you see fit, ensuring your code is always accessible and version-controlled.
 
-Node.js being designed without threads doesn't mean you can't take
-advantage of multiple cores in your environment. Child processes can be spawned
-by using our [`child_process.fork()`][] API, and are designed to be easy to
-communicate with. Built upon that same interface is the [`cluster`][] module,
-which allows you to share sockets between processes to enable load balancing
-over your cores.
+- **In-App Testing**
+  Production-like testing server to run the API directly from the platform without having to deploy prior using Swagger interface (Scalar.dev).
+
+- **Extensions**
+  A wide range of extensions to interact with various services and tools, such as databases, HTTP routing, deployment, and more.
+
+- **Declarative Language**
+  A declarative language (TypeScript internal DSL) that emphasizes colocating business logic with all the necessary components to run it.
 
 [blocking vs. non-blocking]: /learn/asynchronous-work/overview-of-blocking-vs-non-blocking
 [`child_process.fork()`]: https://nodejs.org/api/child_process.html

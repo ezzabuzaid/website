@@ -1,5 +1,13 @@
 {
   "topNavigation": {
+    "learn": {
+      "link": "/learn",
+      "label": "Learn"
+    },
+    "about": {
+      "link": "/about",
+      "label": "About"
+    },
     "blog": {
       "link": "/blog",
       "label": "Blog"
@@ -35,27 +43,15 @@
   ],
   "sideNavigation": {
     "about": {
-      "label": "About Node.js",
+      "label": "About January",
       "items": {
         "about": {
           "link": "/about",
-          "label": "About Node.js®"
+          "label": "About January"
         },
-        "branding": {
-          "link": "/about/branding",
-          "label": "Branding of Node.js"
-        },
-        "governance": {
-          "link": "/about/governance",
-          "label": "Project Governance"
-        },
-        "previousReleases": {
-          "link": "/about/previous-releases",
-          "label": "Node.js Releases"
-        },
-        "securityReporting": {
-          "link": "/about/security-reporting",
-          "label": "components.navigation.about.links.security"
+        "how-it-works": {
+          "link": "/about/how-it-works",
+          "label": "How it works"
         }
       }
     },

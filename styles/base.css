@@ -30,3 +30,10 @@ body {
     @apply my-3 text-lg text-neutral-800;
   }
 }
+
+.expressive-code pre {
+  --ec-frm-frameBoxShdCssVal: '0 0 0 0';
+  --ec-brdCol: rgb(44 52 55);
+  --ec-brdRad: '0.0rem';
+  --code-background: rgb(13 18 28);
+}
