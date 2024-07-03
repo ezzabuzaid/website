@@ -31,6 +31,3 @@ cache
 
 # TypeScript
 tsconfig.tsbuildinfo
-
-# Sentry Config File
-.sentryclirc

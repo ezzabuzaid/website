@@ -1,6 +1,6 @@
 # Security Notes
 # This workflow uses `pull_request_target`, so will run against all PRs automatically (without approval), be careful with allowing any user-provided code to be run here
-# Only selected Actions are allowed within this repository. Please refer to (https://github.com/nodejs/nodejs.org/settings/actions)
+# Only selected Actions are allowed within this repository. Please refer to (https://github.com/januarylabs/nodejs.org/settings/actions)
 # for the full list of available actions. If you want to add a new one, please reach out a maintainer with Admin permissions.
 # REVIEWERS, please always double-check security practices before merging a PR that contains Workflow changes!!
 # AUTHORS, please only use actions with explicit SHA references, and avoid using `@master` or `@main` references or `@version` tags.
@@ -85,10 +85,8 @@ jobs:
           # These URLS capture critical pages / site functionality.
           urls: |
             ${{ steps.vercel_preview_url.outputs.url }}/en
-            ${{ steps.vercel_preview_url.outputs.url }}/en/about
-            ${{ steps.vercel_preview_url.outputs.url }}/en/about/previous-releases
-            ${{ steps.vercel_preview_url.outputs.url }}/en/download
-            ${{ steps.vercel_preview_url.outputs.url }}/en/blog
+            ${{ steps.vercel_preview_url.outputs.url }}/about
+            ${{ steps.vercel_preview_url.outputs.url }}/blog
           uploadArtifacts: true # save results as a action artifacts
           temporaryPublicStorage: true # upload lighthouse report to the temporary storage
 

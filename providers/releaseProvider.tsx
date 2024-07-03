@@ -1,14 +1,13 @@
 'use client';
 
-import type { Dispatch, PropsWithChildren, FC } from 'react';
+import type { Dispatch, FC, PropsWithChildren } from 'react';
 import { createContext, useMemo, useReducer } from 'react';
 
-import WithChangelogModal from '@/components/withChangelogModal';
 import type { NodeRelease } from '@/types';
 import type {
-  ReleaseDispatchActions,
   ReleaseAction,
   ReleaseContextType,
+  ReleaseDispatchActions,
   ReleaseProviderProps,
   ReleaseState,
 } from '@/types/release';
@@ -74,12 +73,6 @@ export const ReleaseProvider: FC<PropsWithChildren<ReleaseProviderProps>> = ({
   return (
     <ReleaseContext.Provider value={{ ...state, ...actions }}>
       {children}
-
-      <WithChangelogModal
-        release={state.release}
-        modalOpen={state.modalOpen}
-        setModalOpen={actions.setModalOpen}
-      />
     </ReleaseContext.Provider>
   );
 };

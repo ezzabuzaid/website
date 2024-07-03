@@ -1,4 +1,3 @@
-import { useTranslations } from 'next-intl';
 import type { FC } from 'react';
 
 import Link from '@/components/Link';
@@ -19,13 +18,11 @@ const PaginationListItem: FC<PaginationListItemProps> = ({
   currentPage,
   totalPages,
 }) => {
-  const t = useTranslations();
-
   return (
     <li key={pageNumber} aria-setsize={totalPages} aria-posinset={pageNumber}>
       <Link
         href={url}
-        aria-label={t('components.common.pagination.pageLabel', { pageNumber })}
+        aria-label={`Go to page ${pageNumber}`}
         className={styles.listItem}
         {...(pageNumber === currentPage && { 'aria-current': 'page' })}
       >

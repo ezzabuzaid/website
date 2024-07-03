@@ -16,9 +16,6 @@ export const mapBlogCategoryToPreviewType = (type: string): BlogPreviewType => {
   }
 };
 
-// @todo: we should check about the future of GitHub avatars
-// and mapping them to the respective users
-// @see https://github.com/nodejs/nodejs.dev/blob/main/src/data/blog/authors.yaml
 export const mapAuthorToCardAuthors = (author: string) => {
   const authors = author.split(/, | and |;| & | prepared by | by /i);
 

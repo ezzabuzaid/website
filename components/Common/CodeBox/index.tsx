@@ -1,11 +1,10 @@
 'use client';
 
 import {
-  DocumentDuplicateIcon,
   CodeBracketIcon,
+  DocumentDuplicateIcon,
 } from '@heroicons/react/24/outline';
 import classNames from 'classnames';
-import { useTranslations } from 'next-intl';
 import type { FC, PropsWithChildren, ReactNode } from 'react';
 import { Fragment, isValidElement, useRef } from 'react';
 
@@ -80,7 +79,6 @@ const CodeBox: FC<PropsWithChildren<CodeBoxProps>> = ({
 
   const notify = useNotification();
   const [, copyToClipboard] = useCopyToClipboard();
-  const t = useTranslations();
 
   const onCopy = async () => {
     if (ref.current?.textContent) {
@@ -91,7 +89,7 @@ const CodeBox: FC<PropsWithChildren<CodeBoxProps>> = ({
         message: (
           <div className={styles.notification}>
             <CodeBracketIcon className={styles.icon} />
-            {t('components.common.codebox.copied')}
+            Copied to clipboard!
           </div>
         ),
       });

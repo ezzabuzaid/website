@@ -1,5 +1,4 @@
 import { MoonIcon, SunIcon } from '@heroicons/react/24/outline';
-import { useTranslations } from 'next-intl';
 import type { FC, MouseEvent } from 'react';
 
 import styles from './index.module.css';
@@ -9,9 +8,7 @@ type ThemeToggleProps = {
 };
 
 const ThemeToggle: FC<ThemeToggleProps> = ({ onClick = () => {} }) => {
-  const t = useTranslations();
-
-  const ariaLabel = t('components.common.themeToggle.label');
+  const ariaLabel = 'Toggle Dark Mode';
 
   return (
     <button

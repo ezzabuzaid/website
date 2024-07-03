@@ -3,6 +3,7 @@
 import { fileURLToPath } from 'node:url';
 
 import { glob } from 'glob';
+import { join } from 'node:path';
 
 /**
  * We create a locale cache of Glob Promises
@@ -50,7 +51,7 @@ export const getRelativePath = path => fileURLToPath(new URL('.', path));
  * @returns {Promise<Array<string>>} a promise containing an array of paths
  */
 export const getMarkdownFiles = async (root, cwd, ignore = []) => {
-  const cacheKey = `${root}${cwd}${ignore.join('')}`;
+  const cacheKey = join(`${root}${cwd}${ignore.join('')}`);
 
   if (!globCacheByPath.has(cacheKey)) {
     globCacheByPath.set(cacheKey, glob('**/*.{md,mdx}', { root, cwd, ignore }));

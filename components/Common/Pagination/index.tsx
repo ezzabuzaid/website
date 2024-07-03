@@ -1,5 +1,4 @@
-import { ArrowRightIcon, ArrowLeftIcon } from '@heroicons/react/20/solid';
-import { useTranslations } from 'next-intl';
+import { ArrowLeftIcon, ArrowRightIcon } from '@heroicons/react/20/solid';
 import type { FC } from 'react';
 
 import Button from '@/components/Common/Button';
@@ -23,8 +22,6 @@ const Pagination: FC<PaginationProps> = ({
   pages,
   currentPageSiblingsCount = 1,
 }) => {
-  const t = useTranslations();
-
   const parsedPages = useGetPageElements(
     currentPage,
     pages,
@@ -32,31 +29,28 @@ const Pagination: FC<PaginationProps> = ({
   );
 
   return (
-    <nav
-      aria-label={t('components.common.pagination.defaultLabel')}
-      className={styles.pagination}
-    >
+    <nav aria-label={'Pagination'} className={styles.pagination}>
       <Button
-        aria-label={t('components.common.pagination.prevAriaLabel')}
+        aria-label={'Previous page'}
         disabled={currentPage === 1}
         kind="secondary"
         className={styles.previousButton}
         href={pages[currentPage - 2]?.url}
       >
         <ArrowLeftIcon className={styles.arrowIcon} />
-        <span>{t('components.common.pagination.prev')}</span>
+        <span>Previous</span>
       </Button>
 
       <ol className={styles.list}>{parsedPages}</ol>
 
       <Button
-        aria-label={t('components.common.pagination.nextAriaLabel')}
+        aria-label={'Next page'}
         disabled={currentPage === pages.length}
         kind="secondary"
         className={styles.nextButton}
         href={pages[currentPage]?.url}
       >
-        <span>{t('components.common.pagination.next')}</span>
+        <span>Next</span>
         <ArrowRightIcon className={styles.arrowIcon} />
       </Button>
     </nav>

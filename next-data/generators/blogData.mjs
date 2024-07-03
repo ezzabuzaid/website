@@ -9,7 +9,7 @@ import graymatter from 'gray-matter';
 import { getMarkdownFiles } from '../../next.helpers.mjs';
 
 // gets the current blog path based on local module path
-const blogPath = join(process.cwd(), 'pages/en/blog');
+const blogPath = join(process.cwd(), 'pages/blog');
 
 /**
  * This contains the metadata of all available blog categories
@@ -59,7 +59,7 @@ const getFrontMatter = (filename, source) => {
  */
 const generateBlogData = async () => {
   // We retrieve the full pathnames of all Blog Posts to read each file individually
-  const filenames = await getMarkdownFiles(process.cwd(), 'pages/en/blog', [
+  const filenames = await getMarkdownFiles(process.cwd(), 'pages/blog', [
     '**/index.md',
   ]);
 

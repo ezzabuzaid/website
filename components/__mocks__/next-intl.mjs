@@ -7,21 +7,12 @@ export const useNow = () => new Date();
 
 export const useTimeZone = () => 'Etc/UTC';
 
-export const useTranslations = () => {
-  const t = key => key;
-
-  t.rich = key => key;
-  t.markup = key => key;
-
-  return t;
-};
-
 export const useFormatter = () => {
   const formatter = format => new Intl.DateTimeFormat('en-US', format);
 
   return {
-    date: (date, format) => formatter(format).format(date),
-    dateTime: (date, format) => formatter(format).format(date),
+    date: (date, format) => formatter(format).format(new Date(date)),
+    dateTime: (date, format) => formatter(format).format(new Date(date)),
   };
 };
 

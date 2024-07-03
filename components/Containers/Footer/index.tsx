@@ -1,4 +1,3 @@
-import { useTranslations } from 'next-intl';
 import type { FC, SVGProps } from 'react';
 
 import NavItem from '@/components/Containers/NavBar/NavItem';
@@ -22,14 +21,12 @@ const footerSocialIcons: Record<string, React.FC<SVGProps<SVGSVGElement>>> = {
 };
 
 const Footer: FC = () => {
-  const t = useTranslations();
-
   return (
     <footer className={styles.footer}>
       <div className={styles.sectionPrimary}>
         {siteNavigation.footerLinks.slice(0, -1).map(item => (
           <NavItem type="footer" href={item.link} key={item.link}>
-            {t(item.text)}
+            item.text
           </NavItem>
         ))}
       </div>

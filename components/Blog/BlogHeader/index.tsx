@@ -3,7 +3,6 @@
 import type { FC } from 'react';
 
 import { RssIcon } from '@heroicons/react/24/solid';
-import { useTranslations } from 'next-intl';
 
 import Link from '@/components/Link';
 import { siteConfig } from '@/next.json.mjs';
@@ -15,7 +14,6 @@ type BlogHeaderProps = {
 };
 
 const BlogHeader: FC<BlogHeaderProps> = ({ category }) => {
-  const t = useTranslations();
   const currentFile =
     siteConfig.rssFeeds.find(item => item.category === category)?.file ??
     'blog.xml';
@@ -23,15 +21,12 @@ const BlogHeader: FC<BlogHeaderProps> = ({ category }) => {
   return (
     <header className={styles.blogHeader}>
       <h1>
-        {t('layouts.blog.title')}
-        <Link
-          href={`/feed/${currentFile}`}
-          aria-label={t('components.blog.blogHeader.rssLink')}
-        >
+        Blog
+        <Link href={`/feed/${currentFile}`} aria-label={'RSS feed'}>
           <RssIcon />
         </Link>
       </h1>
-      <p>{t('components.blog.blogHeader.subtitle')}</p>
+      <p>The latest Node.js news, case studies, tutorials, and resources.</p>
     </header>
   );
 };

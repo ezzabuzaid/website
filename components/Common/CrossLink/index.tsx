@@ -1,5 +1,4 @@
 import classNames from 'classnames';
-import { useTranslations } from 'next-intl';
 import type { FC } from 'react';
 
 import PrevNextArrow from '@/components/Common/PrevNextArrow';
@@ -14,9 +13,12 @@ type CrossLinkProps = {
   link: string;
 };
 
-const CrossLink: FC<CrossLinkProps> = ({ type, text, link }) => {
-  const t = useTranslations();
+const crossLink: Record<string, string> = {
+  previous: 'Prev',
+  next: 'Next',
+};
 
+const CrossLink: FC<CrossLinkProps> = ({ type, text, link }) => {
   return (
     <Link className={styles.crossLink} href={link}>
       <span
@@ -25,7 +27,7 @@ const CrossLink: FC<CrossLinkProps> = ({ type, text, link }) => {
         })}
       >
         <PrevNextArrow className={styles.icon} type={type} />
-        {t(`components.common.crossLink.${type}`)}
+        {crossLink[type]}
       </span>
 
       <span

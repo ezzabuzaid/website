@@ -1,5 +1,3 @@
-import { useTranslations } from 'next-intl';
-import type { RichTranslationValues } from 'next-intl';
 import type { HTMLAttributeAnchorTarget } from 'react';
 
 import { siteNavigation } from '@/next.json.mjs';
@@ -9,7 +7,6 @@ import type {
   NavigationKeys,
 } from '@/types';
 
-type Context = Record<string, RichTranslationValues>;
 type Navigation = Record<string, NavigationEntry>;
 
 interface MappedNavigationEntry {
@@ -19,28 +16,8 @@ interface MappedNavigationEntry {
   target?: HTMLAttributeAnchorTarget | undefined;
 }
 
-// Provides Context replacement for variables within the Link. This is also something that is not going
-// to happen in the future with `nodejs/nodejs.dev` codebase
-const replaceLinkWithContext = (
-  link: string,
-  context?: RichTranslationValues
-) =>
-  Object.entries(context || {}).reduce(
-    (finalLink, [find, replace]) =>
-      finalLink.replace(
-        `{${find}}`,
-        typeof replace === 'string' ? replace : ''
-      ),
-    link
-  );
-
 const useSiteNavigation = () => {
-  const t = useTranslations();
-
-  const mapNavigationEntries = (entries: Navigation, context: Context = {}) => {
-    const getFormattedMessage = (label: string, key: string) =>
-      t.rich(label, context[key] || {});
-
+  const mapNavigationEntries = (entries: Navigation) => {
     return Object.entries(entries).map(
       ([key, { label, link, items, target }]): [
         string,
@@ -49,23 +26,20 @@ const useSiteNavigation = () => {
         key,
         {
           target,
-          label: label ? getFormattedMessage(label, key) : '',
-          link: link ? replaceLinkWithContext(link, context[key]) : '',
-          items: items ? mapNavigationEntries(items, context) : [],
+          label: label ? label : '',
+          link: link ?? '',
+          items: items ? mapNavigationEntries(items) : [],
         },
       ]
     );
   };
 
-  const getSideNavigation = (
-    keys: Array<NavigationKeys>,
-    context: Context = {}
-  ) => {
+  const getSideNavigation = (keys: Array<NavigationKeys>) => {
     const navigationEntries: Navigation = keys.reduce(
       (acc, key) => ({ ...acc, [key]: siteNavigation.sideNavigation[key] }),
       {}
     );
-    return mapNavigationEntries(navigationEntries, context);
+    return mapNavigationEntries(navigationEntries);
   };
 
   const navigationItems = mapNavigationEntries(siteNavigation.topNavigation);

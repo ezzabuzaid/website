@@ -7,7 +7,7 @@ import { siteConfig } from '../../next.json.mjs';
 
 // This is the Base URL for the Node.js Website
 // with English locale (which is where the website feeds run)
-const canonicalUrl = `${BASE_URL}${BASE_PATH}/en`;
+const canonicalUrl = `${BASE_URL}${BASE_PATH}`;
 
 /**
  * This method generates RSS website feeds based on the current website configuration

@@ -1,4 +1,3 @@
-import { useTranslations } from 'next-intl';
 import type { ComponentProps, FC } from 'react';
 import { useRef } from 'react';
 
@@ -13,7 +12,6 @@ type ProgressionSidebarProps = {
 };
 
 const ProgressionSidebar: FC<ProgressionSidebarProps> = ({ groups }) => {
-  const t = useTranslations();
   const { pathname } = useClientContext();
   const ref = useRef<HTMLElement>(null);
 
@@ -32,7 +30,7 @@ const ProgressionSidebar: FC<ProgressionSidebarProps> = ({ groups }) => {
   return (
     <nav className={styles.wrapper} ref={ref}>
       <WithRouterSelect
-        label={t('components.common.sidebar.title')}
+        label={'Change page'}
         values={selectItems}
         defaultValue={currentItem?.value}
       />

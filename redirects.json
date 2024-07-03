@@ -14,59 +14,39 @@
     },
     {
       "source": "/guides",
-      "destination": "/en/learn"
-    },
-    {
-      "source": "/about",
-      "destination": "/en/about"
+      "destination": "/learn"
     },
     {
       "source": "/community",
       "destination": "https://discord.gg/CQCCpr3Xs7"
     },
     {
+      "source": "/community",
+      "destination": "/get-involved"
+    },
+    {
+      "source": "/docs/inspector",
+      "destination": "/learn/getting-started/debugging"
+    },
+    {
       "source": "/contribute/:path*",
-      "destination": "/en/get-involved"
+      "destination": "/get-involved"
     },
     {
       "source": "/documentation/:path*",
-      "destination": "/en/docs/:path*"
-    },
-    {
-      "source": "/blog/:path*",
-      "destination": "/en/blog/:path*"
-    },
-    {
-      "source": "/:locale/community",
-      "destination": "/:locale/get-involved"
-    },
-    {
-      "source": "/:locale/docs/inspector",
-      "destination": "/:locale/learn/getting-started/debugging"
-    },
-    {
-      "source": "/:locale/contribute/:path*",
-      "destination": "/:locale/get-involved"
-    },
-    {
-      "source": "/:locale/documentation/:path*",
-      "destination": "/:locale/docs/:path*"
+      "destination": "/docs/:path*"
     },
     {
       "source": "/(atom|feed|rss).xml",
-      "destination": "/en/feed/blog.xml"
+      "destination": "/feed/blog.xml"
     },
     {
       "source": "/feed",
-      "destination": "/en/feed/blog.xml"
+      "destination": "/feed/blog.xml"
     },
     {
       "source": "/feed/release",
-      "destination": "/en/feed/releases.xml"
-    },
-    {
-      "source": "/feed/vulnerability",
-      "destination": "/en/feed/vulnerability.xml"
+      "destination": "/feed/releases.xml"
     },
     {
       "source": "/(static/|)favicon.ico",
@@ -89,116 +69,116 @@
       "destination": "/static/images/logos/:path*"
     },
     {
-      "source": "/:locale/download/releases",
-      "destination": "/:locale/about/previous-releases"
+      "source": "/download/releases",
+      "destination": "/about/previous-releases"
     },
     {
-      "source": "/:locale/about/security",
-      "destination": "/:locale/about/security-reporting"
+      "source": "/about/security",
+      "destination": "/about/security-reporting"
     },
     {
-      "source": "/:locale/docs",
+      "source": "/docs",
       "destination": "https://nodejs.org/docs/latest/api/"
     },
     {
-      "source": "/:locale/docs/guides",
-      "destination": "/:locale/guides"
+      "source": "/docs/guides",
+      "destination": "/guides"
     },
     {
-      "source": "/:locale/docs/guides/domain-postmortem",
-      "destination": "/:locale/blog/community/domain-postmortem"
+      "source": "/docs/guides/domain-postmortem",
+      "destination": "/blog/community/domain-postmortem"
     },
     {
-      "source": "/:locale/docs/es6",
-      "destination": "/:locale/learn/getting-started/ecmascript-2015-es6-and-beyond"
+      "source": "/docs/es6",
+      "destination": "/learn/getting-started/ecmascript-2015-es6-and-beyond"
     },
     {
-      "source": "/:locale/docs/guides/:path*",
-      "destination": "/:locale/guides/:path*"
+      "source": "/docs/guides/:path*",
+      "destination": "/guides/:path*"
     },
     {
-      "source": "/:locale/guides",
-      "destination": "/:locale/learn"
+      "source": "/guides",
+      "destination": "/learn"
     },
     {
-      "source": "/:locale/guides/getting-started-guide",
-      "destination": "/:locale/learn/getting-started/introduction-to-nodejs"
+      "source": "/guides/getting-started-guide",
+      "destination": "/learn/getting-started/introduction-to-nodejs"
     },
     {
-      "source": "/:locale/guides/blocking-vs-non-blocking",
-      "destination": "/:locale/learn/asynchronous-work/overview-of-blocking-vs-non-blocking"
+      "source": "/guides/blocking-vs-non-blocking",
+      "destination": "/learn/asynchronous-work/overview-of-blocking-vs-non-blocking"
     },
     {
-      "source": "/:locale/guides/timers-in-node",
-      "destination": "/:locale/learn/asynchronous-work/discover-javascript-timers"
+      "source": "/guides/timers-in-node",
+      "destination": "/learn/asynchronous-work/discover-javascript-timers"
     },
     {
-      "source": "/:locale/guides/working-with-different-filesystems",
-      "destination": "/:locale/learn/manipulating-files/working-with-different-filesystems"
+      "source": "/guides/working-with-different-filesystems",
+      "destination": "/learn/manipulating-files/working-with-different-filesystems"
     },
     {
-      "source": "/:locale/guides/anatomy-of-an-http-transaction",
-      "destination": "/:locale/learn/modules/anatomy-of-an-http-transaction"
+      "source": "/guides/anatomy-of-an-http-transaction",
+      "destination": "/learn/modules/anatomy-of-an-http-transaction"
     },
     {
-      "source": "/:locale/guides/backpressuring-in-streams/",
-      "destination": "/:locale/learn/modules/backpressuring-in-streams/"
+      "source": "/guides/backpressuring-in-streams/",
+      "destination": "/learn/modules/backpressuring-in-streams/"
     },
     {
-      "source": "/:locale/guides/publishing-napi-modules",
-      "destination": "/:locale/learn/modules/publishing-node-api-modules"
+      "source": "/guides/publishing-napi-modules",
+      "destination": "/learn/modules/publishing-node-api-modules"
     },
     {
-      "source": "/:locale/guides/simple-profiling",
-      "destination": "/:locale/learn/getting-started/profiling"
+      "source": "/guides/simple-profiling",
+      "destination": "/learn/getting-started/profiling"
     },
     {
-      "source": "/:locale/guides/diagnostics-flamegraph",
-      "destination": "/:locale/learn/diagnostics/flame-graphs"
+      "source": "/guides/diagnostics-flamegraph",
+      "destination": "/learn/diagnostics/flame-graphs"
     },
     {
-      "source": "/:locale/guides/diagnostics",
-      "destination": "/:locale/learn/diagnostics/user-journey"
+      "source": "/guides/diagnostics",
+      "destination": "/learn/diagnostics/user-journey"
     },
     {
-      "source": "/:locale/guides/debugging-getting-started",
-      "destination": "/:locale/learn/getting-started/debugging"
+      "source": "/guides/debugging-getting-started",
+      "destination": "/learn/getting-started/debugging"
     },
     {
-      "source": "/:locale/guides/diagnostics/:path*",
-      "destination": "/:locale/learn/diagnostics/:path*"
+      "source": "/guides/diagnostics/:path*",
+      "destination": "/learn/diagnostics/:path*"
     },
     {
-      "source": "/:locale/guides/abi-stability",
-      "destination": "/:locale/learn/modules/abi-stability"
+      "source": "/guides/abi-stability",
+      "destination": "/learn/modules/abi-stability"
     },
     {
-      "source": "/:locale/guides/security",
-      "destination": "/:locale/learn/getting-started/security-best-practices"
+      "source": "/guides/security",
+      "destination": "/learn/getting-started/security-best-practices"
     },
     {
-      "source": "/:locale/guides/event-loop-timers-and-nexttick",
-      "destination": "/:locale/learn/asynchronous-work/event-loop-timers-and-nexttick"
+      "source": "/guides/event-loop-timers-and-nexttick",
+      "destination": "/learn/asynchronous-work/event-loop-timers-and-nexttick"
     },
     {
-      "source": "/:locale/guides/dont-block-the-event-loop",
-      "destination": "/:locale/learn/asynchronous-work/dont-block-the-event-loop"
+      "source": "/guides/dont-block-the-event-loop",
+      "destination": "/learn/asynchronous-work/dont-block-the-event-loop"
     },
     {
-      "source": "/:locale/get-involved",
-      "destination": "/:locale/about/get-involved"
+      "source": "/get-involved",
+      "destination": "/about/get-involved"
     },
     {
-      "source": "/:locale/get-involved/:path*",
-      "destination": "/:locale/about/get-involved/:path*"
+      "source": "/get-involved/:path*",
+      "destination": "/about/get-involved/:path*"
     },
     {
-      "source": "/:locale/learn",
-      "destination": "/:locale/learn/getting-started/introduction-to-nodejs"
+      "source": "/learn",
+      "destination": "/learn/getting-started/introduction-to-nodejs"
     },
     {
-      "source": "/:locale/about/releases",
-      "destination": "/:locale/about/previous-releases"
+      "source": "/about/releases",
+      "destination": "/about/previous-releases"
     }
   ],
   "internal": []

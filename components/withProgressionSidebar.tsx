@@ -1,6 +1,5 @@
 'use client';
 
-import type { RichTranslationValues } from 'next-intl';
 import type { FC } from 'react';
 
 import ProgressionSidebar from '@/components/Common/ProgressionSidebar';
@@ -9,16 +8,14 @@ import type { NavigationKeys } from '@/types';
 
 type WithProgressionSidebarProps = {
   navKey: NavigationKeys;
-  context?: Record<string, RichTranslationValues>;
 };
 
 const WithProgressionSidebar: FC<WithProgressionSidebarProps> = ({
   navKey,
-  context,
 }) => {
   const { getSideNavigation } = useSiteNavigation();
 
-  const [[, sidebarNavigation]] = getSideNavigation([navKey], context);
+  const [[, sidebarNavigation]] = getSideNavigation([navKey]);
 
   const mappedProgressionSidebarItems = sidebarNavigation.items.map(
     ([, { label, items }]) => ({

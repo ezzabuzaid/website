@@ -13,17 +13,15 @@
         "NEXT_PUBLIC_DIST_URL",
         "NEXT_PUBLIC_DOCS_URL",
         "NEXT_PUBLIC_BASE_PATH",
-        "NEXT_PUBLIC_ORAMA_API_KEY",
-        "NEXT_PUBLIC_ORAMA_ENDPOINT",
         "NEXT_PUBLIC_VERCEL_REVALIDATE_TIME",
         "NEXT_PUBLIC_DATA_URL"
       ]
     },
     "build": {
       "inputs": [
-        "{app,components,hooks,i18n,layouts,middlewares,pages,providers,types,util}/**/*.{ts,tsx}",
+        "{app,components,hooks,layouts,middlewares,pages,providers,types,util}/**/*.{ts,tsx}",
         "{app,components,layouts,pages,styles}/**/*.css",
-        "{next-data,scripts,i18n}/**/*.{mjs,json}",
+        "{next-data,scripts}/**/*.{mjs,json}",
         "{app,pages}/**/*.{mdx,md}",
         "*.{md,mdx,json,ts,tsx,mjs,yml}"
       ],
@@ -36,8 +34,6 @@
         "NEXT_PUBLIC_DIST_URL",
         "NEXT_PUBLIC_DOCS_URL",
         "NEXT_PUBLIC_BASE_PATH",
-        "NEXT_PUBLIC_ORAMA_API_KEY",
-        "NEXT_PUBLIC_ORAMA_ENDPOINT",
         "NEXT_PUBLIC_VERCEL_REVALIDATE_TIME",
         "NEXT_PUBLIC_DATA_URL"
       ]
@@ -53,17 +49,16 @@
         "NEXT_PUBLIC_DIST_URL",
         "NEXT_PUBLIC_DOCS_URL",
         "NEXT_PUBLIC_BASE_PATH",
-        "NEXT_PUBLIC_ORAMA_API_KEY",
-        "NEXT_PUBLIC_ORAMA_ENDPOINT",
+
         "NEXT_PUBLIC_VERCEL_REVALIDATE_TIME",
         "NEXT_PUBLIC_DATA_URL"
       ]
     },
     "deploy": {
       "inputs": [
-        "{app,components,hooks,i18n,layouts,middlewares,pages,providers,types,util}/**/*.{ts,tsx}",
+        "{app,components,hooks,layouts,middlewares,pages,providers,types,util}/**/*.{ts,tsx}",
         "{app,components,layouts,pages,styles}/**/*.css",
-        "{next-data,scripts,i18n}/**/*.{mjs,json}",
+        "{next-data,scripts}/**/*.{mjs,json}",
         "{app,pages}/**/*.{mdx,md}",
         "*.{md,mdx,json,ts,tsx,mjs,yml}"
       ],
@@ -76,16 +71,15 @@
         "NEXT_PUBLIC_DIST_URL",
         "NEXT_PUBLIC_DOCS_URL",
         "NEXT_PUBLIC_BASE_PATH",
-        "NEXT_PUBLIC_ORAMA_API_KEY",
-        "NEXT_PUBLIC_ORAMA_ENDPOINT",
+
         "NEXT_PUBLIC_VERCEL_REVALIDATE_TIME",
         "NEXT_PUBLIC_DATA_URL"
       ]
     },
     "lint:js": {
       "inputs": [
-        "{app,components,hooks,i18n,layouts,middlewares,pages,providers,types,util}/**/*.{ts,tsx,mjs}",
-        "{next-data,scripts,i18n}/**/*.{mjs,json}",
+        "{app,components,hooks,layouts,middlewares,pages,providers,types,util}/**/*.{ts,tsx,mjs}",
+        "{next-data,scripts}/**/*.{mjs,json}",
         "{.storybook,public}/**/*.{ts,js,json}",
         "*.{json,ts,tsx}"
       ],
@@ -117,9 +111,9 @@
     },
     "storybook:build": {
       "inputs": [
-        "{app,components,hooks,i18n,layouts,middlewares,pages,providers,types,util}/**/*.{ts,tsx}",
+        "{app,components,hooks,layouts,middlewares,pages,providers,types,util}/**/*.{ts,tsx}",
         "{app,components,layouts,pages,styles}/**/*.css",
-        "{next-data,scripts,i18n}/**/*.{mjs,json}",
+        "{next-data,scripts}/**/*.{mjs,json}",
         "{.storybook,public}/**/*.{ts,js,css,json}",
         "{app,pages}/**/*.{mdx,md}",
         "*.{md,mdx,json,ts,tsx,mjs,yml}"
@@ -128,9 +122,9 @@
     },
     "test:unit": {
       "inputs": [
-        "{app,components,hooks,i18n,layouts,middlewares,pages,providers,types,util}/**/*.{ts,tsx,mjs}",
+        "{app,components,hooks,layouts,middlewares,pages,providers,types,util}/**/*.{ts,tsx,mjs}",
         "{app,components,layouts,pages,styles}/**/*.css",
-        "{next-data,scripts,i18n}/**/*.{mjs,json}",
+        "{next-data,scripts}/**/*.{mjs,json}",
         "{app,pages}/**/*.{mdx,md}",
         "*.{md,mdx,json,ts,tsx,mjs,yml}"
       ],

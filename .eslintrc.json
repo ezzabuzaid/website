@@ -18,27 +18,7 @@
       "env": { "es6": true, "node": true },
       "plugins": ["import"],
       "extends": ["eslint:recommended", "next", "next/core-web-vitals"],
-      "rules": {
-        "import/order": [
-          "error",
-          {
-            "groups": [
-              "type",
-              "builtin",
-              "external",
-              "internal",
-              ["sibling", "parent"],
-              "index",
-              "unknown"
-            ],
-            "newlines-between": "always",
-            "alphabetize": {
-              "order": "asc",
-              "caseInsensitive": true
-            }
-          }
-        ]
-      }
+      "rules": {}
     },
     {
       "files": ["**/*.ts?(x)"],
@@ -71,13 +51,6 @@
       "rules": {
         "@typescript-eslint/consistent-type-definitions": ["error", "type"],
         "react/no-unescaped-entities": "off",
-        "react/function-component-definition": [
-          "error",
-          {
-            "namedComponents": "arrow-function",
-            "unnamedComponents": "arrow-function"
-          }
-        ],
         "no-restricted-syntax": [
           "error",
           {

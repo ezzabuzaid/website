@@ -1,4 +1,3 @@
-import { useTranslations } from 'next-intl';
 import type { ComponentProps, FC } from 'react';
 
 import BlogPostCard from '@/components/Common/BlogPostCard';
@@ -21,12 +20,10 @@ const WithBlogCategories: FC<WithBlogCategoriesProps> = ({
   categories,
   blogData,
 }) => {
-  const t = useTranslations();
-
   return (
     <>
       <LinkTabs
-        label={t('layouts.blog.selectCategory')}
+        label={'Categories'}
         tabs={categories}
         activeTab={blogData.category}
       >

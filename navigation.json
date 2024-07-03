@@ -2,11 +2,11 @@
   "topNavigation": {
     "blog": {
       "link": "/blog",
-      "label": "components.containers.navBar.links.blog"
+      "label": "Blog"
     },
     "roadmap": {
       "link": "https://github.com/orgs/JanuaryLabs/projects/12/views/1",
-      "label": "components.containers.navBar.links.roadmap",
+      "label": "Roadmap",
       "target": "_blank"
     }
   },
@@ -35,23 +35,23 @@
   ],
   "sideNavigation": {
     "about": {
-      "label": "components.navigation.about.links.about",
+      "label": "About Node.js",
       "items": {
         "about": {
           "link": "/about",
-          "label": "components.navigation.about.links.aboutSide"
+          "label": "About Node.js®"
         },
         "branding": {
           "link": "/about/branding",
-          "label": "components.navigation.about.links.branding"
+          "label": "Branding of Node.js"
         },
         "governance": {
           "link": "/about/governance",
-          "label": "components.navigation.about.links.governance"
+          "label": "Project Governance"
         },
         "previousReleases": {
           "link": "/about/previous-releases",
-          "label": "components.navigation.about.links.releases"
+          "label": "Node.js Releases"
         },
         "securityReporting": {
           "link": "/about/security-reporting",
@@ -306,15 +306,15 @@
         "label": "components.downloadList.links.unofficialBuilds"
       },
       "buildingFromSource": {
-        "link": "https://github.com/nodejs/node/blob/main/BUILDING.md#building-nodejs-on-supported-platforms",
+        "link": "https://github.com/januarylabs/node/blob/main/BUILDING.md#building-nodejs-on-supported-platforms",
         "label": "components.downloadList.links.buildingFromSource"
       },
       "installingOnLinux": {
-        "link": "https://github.com/nodejs/help/wiki/Installation",
+        "link": "https://github.com/januarylabs/help/wiki/Installation",
         "label": "components.downloadList.links.installingOnLinux"
       },
       "installingOnWsl": {
-        "link": "https://github.com/nodejs/node/blob/main/BUILDING.md#building-nodejs-on-supported-platforms",
+        "link": "https://github.com/januarylabs/node/blob/main/BUILDING.md#building-nodejs-on-supported-platforms",
         "label": "components.downloadList.links.installingOnWsl"
       }
     }

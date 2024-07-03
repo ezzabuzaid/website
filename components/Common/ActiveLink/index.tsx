@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import type { ComponentProps, FC } from 'react';
 
 import Link from '@/components/Link';
-import { usePathname } from '@/navigation.mjs';
+import { usePathname } from 'next/navigation';
 
 type ActiveLocalizedLinkProps = ComponentProps<typeof Link> & {
   activeClassName?: string;
@@ -22,12 +22,13 @@ const ActiveLink: FC<ActiveLocalizedLinkProps> = ({
   const pathname = usePathname();
 
   const finalClassName = classNames(className, {
-    [activeClassName]: allowSubPath
-      ? // When using allowSubPath we want only to check if
-        // the current pathname starts with the utmost upper level
-        // of an href (e.g. /docs/...)
-        pathname.startsWith(`/${href.toString().split('/')[1]}`)
-      : href.toString() === pathname,
+    [activeClassName]:
+      pathname && allowSubPath
+        ? // When using allowSubPath we want only to check if
+          // the current pathname starts with the utmost upper level
+          // of an href (e.g. /docs/...)
+          pathname.startsWith(`/${href.toString().split('/')[1]}`)
+        : href.toString() === pathname,
   });
 
   return (

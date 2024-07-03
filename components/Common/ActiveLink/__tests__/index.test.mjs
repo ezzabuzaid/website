@@ -12,7 +12,7 @@ describe('ActiveLink', () => {
 
     expect(screen.findByText('Link')).resolves.toHaveAttribute(
       'href',
-      '/en/link'
+      '/link'
     );
   });
 

@@ -1,7 +1,6 @@
 import type { Heading } from '@vcarl/remark-headings';
-import { useTranslations } from 'next-intl';
-import { Fragment, useMemo } from 'react';
 import type { FC } from 'react';
+import { Fragment, useMemo } from 'react';
 
 import Link from '@/components/Link';
 
@@ -16,8 +15,6 @@ type MetaBarProps = {
 };
 
 const MetaBar: FC<MetaBarProps> = ({ items, headings }) => {
-  const t = useTranslations();
-
   // The default depth of headings to display in the table of contents.
   const { minDepth = 2, items: headingItems = [] } = headings || {};
 
@@ -33,14 +30,14 @@ const MetaBar: FC<MetaBarProps> = ({ items, headings }) => {
           .filter(([, value]) => !!value)
           .map(([key, value]) => (
             <Fragment key={key}>
-              <dt>{t(key)}</dt>
+              <dt>{key}</dt>
               <dd>{value}</dd>
             </Fragment>
           ))}
 
         {heading.length > 0 && (
           <>
-            <dt>{t('components.metabar.tableOfContents')}</dt>
+            <dt>Table of Contents</dt>
             <dd>
               <ol>
                 {heading.map(head => (

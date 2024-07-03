@@ -17,7 +17,7 @@ export const Error: Story = {
   args: {
     children: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
     type: 'error',
-    link: 'https://github.com/nodejs/nodejs.org/issues/4495',
+    link: 'https://github.com/januarylabs/nodejs.org/issues/4495',
   },
 };
 
@@ -25,7 +25,7 @@ export const Warning: Story = {
   args: {
     children: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
     type: 'warning',
-    link: 'https://github.com/nodejs/nodejs.org/issues/4495',
+    link: 'https://github.com/januarylabs/nodejs.org/issues/4495',
   },
 };
 

@@ -1,4 +1,3 @@
-import { useTranslations } from 'next-intl';
 import type { FC } from 'react';
 
 import AvatarGroup from '@/components/Common/AvatarGroup';
@@ -21,6 +20,24 @@ type BlogPostCardProps = {
   slug?: string;
 };
 
+const categories: Record<string, string> = {
+  all: 'Everything',
+  announcements: 'Announcements',
+  release: 'Releases',
+  'javascript-bites': 'JavaScript Bites',
+  'whats-new': "What's new",
+  'advisory-board': 'Advisory Board',
+  community: 'Community',
+  feature: 'Feature',
+  module: 'Module',
+  npm: 'npm',
+  uncategorized: 'Uncategorized',
+  video: 'Video',
+  weekly: 'Weekly Updates',
+  wg: 'Working Groups',
+  events: 'Events',
+};
+
 const BlogPostCard: FC<BlogPostCardProps> = ({
   title,
   slug,
@@ -29,8 +46,6 @@ const BlogPostCard: FC<BlogPostCardProps> = ({
   authors = [],
   date,
 }) => {
-  const t = useTranslations();
-
   const avatars = authors.map(({ fullName, src }) => ({ alt: fullName, src }));
 
   const type = mapBlogCategoryToPreviewType(category);
@@ -42,7 +57,7 @@ const BlogPostCard: FC<BlogPostCardProps> = ({
       </Link>
 
       <Link href={`/blog/${category}`} className={styles.subtitle}>
-        {t(`layouts.blog.categories.${category}`)}
+        {categories[category]}
       </Link>
 
       <Link href={slug} className={styles.title}>

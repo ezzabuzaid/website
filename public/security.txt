@@ -1,2 +1,2 @@
 Contact: https://hackerone.com/nodejs
-Policy: https://github.com/nodejs/node/security/policy#security
+Policy: https://github.com/januarylabs/node/security/policy#security

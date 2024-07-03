@@ -6,7 +6,6 @@ import {
 } from './next-data/providers/blogData';
 import { BASE_PATH, BASE_URL } from './next.constants.mjs';
 import { siteConfig } from './next.json.mjs';
-import { defaultLocale } from './next.locales.mjs';
 
 /**
  * This is a list of all static routes or pages from the Website that we do not
@@ -16,8 +15,7 @@ import { defaultLocale } from './next.locales.mjs';
  */
 export const IGNORED_ROUTES = [
   // This is used to ignore all blog routes except for the English language
-  ({ locale, pathname }) =>
-    locale !== defaultLocale.code && /^blog/.test(pathname),
+  ({ pathname }) => /^blog/.test(pathname),
 ];
 
 /**
@@ -66,7 +64,7 @@ export const PAGE_METADATA = {
     canonical: '',
     languages: { 'x-default': '' },
     types: {
-      'application/rss+xml': `${BASE_URL}${BASE_PATH}/en/feed/blog.xml`,
+      'application/rss+xml': `${BASE_URL}${BASE_PATH}/feed/blog.xml`,
     },
   },
   icons: { icon: siteConfig.favicon },

@@ -1,4 +1,3 @@
-import { useTranslations } from 'next-intl';
 import type { ComponentProps, FC } from 'react';
 
 import SidebarGroup from '@/components/Containers/Sidebar/SidebarGroup';
@@ -12,7 +11,6 @@ type SidebarProps = {
 };
 
 const SideBar: FC<SidebarProps> = ({ groups }) => {
-  const t = useTranslations();
   const { pathname } = useClientContext();
 
   const selectItems = groups.map(({ items, groupName }) => ({
@@ -29,7 +27,7 @@ const SideBar: FC<SidebarProps> = ({ groups }) => {
     <aside className={styles.wrapper}>
       {selectItems.length > 0 && (
         <WithRouterSelect
-          label={t('components.common.sidebar.title')}
+          label={'Change page'}
           values={selectItems}
           defaultValue={currentItem?.value}
         />
