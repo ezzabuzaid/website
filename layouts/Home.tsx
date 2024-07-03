@@ -1,6 +1,4 @@
-import { readFileSync } from 'fs';
-import { dirname, join } from 'path';
-import { fileURLToPath } from 'url';
+/* eslint-disable import/no-unresolved */
 
 import { type FC, type PropsWithChildren } from 'react';
 
@@ -9,8 +7,15 @@ import { Mdx } from '@/components/mdx';
 import MDXCodeTabs from '@/components/MDX/CodeTabs';
 import CenteredLayout from '@/layouts/Centered';
 
-import styles from './layouts.module.css';
+import authenticatedUser from '!!raw-loader!../components/Examples/authenticated-user.md';
+import githubTrigger from '!!raw-loader!../components/Examples/github-trigger.md';
+import httpTrigger from '!!raw-loader!../components/Examples/http-trigger.md';
+import limitToCountry from '!!raw-loader!../components/Examples/limit-to-country.md';
+import scheduleTrigger from '!!raw-loader!../components/Examples/schedule-trigger.md';
+import sendEmail from '!!raw-loader!../components/Examples/send-email.md';
+import uploadFile from '!!raw-loader!../components/Examples/upload-file.md';
 
+import styles from './layouts.module.css';
 const examplesTabs = [
   {
     id: 'api-endpoints',
@@ -19,11 +24,10 @@ const examplesTabs = [
       {
         id: 'setupAnEndpoint',
         title: 'Setup an Endpoint',
-        hint: 'You can create an API endpoint using the `trigger.http` trigger that can be accessed via an HTTP request. HTTP trigger is available in a Routing extension (koa, express, hono.dev, etc.).',
         content: (
           <Mdx
             hideCopyButton={true}
-            source={rf('../components/Examples/http-trigger.md')}
+            source={httpTrigger}
             components={{
               h1: ({ children }) => <h1 className="text-3xl">{children}</h1>,
             }}
@@ -33,11 +37,23 @@ const examplesTabs = [
       {
         id: 'githubTrigger',
         title: 'Github Trigger',
-        hint: 'You can use the GitHub Trigger to receive events from GitHub repositories such as `push`, `pull_request`, `issues`, and more. This trigger is available in the GitHub extension.',
         content: (
           <Mdx
             hideCopyButton={true}
-            source={rf('../components/Examples/github-trigger.md')}
+            source={githubTrigger}
+            components={{
+              h1: ({ children }) => <h1 className="text-3xl">{children}</h1>,
+            }}
+          />
+        ),
+      },
+      {
+        id: 'scheduleTrigger',
+        title: 'Schedule Trigger',
+        content: (
+          <Mdx
+            hideCopyButton={true}
+            source={scheduleTrigger}
             components={{
               h1: ({ children }) => <h1 className="text-3xl">{children}</h1>,
             }}
@@ -56,7 +72,7 @@ const examplesTabs = [
         content: (
           <Mdx
             hideCopyButton={true}
-            source={rf('../components/Examples/authenticated-user.md')}
+            source={authenticatedUser}
             components={{
               h1: ({ children }) => <h1 className="text-3xl">{children}</h1>,
             }}
@@ -69,7 +85,7 @@ const examplesTabs = [
         content: (
           <Mdx
             hideCopyButton={true}
-            source={rf('../components/Examples/limit-to-country.md')}
+            source={limitToCountry}
             components={{
               h1: ({ children }) => <h1 className="text-3xl">{children}</h1>,
             }}
@@ -92,7 +108,7 @@ const examplesTabs = [
         content: (
           <Mdx
             hideCopyButton={true}
-            source={rf('../components/Examples/upload-file.md')}
+            source={uploadFile}
             components={{
               h1: ({ children }) => <h1 className="text-3xl">{children}</h1>,
             }}
@@ -112,7 +128,7 @@ const examplesTabs = [
         content: (
           <Mdx
             hideCopyButton={true}
-            source={rf('../components/Examples/send-email.md')}
+            source={sendEmail}
             components={{
               h1: ({ children }) => <h1 className="text-3xl">{children}</h1>,
             }}
@@ -200,10 +216,3 @@ const HomeLayout: FC<PropsWithChildren> = async ({ children }) => {
 };
 
 export default HomeLayout;
-
-function rf(name: string) {
-  const __filename = fileURLToPath(import.meta.url);
-  const __dirname = dirname(__filename);
-  const fullPath = join(__dirname, name);
-  return readFileSync(fullPath, 'utf-8');
-}

@@ -3,8 +3,7 @@ import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 import classNames from 'classnames';
 import type { FC } from 'react';
 
-import type { LocaleConfig } from '@/types';
-
+import type { LocaleConfig } from '@/types/i18n';
 import styles from './index.module.css';
 
 type SimpleLocaleConfig = Pick<LocaleConfig, 'name' | 'code'>;

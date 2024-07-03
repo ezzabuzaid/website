@@ -1,8 +1,8 @@
 import type { ComponentProps, FC } from 'react';
 
 import SidebarItem from '@/components/Containers/Sidebar/SidebarItem';
-import type { FormattedMessage } from '@/types';
 
+import type { FormattedMessage } from '@/types/i18n';
 import styles from './index.module.css';
 
 type SidebarGroupProps = {

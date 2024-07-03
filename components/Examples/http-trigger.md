@@ -17,4 +17,4 @@ workflow('CreateUserWorkflow', {
 });
 ```
 
-You can create an API endpoint using the `trigger.http` trigger that can be accessed via an HTTP request. HTTP trigger is available in a Routing extension (koa, express, hono.dev, etc.).
+Create an API endpoint that can be accessed via an HTTP request using the `trigger.http` trigger. Can be found in a Routing extension (koa, express, hono.dev, etc.).

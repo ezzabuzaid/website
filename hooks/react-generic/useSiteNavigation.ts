@@ -1,11 +1,8 @@
 import type { HTMLAttributeAnchorTarget } from 'react';
 
 import { siteNavigation } from '@/next.json.mjs';
-import type {
-  FormattedMessage,
-  NavigationEntry,
-  NavigationKeys,
-} from '@/types';
+import type { NavigationEntry, NavigationKeys } from '@/types';
+import type { FormattedMessage } from '@/types/i18n';
 
 type Navigation = Record<string, NavigationEntry>;
 

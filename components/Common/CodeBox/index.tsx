@@ -114,7 +114,7 @@ const CodeBox: FC<PropsWithChildren<CodeBoxProps>> = ({
           {showCopyButton && (
             <Button kind="neutral" className={styles.action} onClick={onCopy}>
               <DocumentDuplicateIcon className={styles.icon} />
-              {t('components.common.codebox.copy')}
+              Copy to clipboard
             </Button>
           )}
         </div>

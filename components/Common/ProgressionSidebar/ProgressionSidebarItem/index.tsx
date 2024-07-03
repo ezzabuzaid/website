@@ -2,8 +2,8 @@ import type { FC } from 'react';
 
 import ActiveLink from '@/components/Common/ActiveLink';
 import ProgressionSidebarIcon from '@/components/Common/ProgressionSidebar/ProgressionSidebarIcon';
-import type { FormattedMessage } from '@/types';
 
+import type { FormattedMessage } from '@/types/i18n';
 import styles from './index.module.css';
 
 type ProgressionSidebarItemProps = {

@@ -2,8 +2,8 @@ import { ArrowUpRightIcon } from '@heroicons/react/24/solid';
 import type { FC } from 'react';
 
 import ActiveLink from '@/components/Common/ActiveLink';
-import type { FormattedMessage } from '@/types';
 
+import type { FormattedMessage } from '@/types/i18n';
 import styles from './index.module.css';
 
 type SidebarItemProps = {

@@ -16,4 +16,4 @@ workflow('IssueLabeledWorkflow', {
 });
 ```
 
-You can use the GitHub Trigger to receive events from GitHub repositories such as `push`, `pull_request`, `issues`, and more. This trigger is available in the GitHub extension.
+Receive events from GitHub repositories such as `push`, `pull_request`, `issues`, and more. This trigger is available in the GitHub extension.

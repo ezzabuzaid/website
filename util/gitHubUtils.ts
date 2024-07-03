@@ -10,7 +10,7 @@ export const createGitHubSlugger = () => {
 };
 
 export const getGitHubBlobUrl = (filename: string) =>
-  `https://github.com/januarylabs/nodejs.org/blob/main/pages/${filename}`;
+  `https://github.com/januarylabs/website/blob/main/pages/${filename}`;
 
 export const getGitHubApiDocsUrl = (ref: string) =>
-  `https://api.github.com/repos/nodejs/node/contents/doc/api?ref=${ref}`;
+  `https://api.github.com/repos/januarylabs/website/contents/doc/api?ref=${ref}`;

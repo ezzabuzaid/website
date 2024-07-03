@@ -4,11 +4,10 @@ import { ChevronDownIcon } from '@heroicons/react/24/outline';
 import * as ScrollPrimitive from '@radix-ui/react-scroll-area';
 import * as SelectPrimitive from '@radix-ui/react-select';
 import classNames from 'classnames';
-import { useId, useMemo } from 'react';
 import type { FC } from 'react';
+import { useId, useMemo } from 'react';
 
-import type { FormattedMessage } from '@/types';
-
+import type { FormattedMessage } from '@/types/i18n';
 import styles from './index.module.css';
 
 type SelectValue = {

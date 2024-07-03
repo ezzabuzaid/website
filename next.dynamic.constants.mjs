@@ -1,5 +1,6 @@
 'use strict';
 
+import { join } from 'path';
 import {
   provideBlogCategories,
   provideBlogPosts,
@@ -27,7 +28,7 @@ export const IGNORED_ROUTES = [
  */
 export const DYNAMIC_ROUTES = new Map([
   // Provides Routes for all Blog Categories
-  ...provideBlogCategories().map(c => [`blog/${c}`, 'blog-category']),
+  ...provideBlogCategories().map(c => [join(`blog`, c), 'blog-category']),
   // Provides Routes for all Blog Categories w/ Pagination
   ...provideBlogCategories()
     // retrieves the amount of pages for each blog category

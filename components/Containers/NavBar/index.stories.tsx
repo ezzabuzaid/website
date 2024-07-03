@@ -33,14 +33,6 @@ export const Default: Story = {
         link: 'https://openjsf.org/certification',
       },
     ],
-    languages: {
-      availableLanguages: [
-        { name: 'English', code: 'en' },
-        { name: 'French', code: 'fr' },
-        { name: 'Spanish', code: 'es' },
-      ],
-      currentLanguage: 'en',
-    },
     onThemeTogglerClick: () => {},
   },
 };
