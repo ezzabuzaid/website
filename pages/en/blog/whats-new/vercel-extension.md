@@ -1,7 +1,6 @@
 ---
 date: '2024-04-24T17:45:00.000Z'
-category:
-
+category: whats-new
 title: 'Releasing Vercel Functions Extension'
 layout: blog-post
 author: ezzabuzaid

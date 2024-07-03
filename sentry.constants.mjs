@@ -12,7 +12,7 @@ export const SENTRY_DSN =
  * We enable sentry by default if we're om development mode or deployed
  * on Vercel (either production or preview branches)
  */
-export const SENTRY_ENABLE = IS_DEVELOPMENT || !!VERCEL_ENV;
+export const SENTRY_ENABLE = !IS_DEVELOPMENT || !!VERCEL_ENV;
 
 /**
  * This configures the sampling rate for Sentry

@@ -1,8 +1,9 @@
 'use client';
 
+import type { FC } from 'react';
+
 import { RssIcon } from '@heroicons/react/24/solid';
 import { useTranslations } from 'next-intl';
-import type { FC } from 'react';
 
 import Link from '@/components/Link';
 import { siteConfig } from '@/next.json.mjs';
