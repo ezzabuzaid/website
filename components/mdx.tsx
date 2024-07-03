@@ -1,5 +1,6 @@
-import dynamic from 'next/dynamic';
 import type { MDXRemoteProps } from 'next-mdx-remote/rsc';
+
+import dynamic from 'next/dynamic';
 
 import { NEXT_REHYPE_PLUGINS, NEXT_REMARK_PLUGINS } from '@/next.mdx.mjs';
 

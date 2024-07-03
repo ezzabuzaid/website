@@ -1,4 +1,4 @@
-import type { FC, ComponentProps } from 'react';
+import type { ComponentProps, FC } from 'react';
 
 import { Link as LocalizedLink } from '@/navigation.mjs';
 
