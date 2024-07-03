@@ -50,6 +50,7 @@ const BlogLayout: FC = async () => {
               'all',
               'announcements',
               'javascript-bites',
+              'whats-new',
             ])}
           />
         </main>

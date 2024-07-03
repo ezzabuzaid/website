@@ -1,6 +1,6 @@
 ---
 date: '2024-04-24T17:45:00.000Z'
-category: announcements
+category: whats-new
 title: 'Releasing Github Webhooks Extension'
 layout: blog-post
 author: ezzabuzaid
@@ -14,10 +14,11 @@ With this extension, you can now:
 - Easily set up and manage webhooks within your project.
 - Connect your workflows with real-time updates from your GitHub repositories.
 
-It's especially useful for:
+What can you do with this extension?
 
 - Send notifications to your team when a new issue is created.
 - Maintaining public issue-tracking boards while managing comminucation internally.
+- Build community discussions boards that are powered by GitHub issues or GitHub discussions.
 
 ## How does it work?
 

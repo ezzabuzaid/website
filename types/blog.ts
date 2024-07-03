@@ -1,4 +1,7 @@
-export type BlogPreviewType = 'announcements' | 'javascript-bites';
+export type BlogPreviewType =
+  | 'announcements'
+  | 'javascript-bites'
+  | 'whats-new';
 
 export interface BlogPost {
   title: string;
