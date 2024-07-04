@@ -35,6 +35,10 @@ const nextConfig = {
       },
       {
         protocol: 'https',
+        hostname: 'substackcdn.com',
+      },
+      {
+        protocol: 'https',
         hostname: 'raw.githubusercontent.com',
         port: '',
         pathname: '/januarylabs/**',

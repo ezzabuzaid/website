@@ -24,6 +24,7 @@ const categories: Record<string, string> = {
   announcements: 'Announcements',
   release: 'Releases',
   'javascript-bites': 'JavaScript Bites',
+  journal: 'Journal',
   'whats-new': "What's new",
   'advisory-board': 'Advisory Board',
   community: 'Community',

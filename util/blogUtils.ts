@@ -7,6 +7,8 @@ export const mapBlogCategoryToPreviewType = (type: string): BlogPreviewType => {
     case 'javascript-bites':
     case 'whats-new':
       return type;
+    case 'journal':
+      return 'javascript-bites';
     case 'events':
       return 'announcements';
     default:

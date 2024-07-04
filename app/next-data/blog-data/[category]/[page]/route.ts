@@ -4,6 +4,7 @@ import {
   providePaginatedBlogPosts,
 } from '@/next-data/providers/blogData';
 import { VERCEL_REVALIDATE } from '@/next.constants.mjs';
+import type { NextRequest } from 'next/server';
 
 type StaticParams = {
   params: { locale: string; category: string; page: string };
@@ -12,7 +13,7 @@ type StaticParams = {
 // This is the Route Handler for the `GET` method which handles the request
 // for providing Blog Posts for Blog Categories and Pagination Metadata
 // @see https://nextjs.org/docs/app/building-your-application/routing/router-handlers
-export const GET = async (_: Request, { params }: StaticParams) => {
+export const GET = async (_: NextRequest, { params }: StaticParams) => {
   const requestedPage = Number(params.page);
 
   const data =
@@ -26,7 +27,7 @@ export const GET = async (_: Request, { params }: StaticParams) => {
 };
 
 // This function generates the static paths that come from the dynamic segments
-// `[locale]/next-data/blog-data/[category]` and returns an array of all available static paths
+// `next-data/blog-data/[category]` and returns an array of all available static paths
 // This is used for ISR static validation and generation
 export const generateStaticParams = async () => {
   // This metadata is the original list of all available categories and all available years
