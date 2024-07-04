@@ -1,5 +1,5 @@
 * {
-  @apply subpixel-antialiased
+  @apply antialiased
     motion-safe:transition-colors;
 }
 
@@ -10,8 +10,8 @@ body {
 }
 
 body {
-  @apply bg-white
-    font-open-sans
+  @apply /*
+    */ bg-white font-open-sans
     text-neutral-950
     motion-safe:scroll-smooth
     dark:bg-neutral-950
@@ -28,6 +28,8 @@ body {
   }
   p {
     @apply my-3 text-lg text-neutral-800;
+    word-break: break-word;
+    text-wrap: balance;
   }
 }
 
@@ -36,4 +38,16 @@ body {
   --ec-brdCol: rgb(44 52 55);
   --ec-brdRad: '0.0rem';
   --code-background: rgb(13 18 28);
+}
+
+:root {
+  font-family: Inter, sans-serif;
+  font-feature-settings:
+    'liga' 1,
+    'calt' 1; /* fix for Chrome */
+}
+@supports (font-variation-settings: normal) {
+  :root {
+    font-family: InterVariable, sans-serif;
+  }
 }

@@ -75,8 +75,6 @@ The name **Canon** -Canon the second- is the Arabic word for January. It's Janua
 
 Technically speaking, CanonLang is an internal DSL built on top of TypeScript that provides declarative syntax to define APIs.
 
-One of the intersting things about CanonLang is that it has been designed with AI support in mind. Think of auto guess database schema from the API logic, not just the names but the types and validations also.
-
 You can get something ready to run with very small amount of code. Here is an example of a complete API project:
 
 ```ts

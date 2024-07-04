@@ -4,7 +4,6 @@ import BlogPostCard from '@/components/Common/BlogPostCard';
 import LinkTabs from '@/components/Common/LinkTabs';
 import Pagination from '@/components/Common/Pagination';
 import type { BlogPostsRSC } from '@/types';
-import { mapAuthorToCardAuthors } from '@/util/blogUtils';
 
 type WithBlogCategoriesProps = {
   categories: ComponentProps<typeof LinkTabs>['tabs'];
@@ -33,7 +32,6 @@ const WithBlogCategories: FC<WithBlogCategoriesProps> = ({
               key={post.slug}
               title={post.title}
               category={post.categories[0]}
-              authors={mapAuthorToCardAuthors(post.author)}
               date={post.date}
               slug={post.slug}
             />

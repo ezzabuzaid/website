@@ -18,6 +18,10 @@ const fontClasses = classNames(
 const RootLayout: FC<PropsWithChildren> = async ({ children }) => {
   return (
     <html className={fontClasses} dir={'ltr'} lang={'en-GB'}>
+      <head>
+        <link rel="preconnect" href="https://rsms.me/" />
+        <link rel="stylesheet" href="https://rsms.me/inter/inter.css"></link>
+      </head>
       <body suppressHydrationWarning>
         <ThemeProvider>
           <BaseLayout>{children}</BaseLayout>

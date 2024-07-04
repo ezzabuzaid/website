@@ -1,6 +1,5 @@
 import type { FC } from 'react';
 
-import AvatarGroup from '@/components/Common/AvatarGroup';
 import FormattedTime from '@/components/Common/FormattedTime';
 import Preview from '@/components/Common/Preview';
 import Link from '@/components/Link';
@@ -43,11 +42,8 @@ const BlogPostCard: FC<BlogPostCardProps> = ({
   slug,
   category,
   description,
-  authors = [],
   date,
 }) => {
-  const avatars = authors.map(({ fullName, src }) => ({ alt: fullName, src }));
-
   const type = mapBlogCategoryToPreviewType(category);
 
   return (
@@ -67,11 +63,7 @@ const BlogPostCard: FC<BlogPostCardProps> = ({
       {description && <p className={styles.description}>{description}</p>}
 
       <footer className={styles.footer}>
-        <AvatarGroup avatars={avatars ?? []} />
-
         <div className={styles.author}>
-          {avatars && <p>{avatars.map(({ alt }) => alt).join(', ')}</p>}
-
           {date && <FormattedTime date={date} />}
         </div>
       </footer>

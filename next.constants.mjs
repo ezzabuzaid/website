@@ -124,4 +124,3 @@ export const EXTERNAL_LINKS_SITEMAP = [
   'https://trademark-list.openjsf.org/',
   'https://www.linuxfoundation.org/cookies',
 ];
- 
