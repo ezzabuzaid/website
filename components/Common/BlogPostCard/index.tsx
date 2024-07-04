@@ -52,7 +52,7 @@ const BlogPostCard: FC<BlogPostCardProps> = ({
         <Preview title={title} type={type} />
       </Link>
 
-      <Link href={`/blog/${category}`} className={styles.subtitle}>
+      <Link href={`/posts/${category}`} className={styles.subtitle}>
         {categories[category]}
       </Link>
 

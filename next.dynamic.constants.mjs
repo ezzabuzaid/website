@@ -28,14 +28,14 @@ export const IGNORED_ROUTES = [
  */
 export const DYNAMIC_ROUTES = new Map([
   // Provides Routes for all Blog Categories
-  ...provideBlogCategories().map(c => [join(`blog`, c), 'blog-category']),
+  ...provideBlogCategories().map(c => [join(`posts`, c), 'blog-category']),
   // Provides Routes for all Blog Categories w/ Pagination
   ...provideBlogCategories()
     // retrieves the amount of pages for each blog category
     .map(c => [c, provideBlogPosts(c).pagination.pages])
     // creates a numeric array for each page and define a pathname for
     // each page for a category (i.e. blog/all/page/1)
-    .map(([c, t]) => [...Array(t).keys()].map(p => `blog/${c}/page/${p + 1}`))
+    .map(([c, t]) => [...Array(t).keys()].map(p => `posts/${c}/page/${p + 1}`))
     // creates a tuple of each pathname and layout for the route
     .map(paths => paths.map(path => [path, 'blog-category']))
     // flattens the array since we have a .map inside another .map
@@ -65,7 +65,7 @@ export const PAGE_METADATA = {
     canonical: '',
     languages: { 'x-default': '' },
     types: {
-      'application/rss+xml': `${BASE_URL}${BASE_PATH}/feed/blog.xml`,
+      'application/rss+xml': `${BASE_URL}${BASE_PATH}/feed/posts.xml`,
     },
   },
   icons: { icon: siteConfig.favicon },

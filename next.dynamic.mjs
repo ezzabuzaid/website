@@ -63,7 +63,10 @@ const getDynamicRouter = async () => {
     }
 
     pathname = normalize(pathname).replace('.', '');
-
+    if (pathname.startsWith('blog')) {
+      const postSlug = pathname.split('/').at(-1);
+      pathname = postSlug !== 'blog' ? `posts/${postSlug}` : 'posts';
+    }
     // We map the pathname to the filename to be able to quickly
     // resolve the filename for a given pathname
     pathnameToFilename.set(pathname, filename);
@@ -94,7 +97,7 @@ const getDynamicRouter = async () => {
    */
   const _getMarkdownFile = async (pathname = '') => {
     const normalizedPathname = normalize(pathname).replace('.', '');
-
+    console.log({ normalizedPathname });
     // This verifies if the given pathname actually exists on our Map
     // meaning that the route exists on the website and can be rendered
     if (pathnameToFilename.has(normalizedPathname)) {
@@ -210,7 +213,7 @@ const getDynamicRouter = async () => {
     } else {
       // Use getUrlForPathname for the default blog XML feed path
       pageMetadata.alternates.types['application/rss+xml'] =
-        getUrlForPathname('feed/blog.xml');
+        getUrlForPathname('feed/posts.xml');
     }
 
     return pageMetadata;

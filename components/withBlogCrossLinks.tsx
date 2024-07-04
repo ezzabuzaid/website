@@ -13,7 +13,7 @@ const WithBlogCrossLinks: FC = async () => {
   const { posts } = await getBlogData(category);
 
   const currentItem = posts.findIndex(
-    ({ slug }) => slug === `/blog/${category}/${postname}`
+    ({ slug }) => slug === `/posts/${category}/${postname}`
   );
 
   const [previousCrossLink, nextCrossLink] = [

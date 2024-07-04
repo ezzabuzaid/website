@@ -84,9 +84,9 @@ jobs:
           configPath: './.lighthouserc.json'
           # These URLS capture critical pages / site functionality.
           urls: |
-            ${{ steps.vercel_preview_url.outputs.url }}/en
+            ${{ steps.vercel_preview_url.outputs.url }}/
             ${{ steps.vercel_preview_url.outputs.url }}/about
-            ${{ steps.vercel_preview_url.outputs.url }}/blog
+            ${{ steps.vercel_preview_url.outputs.url }}/posts
           uploadArtifacts: true # save results as a action artifacts
           temporaryPublicStorage: true # upload lighthouse report to the temporary storage
 

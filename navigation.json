@@ -1,15 +1,11 @@
 {
   "topNavigation": {
-    "learn": {
-      "link": "/learn",
-      "label": "Learn"
-    },
     "about": {
       "link": "/about",
       "label": "About"
     },
     "blog": {
-      "link": "/blog",
+      "link": "/posts",
       "label": "Blog"
     },
     "roadmap": {

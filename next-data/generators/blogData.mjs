@@ -46,8 +46,7 @@ const getFrontMatter = (filename, source) => {
   blogCategories.add(category);
 
   // this is the url used for the blog post it based on the category and filename
-  const slug = `/blog/${category}/${basename(filename, extname(filename))}`;
-
+  const slug = `/posts/${basename(filename, extname(filename))}`;
   return { title, author, username, date: new Date(date), categories, slug };
 };
 

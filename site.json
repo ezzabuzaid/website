@@ -13,7 +13,7 @@
   "rssFeeds": [
     {
       "title": "January Blog",
-      "file": "blog.xml",
+      "file": "posts.xml",
       "category": "all"
     }
   ],

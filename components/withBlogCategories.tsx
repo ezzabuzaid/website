@@ -12,7 +12,7 @@ type WithBlogCategoriesProps = {
 
 const mapPaginationPages = (category: string, pages: number) =>
   [...Array(pages).keys()].map(page => ({
-    url: `/blog/${category}/page/${page + 1}`,
+    url: `/posts/${category}/page/${page + 1}`,
   }));
 
 const WithBlogCategories: FC<WithBlogCategoriesProps> = ({

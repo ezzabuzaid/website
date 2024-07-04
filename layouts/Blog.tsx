@@ -34,7 +34,7 @@ const BlogLayout: FC = async () => {
     categories.map(category => ({
       key: category.label,
       label: category.label,
-      link: `/blog/${category.link}`,
+      link: `/posts/${category.link}`,
     }));
 
   const blogData = await getBlogCategory(pathname);

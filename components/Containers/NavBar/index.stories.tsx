@@ -26,7 +26,7 @@ export const Default: Story = {
       },
       {
         text: 'Blog',
-        link: '/blog',
+        link: '/posts',
       },
       {
         text: 'Certification',

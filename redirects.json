@@ -38,11 +38,11 @@
     },
     {
       "source": "/(atom|feed|rss).xml",
-      "destination": "/feed/blog.xml"
+      "destination": "/feed/posts.xml"
     },
     {
       "source": "/feed",
-      "destination": "/feed/blog.xml"
+      "destination": "/feed/posts.xml"
     },
     {
       "source": "/feed/release",
