@@ -68,7 +68,6 @@ export const PAGE_METADATA = {
       'application/rss+xml': `${BASE_URL}${BASE_PATH}/feed/posts.xml`,
     },
   },
-  icons: { icon: siteConfig.favicon },
   openGraph: { images: siteConfig.twitter.img },
 };
 

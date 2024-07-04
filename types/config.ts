@@ -19,7 +19,6 @@ export interface SiteConfig {
   title: string;
   description: string;
   featuredImage: string;
-  favicon: string;
   lightAccentColor: string;
   darkAccentColor: string;
   og: OGConfig;
