@@ -22,16 +22,16 @@ const HogButton = forwardRef<
         className,
         props.inverse
           ? 'border-green-800 bg-green-600'
-          : 'border-green-800 bg-green-600 text-white'
+          : 'border-green-800 text-white'
       )}
       {...props}
     >
       <span
         className={cn(
-          'border-black/10 relative -mx-0.5 flex w-auto -translate-y-1 select-none items-center justify-center rounded-md border px-4 py-2 text-center font-semibold transition duration-75 hover:-translate-y-0.5 active:-translate-y-px active:transition-all active:duration-100 group-disabled:hover:!translate-y-[-2px]',
+          'border-green-800 relative -mx-0.5 flex w-auto -translate-y-1 select-none items-center justify-center rounded-md border px-4 py-2 text-center font-semibold transition duration-75 hover:translate-y-0.5 active:-translate-y-px active:transition-all active:duration-100 group-disabled:hover:!translate-y-[-2px]',
           props.inverse
-            ? 'border-green-800 bg-white dark:bg-[#1d1f27]'
-            : 'bg-green-600'
+            ? 'bg-white dark:bg-[#1d1f27]'
+            : ''
         )}
       >
         {props.children}

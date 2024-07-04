@@ -96,7 +96,7 @@
     xl:gap-28
     2xl:gap-32;
 
-  section {
+  > section {
     &:nth-of-type(1) {
       @apply flex
         max-w-[500px]

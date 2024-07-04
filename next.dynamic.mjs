@@ -97,7 +97,6 @@ const getDynamicRouter = async () => {
    */
   const _getMarkdownFile = async (pathname = '') => {
     const normalizedPathname = normalize(pathname).replace('.', '');
-    console.log({ normalizedPathname });
     // This verifies if the given pathname actually exists on our Map
     // meaning that the route exists on the website and can be rendered
     if (pathnameToFilename.has(normalizedPathname)) {
