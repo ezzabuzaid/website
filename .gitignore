@@ -3,6 +3,7 @@ node_modules
 npm-debug.log
 .npm
 .env.*
+.env
 
 # Next.js Build Output
 .next
