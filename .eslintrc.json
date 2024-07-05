@@ -18,7 +18,9 @@
       "env": { "es6": true, "node": true },
       "plugins": ["import"],
       "extends": ["eslint:recommended", "next", "next/core-web-vitals"],
-      "rules": {}
+      "rules": {
+        "no-unused-vars": "off"
+      }
     },
     {
       "files": ["**/*.ts?(x)"],
