@@ -6,9 +6,7 @@ const DOCS_VECTORSTORE_ID = 'vs_YyCuanTAV01erLARFE2rb9f6';
 const WEBSITE_VECTORSTORE_ID = 'vs_MesKThnNuAD2iYGZm3Nc79Mv';
 
 async function uploadToAssistant(assistantId) {
-  const openai = new OpenAI({
-    apiKey: 'sk-proj-S2g2xJj5mx5q81RAUGwRT3BlbkFJAIsWCFDoORoPwwKMJyDj',
-  });
+  const openai = new OpenAI();
 
   const { data: vectorFiles } = await openai.beta.vectorStores.files.list(
     assistantId,
