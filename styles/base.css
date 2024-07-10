@@ -27,7 +27,7 @@ body {
     @apply font-merriweather-sans;
   }
   p {
-    @apply my-3 text-lg text-neutral-800;
+    @apply my-2 text-base text-neutral-800;
     word-break: break-word;
     text-wrap: balance;
   }
