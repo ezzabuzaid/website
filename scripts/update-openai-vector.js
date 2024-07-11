@@ -42,7 +42,6 @@ async function uploadToAssistant(assistantId) {
   });
 }
 
-// module.exports = async () => {
-//   await uploadToAssistant(WEBSITE_ASSISTANT_ID);
-// };
-await uploadToAssistant(WEBSITE_VECTORSTORE_ID);
+module.exports = async () => {
+  await uploadToAssistant(WEBSITE_VECTORSTORE_ID);
+};

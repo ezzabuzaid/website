@@ -1,3 +1,11 @@
+---
+date: '2024-07-10T00:00:00.000Z'
+category: whats-new
+title: 'Custom actions'
+layout: blog-post
+author: ezzabuzaid
+---
+
 # Custom actions
 
 Today, we're starting invistigating how to go beyond what extensions offers and be flexible in terms of the code you have, albeit that was possiple before via passing custom code/logic as string to the action, but it was only a workaround.
@@ -74,4 +82,3 @@ Extensions still are the best way to go if they do what you need; one advantage 
 
 - [ ] Add support for importing native modules and external packages in custom actions.
 - [ ] Accessing workflow context in custom actions.
-
