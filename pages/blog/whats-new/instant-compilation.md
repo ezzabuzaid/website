@@ -10,9 +10,9 @@ The compilation process is segmented into several distinct stages, starting with
 
 Previously, we would have to request the server to evaluate the code within a secure Docker container and then transmit the results back to the client. Although this method was initially quick, it gradually became slower as we expanded the capabilities of the language.
 
-Previously, evaluating the code involved more than just sending it to a JavaScript interpreter; it required transpiling the code into JavaScript, ensuring it was non-malicious, and then executing it.
+Also it required transpiling to JavaScript, ensuring it was non-malicious, and then executing it.
 
-Now, we have the flexibility to use any JavaScript interpreters, and it's no longer necessary for them to operate within a strictly secure environment. The new process involves statically remapping the code to a data structure that can then be evaluated in any JavaScript environment like a browser.
+Now, we have the flexibility to use any JavaScript interpreters, and it's no longer necessary for them to operate within a strictly secure environment. The new process involves statically remapping the code to a data structure that can then be evaluated in any JavaScript host like a browser.
 
 Take the following for example:
 
@@ -69,6 +69,8 @@ const callers: Record<string, (...args: unknown[]) => void> = {
 };
 ```
 
-The compilation time for a project has dramatically decreased from around 1-2 seconds to less than 100ms, which is a significant improvement. We are excited to see how this will enhance the overall experience of using CanonLang.
+The compilation time for a project has dramatically decreased from around 1-2 seconds to less than 100ms, which is a significant improvement. Moreover, this change will also allow us to generate diagnostic messages (e.g., errors, warnings) in the future, something we are looking forward to.
 
-Besides the performance and security improvements, this change will also allow us to generate diagnostic messages (e.g., errors, warnings) in the future, something we are looking forward to.
+## What's next?
+
+- [ ] Implement a more robust error handling mechanism.
