@@ -8,6 +8,7 @@ import { FIRA_CODE, Merriweather_SANS, OPEN_SANS } from '@/next.fonts';
 import { ThemeProvider } from '@/providers/themeProvider';
 
 import '@/styles/index.css';
+import { PHProvider } from './providers';
 
 const fontClasses = classNames(
   FIRA_CODE.variable,
@@ -23,9 +24,11 @@ const RootLayout: FC<PropsWithChildren> = async ({ children }) => {
         <link rel="stylesheet" href="https://rsms.me/inter/inter.css"></link>
       </head>
       <body suppressHydrationWarning>
-        <ThemeProvider>
-          <BaseLayout>{children}</BaseLayout>
-        </ThemeProvider>
+        <PHProvider>
+          <ThemeProvider>
+            <BaseLayout>{children}</BaseLayout>
+          </ThemeProvider>
+        </PHProvider>
 
         {VERCEL_ENV && (
           <>
