@@ -52,7 +52,7 @@ jobs:
       - uses: actions/github-script@v7
         with:
           script: |
-            const script = await require('./scripts/update-openai-vector.js')
+            const { default: script } = await import('${{ github.workspace }}/scripts/update-openai-vector.js')
             script()
 
       - uses: sarisia/actions-status-discord@v1

@@ -65,10 +65,10 @@ The product is designed to be developer-friendly and intuitive so that developer
 
 You need to have some basic understanding of coding to use this product.
 
-# How much does January cost?
+### How much does January cost?
 
 It is free to use during the beta phase. We are working on a pricing model that will be fair and affordable for everyone. We will announce the pricing model soon.
 
-# Can I use January now?
+### Can I use January now?
 
 Currently, it is in a beta phase. We are working hard to ensure that all parts work together. That being said, you can try it now in the playground above.
