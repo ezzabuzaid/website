@@ -16,7 +16,7 @@ type BlogHeaderProps = {
 const BlogHeader: FC<BlogHeaderProps> = ({ category }) => {
   const currentFile =
     siteConfig.rssFeeds.find(item => item.category === category)?.file ??
-    'blog.xml';
+    'posts.xml';
 
   return (
     <header className={styles.blogHeader}>

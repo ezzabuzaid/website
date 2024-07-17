@@ -1,6 +1,6 @@
-const glob = require('fast-glob');
-const { createReadStream, statSync } = require('fs');
-const { OpenAI } = require('openai');
+import glob from 'fast-glob';
+import { createReadStream, statSync } from 'fs';
+import { OpenAI } from 'openai';
 
 const DOCS_VECTORSTORE_ID = 'vs_YyCuanTAV01erLARFE2rb9f6';
 const WEBSITE_VECTORSTORE_ID = 'vs_MesKThnNuAD2iYGZm3Nc79Mv';
@@ -42,6 +42,6 @@ async function uploadToAssistant(assistantId) {
   });
 }
 
-module.exports = async () => {
+export default async () => {
   await uploadToAssistant(WEBSITE_VECTORSTORE_ID);
 };

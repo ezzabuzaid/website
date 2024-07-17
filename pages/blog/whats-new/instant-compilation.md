@@ -74,3 +74,4 @@ The compilation time for a project has dramatically decreased from around 1-2 se
 ## What's next?
 
 - [ ] Implement a more robust error handling mechanism.
+- [ ] Collect and display diagnostic messages.

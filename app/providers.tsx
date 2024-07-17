@@ -4,6 +4,7 @@ import posthog from 'posthog-js';
 import { PostHogProvider } from 'posthog-js/react';
 
 import PostHogPageView from './PostHogPageView';
+import { Suspense } from 'react';
 
 if (typeof window !== 'undefined') {
   posthog.init('phc_PORJdMHMucNgcwabzQbEsaCrvfe23rQH8iDMAFaLwlS', {
@@ -25,7 +26,9 @@ if (typeof window !== 'undefined') {
 export const PHProvider = ({ children }: { children: React.ReactNode }) => {
   return (
     <PostHogProvider client={posthog}>
-      <PostHogPageView />
+      <Suspense>
+        <PostHogPageView />
+      </Suspense>
       {children}
     </PostHogProvider>
   );
