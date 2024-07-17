@@ -1,5 +1,5 @@
 ---
-date: '2024-07-10T00:00:00.000Z'
+date: '2024-07-16T00:00:00.000Z'
 category: whats-new
 title: 'Raw SQL queries'
 layout: blog-post
