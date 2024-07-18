@@ -8,7 +8,7 @@ import { Suspense } from 'react';
 
 if (typeof window !== 'undefined') {
   posthog.init('phc_PORJdMHMucNgcwabzQbEsaCrvfe23rQH8iDMAFaLwlS', {
-    api_host: `${window.location.origin}/ingest`,
+    api_host: `/ingest`,
     ui_host: 'https://us.posthog.com',
     autocapture: process.env.NODE_ENV === 'production',
     capture_pageview: false, // Disable automatic pageview capture, as we capture manually
