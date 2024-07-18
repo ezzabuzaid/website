@@ -24,7 +24,9 @@ body {
   h4,
   h5,
   h6 {
-    @apply font-merriweather-sans;
+    @apply mt-2 font-merriweather-sans;
+  }
+  h3 {
   }
   p {
     @apply my-2 text-base text-neutral-800;
