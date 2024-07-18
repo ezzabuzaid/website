@@ -18,31 +18,33 @@ const LinkTabs: FC<PropsWithChildren<LinkTabsProps>> = ({
   label,
   activeTab,
   children,
-}) => (
-  <>
-    <div className={styles.tabsList}>
-      {tabs.map(tab => (
-        <Link
-          key={tab.key}
-          href={tab.link}
-          className={styles.tabsTrigger}
-          data-state={tab.key === activeTab ? 'active' : 'inactive'}
-        >
-          {tab.label}
-        </Link>
-      ))}
-    </div>
+}) => {
+  return (
+    <>
+      <div className={styles.tabsList}>
+        {tabs.map(tab => (
+          <Link
+            key={tab.key}
+            href={tab.link}
+            className={styles.tabsTrigger}
+            data-state={tab.link.endsWith(activeTab) ? 'active' : 'inactive'}
+          >
+            {tab.label}
+          </Link>
+        ))}
+      </div>
 
-    <div className={styles.tabsSelect}>
-      <WithRouterSelect
-        label={label}
-        defaultValue={tabs.find(tab => tab.key === activeTab)?.link}
-        values={tabs.map(tab => ({ label: tab.label, value: tab.link }))}
-      />
-    </div>
+      <div className={styles.tabsSelect}>
+        <WithRouterSelect
+          label={label}
+          defaultValue={tabs.find(tab => tab.link.endsWith(activeTab))?.link}
+          values={tabs.map(tab => ({ label: tab.label, value: tab.link }))}
+        />
+      </div>
 
-    {children}
-  </>
-);
+      {children}
+    </>
+  );
+};
 
 export default LinkTabs;

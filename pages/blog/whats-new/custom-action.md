@@ -6,8 +6,6 @@ layout: blog-post
 author: ezzabuzaid
 ---
 
-# Custom actions
-
 Today, we're starting invistigating how to go beyond what extensions offers and be flexible in terms of the code you have, albeit that was possiple before via passing custom code/logic as string to the action, but it was only a workaround.
 
 With custom actions you can write your own code in TypeScript and use it in your workflows. This is **particularly** useful when you want to write a custom logic that is not available in the extensions.
