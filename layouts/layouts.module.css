@@ -223,8 +223,7 @@
       @apply grid
         max-w-[660px]
         gap-3
-        break-all
-        lg:break-normal;
+        break-normal;
       grid-template-columns: minmax(0, 1fr);
     }
   }
