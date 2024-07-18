@@ -5,8 +5,8 @@
   "logoVariant": "default",
   "twitter": {
     "username": "@january_labs",
-    "card": "summary",
-    "img": "/static/images/logo-hexagon-card.png",
+    "card": "summary_large_image",
+    "img": "/static/images/logo.png",
     "imgAlt": "January logo"
   },
   "rssFeeds": [
@@ -19,12 +19,12 @@
   "websiteBanners": {},
   "websiteBadges": {
     "index": {
-      "startDate": "2024-04-24T00:00:00.000Z",
-      "endDate": "2024-05-24T00:00:00.000Z",
+      "startDate": "2024-01-06T00:00:00.000Z",
+      "endDate": "2024-12-29T00:00:00.000Z",
       "kind": "default",
       "title": "Survey",
-      "text": "Help us shape the next 10 years of Node.js",
-      "link": "https://linuxfoundation.surveymonkey.com/r/nodenext10survey24"
+      "text": "Where is API Development going?",
+      "link": "https://tally.so/r/31KZAg"
     }
   }
 }

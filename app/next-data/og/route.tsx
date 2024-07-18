@@ -1,17 +1,13 @@
+import Logo from '@/components/Icons/Logos/logo.png';
 import { ImageResponse } from 'next/og';
 
-import HexagonGrid from '@/components/Icons/HexagonGrid';
 import JsIconWhite from '@/components/Icons/Logos/JsIconWhite';
 import {
   ENABLE_STATIC_EXPORT,
   VERCEL_ENV,
   VERCEL_REVALIDATE,
 } from '@/next.constants.mjs';
-import tailwindConfig from '@/tailwind.config';
-import { hexToRGBA } from '@/util/hexToRGBA';
-
-// This is the default type of blog post type that we use for OG
-const defaultTypeParam = 'announcement';
+import Image from 'next/image';
 
 // This is the Route Handler for the `GET` method which handles the request
 // for generating OpenGrapgh images for Blog Posts and Pages
@@ -23,24 +19,10 @@ export const GET = async (request: Request) => {
   const hasTitle = searchParams.has('title');
   const title = hasTitle ? searchParams.get('title')?.slice(0, 100) : undefined;
 
-  // ?type=<type> - if undefined default to announcement
-  const typeParam = searchParams.get('type') ?? defaultTypeParam;
-
-  const typeAttributes: { [key: string]: string } = {
-    announcement: tailwindConfig.theme.colors.green['700'],
-    release: tailwindConfig.theme.colors.info['600'],
-    vulnerability: tailwindConfig.theme.colors.warning['600'],
-  };
-
-  // use the mapped value, or if not found use announcement
-  const type = typeAttributes[typeParam] ?? typeAttributes[defaultTypeParam];
-
-  const gridBackground = `radial-gradient(circle, ${hexToRGBA(type)}, transparent)`;
-
   return new ImageResponse(
     (
       <div tw="relative flex items-center justify-center bg-black w-[1200px] h-[600px]">
-        <HexagonGrid style={{ background: gridBackground }} />
+        <Image src={Logo} alt="Logo" />
 
         <div tw="absolute mx-auto flex max-w-xl flex-col text-center text-3xl font-semibold text-white">
           <JsIconWhite width={71} height={80} tw="mx-auto" />

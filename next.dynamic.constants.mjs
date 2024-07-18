@@ -49,7 +49,10 @@ export const DYNAMIC_ROUTES = new Map([
  */
 export const PAGE_METADATA = {
   metadataBase: new URL(`${BASE_URL}${BASE_PATH}`),
-  title: siteConfig.title,
+  title: {
+    default: siteConfig.title,
+    template: `%s — ${siteConfig.templateTitle}`,
+  },
   description: siteConfig.description,
   robots: { index: true, follow: true },
   twitter: {
@@ -61,6 +64,12 @@ export const PAGE_METADATA = {
       alt: siteConfig.twitter.imgAlt,
     },
   },
+  applicationName: siteConfig.title,
+  appleWebApp: {
+    capable: true,
+    title: siteConfig.title,
+    statusBarStyle: 'black-translucent',
+  },
   alternates: {
     canonical: '',
     languages: { 'x-default': '' },
@@ -68,7 +77,15 @@ export const PAGE_METADATA = {
       'application/rss+xml': `${BASE_URL}${BASE_PATH}/feed/posts.xml`,
     },
   },
-  openGraph: { images: siteConfig.twitter.img },
+  openGraph: {
+    images: siteConfig.twitter.img,
+    type: 'website',
+    siteName: 'January',
+    locale: 'en-GB',
+    url: BASE_URL,
+    description: siteConfig.description,
+    title: siteConfig.title,
+  },
 };
 
 /**
