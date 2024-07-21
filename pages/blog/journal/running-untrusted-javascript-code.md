@@ -1,5 +1,5 @@
 ---
-date: '2021-08-18T00:00:00'
+date: '2024-07-16T00:00:00'
 title: 'Running Untrusted JavaScript Code'
 category: journal
 layout: blog-post
@@ -164,7 +164,7 @@ context.evalSync('log("hello world")');
 
 This code will log `hello world`
 
-### WebAssemply
+### WebAssembly
 
 This is exciting option as it provides a sandboxed environment to run code, one caveat though is that you need an environment with javascript bindings to run the code. However, an interesting project called [Extism](https://extism.org/) facilitates that. You might want to follow [their tutorial](https://extism.org/blog/sandboxing-llm-generated-code).
 
@@ -281,7 +281,7 @@ async function build(userCode: string) {
 
 Notes:
 
-- Rust-based bundlers usually offers web assemply version of it which means you can transpile the code in the browser. Esbuild does have web assemply version.
+- Rust-based bundlers usually offers web assembly version of it which means you can transpile the code in the browser. Esbuild does have web assembly version.
 - Don't include user specified imports into the bundle unless you've allow-listed them.
 
 Additionally, you can avoid transpiling altogether by running the code using **Deno** or **Bun** in a docker container since they support TypeScript out of the box.

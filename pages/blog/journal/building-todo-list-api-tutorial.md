@@ -1,5 +1,5 @@
 ---
-date: '2021-08-06T00:00:00'
+date: '2024-06-17T00:00:00'
 title: 'Building Todo List API, Once Again.'
 category: journal
 layout: blog-post

@@ -1,5 +1,5 @@
 ---
-date: '2021-08-06T00:00:00'
+date: '2021-03-09T00:00:00'
 title: 'Going Minimalist: Choosing DSL Over Bunch of Inputs'
 category: journal
 layout: blog-post
