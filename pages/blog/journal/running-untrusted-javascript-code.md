@@ -10,7 +10,7 @@ author: ezzabuzaid
 
 Allowing users to execute their code within your application opens up a world of customization and functionality, yet it also exposes your platform to significant security threats.
 
-January has an editor users use to write CanonLang—an internal typescript DSL—to define and shape their API and workflows. It’s later executed to result in a data structure that the compiler can understand.
+January features an editor that allows users to write CanonLang, an internal TypeScript DSL. This DSL defines and shapes users’ APIs through the concept of workflows and is later executed to create a data structure that the compiler can understand.
 
 ---
 
@@ -22,25 +22,26 @@ We have searched for the best way to execute the code securely for quite some ti
 
 We started by using Docker to run the code, but soon enough, the language capabilities mandated more than passing the code through the container shell. Besides, for some reason, the server memory spikes frequently; we run the code inside self-removable containers on every 1s debounced keystroke. (You can do better!)
 
-In the end, we choose not to run the code indirectly but rather statically; figure out the parts needs to be executed and then do that it in the host machine. That also advantaged us by being mistake tolerant, so as long as there is code that can be run (and syntactically correct), it’ll, despite other incomplete code
+In the end, we choose not to run the code indirectly but rather statically; simply put, figure out the parts that need to be executed and then do that in the host machine. That also advantaged us by being mistake tolerant, so as long as there is code that can be run (and syntactically correct), it’ll, despite other incomplete code.
 
-This article will explore various strategies to mitigate run user code, including using Web Workers, static code analysis, and more…
+This article will explore various strategies to mitigate run user code, including Web Workers, static code analysis, and more…
 
 ## You should care
 
-There are many scenarios where you need to run user code, ranging from collaborative development environments like codesandbox and stackbiltz to customizable API platforms like January, even code playgrounds are susceptible to risks.
-Namely, the two essential advantages from safely running user-provided code are:
+There are many scenarios where you need to run user-provided code, ranging from collaborative development environments like CodeSandbox and StackBiltz to customizable API platforms like January. Even code playgrounds are susceptible to risks.
 
-1. Gaining your user trust; even if the user is trustworthy they may execute code copied from other intently-bad people.
-2. Secure your environment; the last thing you need is a piece of code halting your server, think `while (true) {}`
+Namely, the two essential advantages of safely running user-provided code are:
+
+1. Gaining your user’s trust: Even if the user is trustworthy, they may execute code copied from other intently bad people.
+2. Secure your environment: the last thing you need is a piece of code halting your server. Think `while (true) {}`
 
 ## Define “Sensitive information”
 
-Running user code isn’t harmful until you’re concerned that this might subject some data to be stolen. Whatever data you’re concerned about will be considered sensitive information. For instance, in most cases JWT is sensitive information (perhaps when used as an authentication mechanism)
+Running user code isn’t harmful until you’re concerned that this might subject some data to be stolen. Whatever data you’re concerned about will be considered sensitive information. For instance, in most cases, JWT is sensitive information (perhaps when used as an authentication mechanism)
 
 ## What could go wrong
 
-Think of **JWT** stored in cookies that get sent with every request;user can unintentionally invoke a request that sends it to an evil server, also
+Consider the potential risks of JWT stored in cookies sent with every request. A user could inadvertently trigger a request that sends the JWT to a malicious server, and...
 
 - Cross-Site Scripting (XSS).
 - Denial of Service (DoS) attacks.
@@ -56,14 +57,14 @@ The simplest of all, yet the riskiest.
 eval('console.log("I am dangerous!")');
 ```
 
-When you run this code, it’ll log that message. Essentially eval is a JS interpreter that is capable of accessing the global/window scope.
+When you run this code, it logs that message. Essentially, eval is a JS interpreter capable of accessing the global/window scope.
 
 ```ts
 const res = await eval('fetch(`https://jsonplaceholder.typicode.com/users`)');
 const users = await res.json();
 ```
 
-This code uses `fetch` which is defined in the global scope. The interpreter doesn’t know about it but since eval can access window it knows. That implies running eval in the browser is different than running it in a server environment or worker.
+This code uses `fetch` which is defined in the global scope. The interpreter doesn’t know about it, but since eval can access a window, it knows. That implies that running an eval in the browser is different from running it in a server environment or worker.
 
 ```ts
 eval(`document.body`);
@@ -79,7 +80,7 @@ This code will halt the browser tab. You might ask why a user would do this to t
 
 You might want to check [MDN Docs about eval](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval)
 
-Time box execution can be via running the code in a web worker and using `setTimeout` to limit the execution time.
+Time box execution can be done by running the code in a web worker and using `setTimeout` to limit the execution time.
 
 ```ts
 async function timebox(code, timeout = 5000) {
@@ -119,7 +120,7 @@ This code will log 2.
 
 Note: _The second argument is the function body._
 
-The function constructor can’t access the enclosing scope, so the following code will throw an error.
+The function constructor can’t access the enclosing scope so that the following code will throw an error.
 
 ```ts
 function fnConstructorCannotUseMyScope() {
@@ -133,9 +134,9 @@ But it can access the global scope so the `fetch` example from above works.
 
 ### WebWorker
 
-You can run `“Function Constructor` and `eval` in a webworker which is a bit safer due to the fact that there is no DOM access.
+You can run `“Function Constructor` and `eval` on a WebWorker, which is a bit safer due to the fact that there is no DOM access.
 
-To put more restrictions in place consider disallow using global objects like `fetch, XMLHttpRequest, sendBeacon`. [Check this writing about how you can do that.](https://www.meziantou.net/executing-untrusted-javascript-code-in-a-browser.htm)
+To put more restrictions in place, consider disallowing using global objects like `fetch, XMLHttpRequest, sendBeacon` [Check this writing about how you can do that.](https://www.meziantou.net/executing-untrusted-javascript-code-in-a-browser.htm)
 
 ---
 
@@ -166,9 +167,9 @@ This code will log `hello world`
 
 ### WebAssembly
 
-This is exciting option as it provides a sandboxed environment to run code, one caveat though is that you need an environment with javascript bindings to run the code. However, an interesting project called [Extism](https://extism.org/) facilitates that. You might want to follow [their tutorial](https://extism.org/blog/sandboxing-llm-generated-code).
+This is an exciting option as it provides a sandboxed environment to run code. One caveat is that you need an environment with Javascript bindings. However, an interesting project called [Extism](https://extism.org/) facilitates that. You might want to follow [their tutorial](https://extism.org/blog/sandboxing-llm-generated-code).
 
-What is fascinating about it you'll use `eval` to run the code but given WebAssembly's nature, DOM, network, file system, and access to the host environment is not possible (although might differ based on the wasm runtime).
+What is fascinating about it is that you’ll use ￼`eval`￼ to run the code, but given WebAssembly’s nature, DOM, network, file system, and access to the host environment are not possible (although they might differ based on the wasm runtime).
 
 ```ts
 function evaluate() {
@@ -181,7 +182,7 @@ function evaluate() {
 module.exports = { evaluate };
 ```
 
-You'll have to compile the above code first using Extism which will output a wasm file that can be run in an environment that has wasm-runtime (browser or node.js).
+You'll have to compile the above code first using Extism, which will output a Wasm file that can be run in an environment that has Wasm-runtime (browser or node.js).
 
 ```ts
 const message = {
@@ -230,9 +231,9 @@ const container = await docker.createContainer({
 });
 ```
 
-Keep in mind that you need to make sure the server have docker installed and running. I'd recommend to have a separate server dedicated only for this that acts as pure function server.
+Keep in mind that you need to make sure the server has docker installed and running. I'd recommend having a separate server dedicated only to this that acts as a pure-function server.
 
-Moreover, you might benfit from taking a look at [`sysbox`](https://github.com/nestybox/sysbox) which is VM like container runtime that provides a more secure environment. Sysbox is worth it espically if the main app is running in a container which means that you'll be running [Docker in Docker](https://www.docker.com/blog/docker-can-now-run-within-docker/).
+Moreover, you might benefit from taking a look at [`sysbox`](https://github.com/nestybox/sysbox), a VM-like container runtime that provides a more secure environment. Sysbox is worth it, especially if the main app is running in a container, which means that you'll be running [Docker in Docker](https://www.docker.com/blog/docker-can-now-run-within-docker/).
 
 ## Other options
 
@@ -244,7 +245,7 @@ Moreover, you might benfit from taking a look at [`sysbox`](https://github.com/n
 
 ## Safest option
 
-I'm particularly fond of Firecracker but it's a bit of work to set up so if cannot afford the time yet you want to be in the safe side do a combination of static analysis and time-boxing execution. You can use [esprima](https://esprima.org/) to parse the code and check for any malicious act.
+I'm particularly fond of Firecracker, but it’s a bit of work to set up, so if you cannot afford the time yet, you want to be on the safe side, do a combination of static analysis and time-boxing execution. You can use [esprima](https://esprima.org/) to parse the code and check for any malicious act.
 
 ## How to run TypeScript code?
 
@@ -281,7 +282,7 @@ async function build(userCode: string) {
 
 Notes:
 
-- Rust-based bundlers usually offers web assembly version of it which means you can transpile the code in the browser. Esbuild does have web assembly version.
+- Rust-based bundlers usually offer a web assembly version, which means you can transpile the code in the browser. Esbuild does have a web assembly version.
 - Don't include user specified imports into the bundle unless you've allow-listed them.
 
 Additionally, you can avoid transpiling altogether by running the code using **Deno** or **Bun** in a docker container since they support TypeScript out of the box.
@@ -290,7 +291,7 @@ Additionally, you can avoid transpiling altogether by running the code using **D
 
 Running user code is a double-edged sword. It can provide a lot of functionality and customization to your platform, but it also exposes you to significant security risks. It’s essential to understand the risks and take appropriate measures to mitigate them and remember that the more isolated the environment, the safer it is.
 
-Drop you comments in the [github discussion](https://github.com/JanuaryLabs/.github/discussions/15)
+Drop your comments in the [github discussion](https://github.com/JanuaryLabs/.github/discussions/15)
 
 ## References
 
