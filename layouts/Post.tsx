@@ -10,6 +10,7 @@ import ContentLayout from '@/layouts/Content';
 import { mapBlogCategoryToPreviewType } from '@/util/blogUtils';
 
 import styles from './layouts.module.css';
+import Image from 'next/image';
 
 const PostLayout: FC<PropsWithChildren> = ({ children }) => {
   const { frontmatter } = useClientContext();
@@ -25,7 +26,17 @@ const PostLayout: FC<PropsWithChildren> = ({ children }) => {
           <main className="prose">
             <h1 className="font-merriweather-sans">{frontmatter.title}</h1>
 
-            <Preview title={frontmatter.title!} type={type} />
+            {frontmatter.heroImage ? (
+              <Image
+                className='rounded'
+                width={500}
+                height={300}
+                src={frontmatter.heroImage}
+                alt={frontmatter.title}
+              />
+            ) : (
+              <Preview title={frontmatter.title!} type={type} />
+            )}
 
             {children}
 

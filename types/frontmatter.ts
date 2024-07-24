@@ -4,9 +4,10 @@ import type { Layouts } from './layouts';
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export interface LegacyFrontMatter extends Record<string, any> {
   layout?: Layouts;
-  title?: string;
+  title: string;
   labels?: Record<string, string>;
   authors?: string;
+  heroImage?: string;
 }
 
 // @TODO: Extra data from Frontmatter should not be a thing in the future
