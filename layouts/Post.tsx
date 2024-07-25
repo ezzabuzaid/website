@@ -28,7 +28,7 @@ const PostLayout: FC<PropsWithChildren> = ({ children }) => {
 
             {frontmatter.heroImage ? (
               <Image
-                className='rounded'
+                className="rounded"
                 width={500}
                 height={300}
                 src={frontmatter.heroImage}
@@ -41,6 +41,11 @@ const PostLayout: FC<PropsWithChildren> = ({ children }) => {
             {children}
 
             <WithBlogCrossLinks />
+            <div className="rounded border p-6">
+              We're gathering insights around API development and looking
+              forward for your contribution in{' '}
+              <a href="https://tally.so/r/31KZAg">the survey</a>.
+            </div>
           </main>
         </div>
 

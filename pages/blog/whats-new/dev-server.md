@@ -20,10 +20,14 @@ ApiKey: <project-id>
 
 This is a huge milestone and the most exciting release we have this month. **Serverize** isn’t new, but it’s been kept under wraps to ensure it’s robust and costs you nothing. Yup, completely free and adds nothing to your plan.
 
-Each project gets a server (dev-server) and it's limited to 128MB of memory and it'll be shut down after 60 minutes of inactivity. However, it’s undergoing heavy development towards its stability, particularly focused on:
+## How does it work?
+
+Each project gets a dedicated dev server with 128MB of memory, which will shut down after 60 minutes of inactivity. Serverize essentially serves as a development environment. However, it’s undergoing heavy development to enhance its stability, particularly focused on:
 
 - Improving server reloading
 - Speeding up server creation
+
+Note: _The techincal details will be in a separate blog post_
 
 Serverize is a significant step towards making January the complete platform for API development. Once it’s stable, our focus will shift towards providing a better experience for running workflows.
 
@@ -35,4 +39,4 @@ It's enabled for existing projects and new ones, you can know open the swagger p
 
 - [ ] Customize environment variables.
 - [ ] Shutdown on idle.
-- [ ] Support for serverless functions.
+- [ ] Support different deployment targets.

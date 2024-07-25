@@ -299,9 +299,3 @@ Drop your comments in the [github discussion](https://github.com/JanuaryLabs/.gi
 - [Running untrusted JavaScript in Node.js](https://pixeljets.com/blog/executing-untrusted-javascript/)
 - [How do languages support executing untrusted user code at runtime?](https://langdev.stackexchange.com/a/2861)
 - [Safely Evaluating JavaScript with Context Data](https://www.codeproject.com/Tips/5299942/Safely-Evaluating-JavaScript-with-Context-Data)
-
----
-
-> We're gathering insights around API development and I'd appreciate if you could take a minute to [fill out the survey](https://tally.so/r/31KZAg).
-
----
