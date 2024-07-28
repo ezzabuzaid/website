@@ -78,7 +78,7 @@
     },
     {
       "source": "/guides/getting-started-guide",
-      "destination": "/learn/getting-started/introduction-to-nodejs"
+      "destination": "/learn/getting-started/introduction-to-january"
     },
     {
       "source": "/guides/blocking-vs-non-blocking",
@@ -150,7 +150,7 @@
     },
     {
       "source": "/learn",
-      "destination": "/learn/getting-started/introduction-to-nodejs"
+      "destination": "/learn/getting-started/introduction-to-january"
     },
     {
       "source": "/about/releases",

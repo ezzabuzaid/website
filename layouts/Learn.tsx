@@ -15,7 +15,7 @@ const LearnLayout: FC<PropsWithChildren> = ({ children }) => (
       <WithProgressionSidebar navKey="learn" />
 
       <div>
-        <main>
+        <main className="prose gap-4">
           {children}
 
           <WithSidebarCrossLinks navKey="learn" />
