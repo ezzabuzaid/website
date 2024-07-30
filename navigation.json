@@ -8,6 +8,10 @@
       "link": "/about",
       "label": "About"
     },
+    "explore": {
+      "link": "/explore",
+      "label": "Explore"
+    },
     "blog": {
       "link": "/posts",
       "label": "Blog"

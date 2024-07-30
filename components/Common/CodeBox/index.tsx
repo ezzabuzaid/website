@@ -29,7 +29,6 @@ const transformCode = (code: ReactNode, language: string): ReactNode => {
     // a content that is not a string
     return code;
   }
-
   // Note that since we use `.split` we will have an extra entry
   // being an empty string, so we need to remove it
   const lines = content.split('\n');

@@ -1,8 +1,7 @@
 .tabsRoot {
   @apply max-w-full;
   p {
-    @apply mt-4
-            text-sm
+    @apply text-sm
             text-neutral-800
             dark:text-neutral-200;
   }

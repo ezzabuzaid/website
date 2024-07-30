@@ -29,8 +29,15 @@ export function NEXT_REHYPE_PLUGINS(props = { hideCopyButton: false }) {
           extractFileNameFromCode: false,
         },
         styleOverrides: {
-          uiFontFamily: 'var(--font-fira-code)',
+          frames: {
+            frameBoxShadowCssValue: '0 0 0 0',
+          },
+          borderColor: 'hsl(var(--border))',
+          codeFontFamily: 'var(--font-mono)',
+          codeBackground: 'rgb(13 18 28)',
+          uiFontFamily: 'var(--font-mono)',
           borderWidth: '1px',
+          borderRadius: '0.0rem',
           codePaddingInline: '0.75rem',
           codePaddingBlock: '0.75rem',
         },

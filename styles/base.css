@@ -10,13 +10,26 @@ body {
 }
 
 body {
-  @apply /*
-    */ bg-white font-open-sans
+  @apply bg-white
     text-neutral-950
     motion-safe:scroll-smooth
     dark:bg-neutral-950
     dark:text-white;
 }
+
+:root {
+  font-family: Inter, sans-serif;
+  font-feature-settings:
+    'liga' 1,
+    'calt' 1; /* fix for Chrome */
+}
+
+@supports (font-variation-settings: normal) {
+  :root {
+    font-family: InterVariable, sans-serif;
+  }
+}
+
 .prose {
   h1,
   h2,
@@ -39,17 +52,6 @@ body {
   --ec-frm-frameBoxShdCssVal: '0 0 0 0';
   --ec-brdCol: rgb(44 52 55);
   --ec-brdRad: '0.0rem';
+  --ec-codeFontFml: var(--font-mono);
   --code-background: rgb(13 18 28);
-}
-
-:root {
-  font-family: Inter, sans-serif;
-  font-feature-settings:
-    'liga' 1,
-    'calt' 1; /* fix for Chrome */
-}
-@supports (font-variation-settings: normal) {
-  :root {
-    font-family: InterVariable, sans-serif;
-  }
 }

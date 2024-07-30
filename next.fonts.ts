@@ -1,6 +1,6 @@
 import {
-  Fira_Code,
   IBM_Plex_Mono,
+  JetBrains_Mono,
   Merriweather_Sans,
   Open_Sans,
 } from 'next/font/google';
@@ -24,8 +24,8 @@ export const IBM_PLEX_MONO = IBM_Plex_Mono({
   variable: '--font-ibm-plex-mono',
 });
 
-export const FIRA_CODE = Fira_Code<'--font-fira-code'>({
-  variable: '--font-fira-code',
+export const MONO = JetBrains_Mono<'--font-mono'>({
+  variable: '--font-mono',
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
   preload: false,
