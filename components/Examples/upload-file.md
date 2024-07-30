@@ -13,4 +13,8 @@ workflow('UploadFile', {
 });
 ```
 
+<Footer
+ gist="6d65224d9127b511672aa24106180877"
+>
 Upload a single file to Google Cloud Storage.
+</Footer>

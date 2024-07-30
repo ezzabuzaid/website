@@ -15,6 +15,7 @@ import scheduleTrigger from '!!raw-loader!../components/Examples/schedule-trigge
 import sendEmail from '!!raw-loader!../components/Examples/send-email.md';
 import uploadFile from '!!raw-loader!../components/Examples/upload-file.md';
 
+import { TryProject } from '@/components/Common/CodeBox/try-project';
 import styles from './layouts.module.css';
 const examplesTabs = [
   {
@@ -25,13 +26,16 @@ const examplesTabs = [
         id: 'setupAnEndpoint',
         title: 'Setup an Endpoint',
         content: (
-          <Mdx
-            hideCopyButton={true}
-            source={httpTrigger}
-            components={{
-              h1: ({ children }) => <h1 className="text-3xl">{children}</h1>,
-            }}
-          />
+          <>
+            <Mdx
+              hideCopyButton={true}
+              source={httpTrigger}
+              components={{
+                h1: ({ children }) => <h1 className="text-3xl">{children}</h1>,
+                Footer: TryProject,
+              }}
+            />
+          </>
         ),
       },
       {
@@ -43,6 +47,7 @@ const examplesTabs = [
             source={githubTrigger}
             components={{
               h1: ({ children }) => <h1 className="text-3xl">{children}</h1>,
+              Footer: TryProject,
             }}
           />
         ),
@@ -56,6 +61,7 @@ const examplesTabs = [
             source={scheduleTrigger}
             components={{
               h1: ({ children }) => <h1 className="text-3xl">{children}</h1>,
+              Footer: TryProject,
             }}
           />
         ),
@@ -75,6 +81,7 @@ const examplesTabs = [
             source={authenticatedUser}
             components={{
               h1: ({ children }) => <h1 className="text-3xl">{children}</h1>,
+              Footer: TryProject,
             }}
           />
         ),
@@ -88,6 +95,7 @@ const examplesTabs = [
             source={limitToCountry}
             components={{
               h1: ({ children }) => <h1 className="text-3xl">{children}</h1>,
+              Footer: TryProject,
             }}
           />
         ),
@@ -111,6 +119,7 @@ const examplesTabs = [
             source={uploadFile}
             components={{
               h1: ({ children }) => <h1 className="text-3xl">{children}</h1>,
+              Footer: TryProject,
             }}
           />
         ),
@@ -131,6 +140,7 @@ const examplesTabs = [
             source={sendEmail}
             components={{
               h1: ({ children }) => <h1 className="text-3xl">{children}</h1>,
+              Footer: TryProject
             }}
           />
         ),
@@ -143,6 +153,20 @@ const examplesTabs = [
   //   children: [],
   // },
 ];
+
+// const code = `// tests.mjs
+// import assert from 'node:assert';
+// import test from 'node:test';
+
+// test('that 1 is equal 1', () => {
+//   assert.strictEqual(1, 1);
+// });
+
+// test('that throws as 1 is not equal 2', () => {
+//   // throws an exception because 1 != 2
+//   assert.strictEqual(1, 2);
+// });
+// `;
 
 const HomeLayout: FC<PropsWithChildren> = async ({ children }) => {
   return (
@@ -197,6 +221,9 @@ const HomeLayout: FC<PropsWithChildren> = async ({ children }) => {
           ))}
         </CodeTabs> */}
         {/* <Examples tabs={examplesTabs} /> */}
+        {/* <CodeBox language="TypeScript" showCopyButton={true}>
+          <code>{code}</code>
+        </CodeBox> */}
         <section
           style={
             {

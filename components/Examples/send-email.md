@@ -6,8 +6,8 @@ workflow('AddUserWorkflow', {
     method: 'post',
   }),
   actions: {
-    sendWelcomEmail: action.resend.sendEmail({
-      to: '@trigger:body.email',
+    sendWelcomEmail: trigger => action.resend.sendEmail({
+      to: trigger:body.email,
       from: 'welcom@org.com',
       subject: 'Welcome dear user',
       html: '<p>Welcome to January! You have successfully signed up.</p>',
@@ -16,4 +16,6 @@ workflow('AddUserWorkflow', {
 });
 ```
 
+<Footer>
 You can send an email using the `sendEmail` action. This action is available in the email extension. This example uses Resend.com extension.
+</Footer>
