@@ -18,7 +18,8 @@ body {
 }
 
 :root {
-  font-family: Inter, sans-serif;
+  --font-inter: Inter, sans-serif;
+  font-family: var(--font-inter);
   font-feature-settings:
     'liga' 1,
     'calt' 1; /* fix for Chrome */
@@ -26,7 +27,7 @@ body {
 
 @supports (font-variation-settings: normal) {
   :root {
-    font-family: InterVariable, sans-serif;
+    --font-inter: InterVariable, sans-serif;
   }
 }
 
@@ -54,4 +55,10 @@ body {
   --ec-brdRad: '0.0rem';
   --ec-codeFontFml: var(--font-mono);
   --code-background: rgb(13 18 28);
+}
+
+.separator {
+  @apply w-px
+    bg-neutral-200
+    dark:bg-neutral-900;
 }

@@ -81,6 +81,7 @@ const nextConfig = {
     return config;
   },
   experimental: {
+    esmExternals: 'loose',
     // Some of our static pages from `getStaticProps` have a lot of data
     // since we pass the fully-compiled MDX page from `MDXRemote` through
     // a page's static props.

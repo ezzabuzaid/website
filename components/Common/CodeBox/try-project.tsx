@@ -20,16 +20,14 @@ export function TryProject(props: { children: React.ReactNode; gist: string }) {
         {
           <Button
             kind="neutral"
-            className={styles.action}
-            onClick={async () => {
-              if (!props.gist) {
-                return;
-              }
-              location.href =
-                process.env.NODE_ENV === 'development'
+            href={
+              !props.gist
+                ? ''
+                : process.env.NODE_ENV === 'development'
                   ? `http://localhost:1234?gist=${props.gist}`
-                  : `https://app.january.sh?gist=${props.gist}`;
-            }}
+                  : `https://app.january.sh?gist=${props.gist}`
+            }
+            className={styles.action}
           >
             Try Project
           </Button>

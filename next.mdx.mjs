@@ -1,8 +1,10 @@
 'use strict';
 
+import { nodeTypes } from '@mdx-js/mdx';
 import remarkHeadings from '@vcarl/remark-headings';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeExpressiveCode from 'rehype-expressive-code';
+import rehypeRaw from 'rehype-raw';
 import rehypeSlug from 'rehype-slug';
 import remarkGfm from 'remark-gfm';
 import readingTime from 'remark-reading-time';
@@ -14,6 +16,10 @@ import readingTime from 'remark-reading-time';
  */
 export function NEXT_REHYPE_PLUGINS(props = { hideCopyButton: false }) {
   return [
+    // Allows for raw HTML to be used in MDX
+    [rehypeRaw, { passThrough: nodeTypes }],
+
+    // [[rehypeMermaid, { strategy: 'img-svg', dark: true }]],
     // Generates `id` attributes for headings (H1, ...)
     rehypeSlug,
     // Automatically add anchor links to headings (H1, ...)

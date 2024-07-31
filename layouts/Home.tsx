@@ -140,7 +140,7 @@ const examplesTabs = [
             source={sendEmail}
             components={{
               h1: ({ children }) => <h1 className="text-3xl">{children}</h1>,
-              Footer: TryProject
+              Footer: TryProject,
             }}
           />
         ),
@@ -175,55 +175,6 @@ const HomeLayout: FC<PropsWithChildren> = async ({ children }) => {
 
       <main className={styles.homeLayout}>
         {children}
-        {/* <CodeTabs
-          tabs={[{ key: 'test', label: 'Test', value: 'test' }]}
-          defaultValue={'test'}
-        >
-          {examplesTabs.map(it => (
-            <TabsPrimitive.Content key={it.id} value={it.id}>
-              {it.children.map(child => (
-                <div key={child.id}>
-                  <h1>{child.title}</h1>
-                  {child.content}
-                </div>
-              ))}
-              <Select.Root>
-                <Select.Trigger className="SelectTrigger" aria-label="Food">
-                  <Select.Value placeholder="Select a fruit…" />
-                  <Select.Icon className="SelectIcon">
-                    <ChevronDownIcon />
-                  </Select.Icon>
-                </Select.Trigger>
-                <Select.Portal>
-                  <Select.Content className="SelectContent">
-                    <Select.ScrollUpButton className="SelectScrollButton">
-                      <ChevronUpIcon />
-                    </Select.ScrollUpButton>
-                    <Select.Viewport className="SelectViewport">
-                      <Select.Group>
-                        <Select.Label className="SelectLabel">
-                          Fruits
-                        </Select.Label>
-                        <SelectItem value="apple">Apple</SelectItem>
-                        <SelectItem value="banana">Banana</SelectItem>
-                        <SelectItem value="blueberry">Blueberry</SelectItem>
-                        <SelectItem value="grapes">Grapes</SelectItem>
-                        <SelectItem value="pineapple">Pineapple</SelectItem>
-                      </Select.Group>
-                    </Select.Viewport>
-                    <Select.ScrollDownButton className="SelectScrollButton">
-                      <ChevronDownIcon />
-                    </Select.ScrollDownButton>
-                  </Select.Content>
-                </Select.Portal>
-              </Select.Root>
-            </TabsPrimitive.Content>
-          ))}
-        </CodeTabs> */}
-        {/* <Examples tabs={examplesTabs} /> */}
-        {/* <CodeBox language="TypeScript" showCopyButton={true}>
-          <code>{code}</code>
-        </CodeBox> */}
         <section
           style={
             {
@@ -236,7 +187,6 @@ const HomeLayout: FC<PropsWithChildren> = async ({ children }) => {
         >
           <MDXCodeTabs examples={examplesTabs} />
         </section>
-        {/* <Ex /> */}
       </main>
     </CenteredLayout>
   );

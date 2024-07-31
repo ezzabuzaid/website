@@ -3,6 +3,7 @@ import type { MDXRemoteProps } from 'next-mdx-remote/rsc';
 import dynamic from 'next/dynamic';
 
 import { NEXT_REHYPE_PLUGINS, NEXT_REMARK_PLUGINS } from '@/next.mdx.mjs';
+import { combinedComponents } from './mdxRenderer';
 
 const MDXRemote = dynamic(() =>
   import('next-mdx-remote/rsc').then(mod => mod.MDXRemote)
@@ -23,6 +24,7 @@ export const Mdx = async (props: {
       }}
       components={
         props.components ?? {
+          ...combinedComponents,
           h1: () => <></>,
           h2: () => <></>,
           pre: ({ children }) => (
