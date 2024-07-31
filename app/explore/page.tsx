@@ -15,7 +15,7 @@ import { getProject, getProjects } from './utils';
 
 export default async function Page() {
   const projects: Array<Project> = await Promise.all(
-    (await getProjects()).map(async project => getProject(project.name))
+    (await getProjects()).map(async project => getProject(project.id))
   );
 
   return (
