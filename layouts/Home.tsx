@@ -10,6 +10,8 @@ import CenteredLayout from '@/layouts/Centered';
 import authenticatedUser from '!!raw-loader!../components/Examples/authenticated-user.md';
 import githubTrigger from '!!raw-loader!../components/Examples/github-trigger.md';
 import httpTrigger from '!!raw-loader!../components/Examples/http-trigger.md';
+import sseTrigger from '!!raw-loader!../components/Examples/sse-trigger.md';
+import webosocketTrigger from '!!raw-loader!../components/Examples/websocket-trigger.md';
 import limitToCountry from '!!raw-loader!../components/Examples/limit-to-country.md';
 import scheduleTrigger from '!!raw-loader!../components/Examples/schedule-trigger.md';
 import sendEmail from '!!raw-loader!../components/Examples/send-email.md';
@@ -23,13 +25,45 @@ const examplesTabs = [
     title: 'Triggers',
     children: [
       {
-        id: 'setupAnEndpoint',
-        title: 'Setup an Endpoint',
+        id: 'http',
+        title: 'HTTP',
         content: (
           <>
             <Mdx
               hideCopyButton={true}
               source={httpTrigger}
+              components={{
+                h1: ({ children }) => <h1 className="text-3xl">{children}</h1>,
+                Footer: TryProject,
+              }}
+            />
+          </>
+        ),
+      },
+      {
+        id: 'sse',
+        title: 'SSE',
+        content: (
+          <>
+            <Mdx
+              hideCopyButton={true}
+              source={sseTrigger}
+              components={{
+                h1: ({ children }) => <h1 className="text-3xl">{children}</h1>,
+                Footer: TryProject,
+              }}
+            />
+          </>
+        ),
+      },
+      {
+        id: 'websocket',
+        title: 'Websocket',
+        content: (
+          <>
+            <Mdx
+              hideCopyButton={true}
+              source={webosocketTrigger}
               components={{
                 h1: ({ children }) => <h1 className="text-3xl">{children}</h1>,
                 Footer: TryProject,

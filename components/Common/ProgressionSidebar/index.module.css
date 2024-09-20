@@ -2,7 +2,7 @@
   @apply flex
     w-full
     flex-col
-    gap-8
+    gap-4
     overflow-auto
     border-r-0
     border-neutral-200

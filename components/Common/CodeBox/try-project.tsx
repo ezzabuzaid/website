@@ -1,7 +1,5 @@
 'use client';
 
-import Button from '@/components/Common/Button';
-
 import { cn } from '@/components/Common/shadcn/cn';
 import styles from './index.module.css';
 
@@ -17,7 +15,7 @@ export function TryProject(props: { children: React.ReactNode; gist: string }) {
       >
         <span className={styles.language}>{props.children}</span>
 
-        {
+        {/* {
           <Button
             kind="neutral"
             href={
@@ -31,7 +29,7 @@ export function TryProject(props: { children: React.ReactNode; gist: string }) {
           >
             Try Project
           </Button>
-        }
+        } */}
       </div>
     </div>
   );

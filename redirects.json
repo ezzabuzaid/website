@@ -77,14 +77,6 @@
       "destination": "/learn"
     },
     {
-      "source": "/guides/getting-started-guide",
-      "destination": "/learn/getting-started/introduction-to-january"
-    },
-    {
-      "source": "/guides/blocking-vs-non-blocking",
-      "destination": "/learn/asynchronous-work/overview-of-blocking-vs-non-blocking"
-    },
-    {
       "source": "/guides/timers-in-node",
       "destination": "/learn/asynchronous-work/discover-javascript-timers"
     },

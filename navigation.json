@@ -56,6 +56,10 @@
         "how-it-works": {
           "link": "/about/how-it-works",
           "label": "How it works"
+        },
+        "faq": {
+          "link": "/about/faq",
+          "label": "Frequently Asked Questions"
         }
       }
     },
@@ -64,17 +68,113 @@
         "gettingStarted": {
           "label": "Getting Started",
           "items": {
-            "introductionToJanuary": {
-              "link": "/learn/getting-started/introduction-to-january",
-              "label": "Introduction to January"
+            "quickStart": {
+              "link": "/learn/getting-started/quick-start",
+              "label": "Quick Start"
             },
-            "howToInstallJanuary": {
-              "link": "/learn/getting-started/how-to-install-january",
-              "label": "How to install January"
+            "tutorial": {
+              "link": "/learn/getting-started/tutorial",
+              "label": "Tutorial"
+            }
+          }
+        },
+        "concepts": {
+          "label": "Concepts",
+          "items": {
+            "feature": {
+              "link": "/learn/concepts/feature",
+              "label": "Feature"
             },
-            "howMuchJavascriptDoYouNeedToKnowToUseJanuary": {
-              "link": "/learn/getting-started/how-much-javascript-do-you-need-to-know-to-use-january",
-              "label": "How much JavaScript do you need to know to use January"
+            "extensions": {
+              "link": "/learn/concepts/extensions",
+              "label": "Extensions"
+            },
+            "tables": {
+              "link": "/learn/concepts/tables",
+              "label": "Tables"
+            },
+            "workflow": {
+              "link": "/learn/concepts/workflow",
+              "label": "Workflow"
+            }
+          }
+        },
+        "triggers": {
+          "label": "Triggers",
+          "items": {
+            "http": {
+              "link": "/learn/triggers/http",
+              "label": "HTTP"
+            },
+            "sse": {
+              "link": "/learn/triggers/sse",
+              "label": "SSE"
+            },
+            "websocket": {
+              "link": "/learn/triggers/websocket",
+              "label": "WebSocket"
+            },
+            "github": {
+              "link": "/learn/triggers/github",
+              "label": "GitHub"
+            },
+            "schedule": {
+              "link": "/learn/triggers/schedule",
+              "label": "Schedule"
+            }
+          }
+        },
+        "extensions": {
+          "label": "Extensions",
+          "items": {
+            "postgresql": {
+              "link": "/learn/extensions/postgresql",
+              "label": "PostgreSQL"
+            },
+            "firebaseAuth": {
+              "link": "/learn/extensions/firebase-auth",
+              "label": "Firebase Auth"
+            },
+            "googleStorage": {
+              "link": "/learn/extensions/google-cloud-storage",
+              "label": "Google Cloud Storage"
+            },
+            "hono": {
+              "link": "/learn/extensions/hono",
+              "label": "Hono.dev"
+            },
+            "koa": {
+              "link": "/learn/extensions/koa",
+              "label": "Koa.js"
+            },
+            "vercel": {
+              "link": "/learn/extensions/vercel",
+              "label": "Vercel"
+            },
+            "firebaseFunctions": {
+              "link": "/learn/extensions/firebase-functions",
+              "label": "Firebase Functions"
+            },
+            "fly": {
+              "link": "/learn/extensions/fly",
+              "label": "Fly.io"
+            },
+            "githubWebhooks": {
+              "link": "/learn/extensions/github-webhooks",
+              "label": "Github Webhooks"
+            },
+            "nodeCron": {
+              "link": "/learn/extensions/node-cron",
+              "label": "Node Cron"
+            }
+          }
+        },
+        "recipes": {
+          "label": "Recipes",
+          "items": {
+            "useUploadedFileUrl": {
+              "link": "/learn/recipes/use-uploaded-file-url",
+              "label": "Use Uploaded File URL"
             }
           }
         }

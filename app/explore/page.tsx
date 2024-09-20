@@ -33,7 +33,7 @@ export default async function Page() {
               Starters
             </p>
           </header>
-          <ul className="my-8 list-none">
+          <ul className="my-8 list-none px-4">
             {projects.map(({ id, config }) => (
               <Fragment key={config.projectName}>
                 <li
