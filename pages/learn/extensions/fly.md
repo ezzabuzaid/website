@@ -75,11 +75,11 @@ https://fly.io/dashboard/<account-name>/tokens
 
 ### Deploy
 
-Make sure you have the required environment variables set on the Fly.io machine. Then, you can deploy your application to Fly.io by committing the changes to the repository through the github panel.
+Make sure you have the required environment variables set on the Fly.io machine. Then, you can deploy your application to Fly.io by committing the changes to the repository.
 
 Once environment variables are set and changes are committed, the project will be reachable at the following URL:
 
-```txt
+```bash
 https://<app-name>.fly.dev/
 
 # example: https://awesome-app.fly.dev/

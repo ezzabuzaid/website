@@ -28,23 +28,35 @@ npm run build
 
 ## Prepare the development environment
 
-By default, the project is configured to use PostgreSQL as the database, Hono as the framework, and Fly.io as the cloud provider. So unless you already have a PostgreSQL database running locally, the server will not start.
+By default, the project is configured to use PostgreSQL as the database, Hono as the framework, and Fly.io as the cloud provider.
 
-Luckily, the scaffolding process created a `compose.ts` file that is pre-configured to prepare the development environment for you. Just run it and you shall be set.
+For development you need to have a database server running locally.
 
-Open another terminal window and run the following command:
+### Using pre-configured docker compose
+
+The scaffolding process creates a `compose.ts` file that is pre-configured to prepare the development environment for you. Just run it and you shall be set.
+
+- Open another terminal window and run the following command:
 
 ```bash
 npx tsx compose.ts
 ```
 
-After that
+- Run postgres container, start the server, and watch for changes
 
 ```bash
-docker compose -f "compose.dev.yml" up --watch --remove-orphans
+docker compose \
+  -f "compose.dev.yml" \
+  up \
+  --watch \
+  --remove-orphans
 ```
 
-**Another option** is to launch the database and then run the server.
+_This command uses docker `--watch` mode to automatically restart the server when you make changes._
+
+### Using standalone postgres container
+
+- Create postgres container
 
 ```bash
 docker run \
@@ -57,13 +69,19 @@ docker run \
   postgres:16
 ```
 
-Then
+2. Update the `.env` file
+
+```bash
+CONNECTION_STRING=postgresql://youruser:yourpassword@localhost:5432/yourdatabase
+```
+
+3. Run the server
 
 ```bash
 npm run dev
 ```
 
-This command uses Node.js version 18 `--watch` mode to automatically restart the server when you make changes.
+_This command uses Node.js version 18 `--watch` mode to automatically restart the server when you make changes._
 
 ## Structure of a project
 

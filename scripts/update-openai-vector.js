@@ -3,7 +3,6 @@ import { createReadStream, statSync } from 'fs';
 import { OpenAI } from 'openai';
 
 const DOCS_VECTORSTORE_ID = 'vs_YyCuanTAV01erLARFE2rb9f6';
-const WEBSITE_VECTORSTORE_ID = 'vs_MesKThnNuAD2iYGZm3Nc79Mv';
 
 async function uploadToAssistant(assistantId) {
   const openai = new OpenAI();
@@ -11,13 +10,6 @@ async function uploadToAssistant(assistantId) {
   const { data: vectorFiles } = await openai.beta.vectorStores.files.list(
     assistantId,
     { limit: 100 }
-  );
-
-  const { data: docsFiles } = await openai.beta.vectorStores.files.list(
-    DOCS_VECTORSTORE_ID,
-    {
-      limit: 100,
-    }
   );
 
   // delete existing files as vectorstore appends and doesn't overwrite
@@ -38,10 +30,11 @@ async function uploadToAssistant(assistantId) {
     });
   await openai.beta.vectorStores.fileBatches.uploadAndPoll(assistantId, {
     files: filesStreams,
-    fileIds: docsFiles.map(file => file.id),
+    // Additional files from another vector store (those files that are already uploaded and need to be connected to this vector store)
+    // fileIds: docsFiles.map(file => file.id),
   });
 }
 
 export default async () => {
-  await uploadToAssistant(WEBSITE_VECTORSTORE_ID);
+  await uploadToAssistant(DOCS_VECTORSTORE_ID);
 };

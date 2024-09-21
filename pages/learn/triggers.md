@@ -13,26 +13,6 @@ Triggers are used to start workflows based on specific events or conditions.
 - Github
 - Schedule
 
-### Http
-
-The `http` trigger is used to trigger workflows based on HTTP requests. You can specify the HTTP method, path to match against.
-
-```ts
-workflow('CreateTodo', {
-  trigger: trigger.http({
-    method: 'get',
-    path: '/',
-  }),
-  execute: async trigger => {
-    return {
-      statusCode: 200,
-      body: {
-        message: 'Hello, world!',
-      },
-    };
-  },
-});
-```
 
 ### SSE
 

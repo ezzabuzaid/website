@@ -3,7 +3,7 @@ title: Tutorial
 layout: learn
 ---
 
-This tutorial demonstrates how to create a Fruits taxification API using January;explaining how to build RESTful APIs, integrate with PostgreSQL, and deploy to Fly.io.
+This tutorial demonstrates how to create a Fruits taxification API using January; explaining how to build RESTful APIs, integrate with PostgreSQL, and deploy to Fly.io.
 
 ## Steps
 
@@ -115,9 +115,7 @@ The `execute` function is used to execute the query and return the result once t
 You can try it out by running the following command:
 
 ```bash
-curl -X GET \
-  -H "Content-Type: application/json" \
-  http://localhost:3000/fruits
+curl http://localhost:3000/fruits
 ```
 
 **Save fruit workflow**
@@ -140,9 +138,7 @@ workflow('SaveFruitWorkflow', {
 });
 ```
 
----
-
-The `saveEntity` function is used to save an entity to the database.
+To learn more about the functionality of the postgresql extension, check out the [postgresql extension documentation](../extensions/postgresql.md).
 
 ## Swagger
 
@@ -165,9 +161,44 @@ To create an app through the cli:
 fly auth login
 ```
 
-- Then, create a new app:
+- Create a new app:
 
 ```bash
 fly apps create <app-name>
 # fly apps create awesome-app
+```
+
+- Set the environment variables
+
+```bash
+fly secrets set CONNECTION_STRING="your remote database connection string"
+```
+
+To find more about the fly.io extension, check out the [fly.io extension documentation](../extensions/fly.md).
+
+- Deploy the project
+
+```bash
+fly deploy
+```
+
+### Connect with Github Actions
+
+Instead of manually deploying the project, you can integrate with Github Actions to deploy your project automatically. Luckily, January had already created a pre-configured Github Actions workflow for you.
+
+To make it Github aware of your Fly.io app, you need to create a new Github repository and set the following secrets:
+
+- `FLY_API_TOKEN`: The API token to authenticate with Fly.io.
+- `FLY_APP_NAME`: The name of the Fly.io application.
+
+Once you've set the secrets, you can trigger the workflow manually or automatically on push events.
+
+---
+
+The project will be reachable at the following URL:
+
+```bash
+https://<app-name>.fly.dev/
+
+# example: https://awesome-app.fly.dev/
 ```

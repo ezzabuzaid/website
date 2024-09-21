@@ -2,26 +2,55 @@
 title: PostgreSQL Extension
 layout: learn
 ---
+
 ## PostgreSQL Extension
 
 PostgreSQL extension is a database extension that allows you to interact with a PostgreSQL database.
 
-### Configuration
+### Setup
 
-#### Settings
+#### Production
 
-- ORM: Only TypeORM is supported at the moment.
-- I18n: _To be scheduled for experimentation_
+You can use providers such as [Fly.io](https://fly.io/), [Neon.tech](https://neon.tech/), [DigitalOcean](https://digitalocean.com/), etc. Or run your own database server.
 
-#### Environment Variables
+From the application perspective it needs the following environment variables:
 
 ```txt
 CONNECTION_STRING=The connection string to the PostgreSQL database.
 ```
 
-#### Build Variables
+#### Development
 
-No build variables for this extension.
+For development create a postgres container and update the `.env` file
+
+```bash
+docker run \
+  --name postgres \
+  -e POSTGRES_PASSWORD=yourpassword \
+  -e POSTGRES_USER=youruser \
+  -e POSTGRES_DB=yourdatabase \
+  -d \
+  -p 5432:5432 \
+  postgres:16
+```
+
+Or leverage January development toolchain. At project creation, a file named `compose.ts` is created. If you don't have one, simply create it and add the following content:
+
+```ts
+import { writeCompose } from '@january/extensions';
+import { localServer } from '@january/extensions/fly';
+import { postgres } from '@january/extensions/postgresql';
+
+writeCompose(
+  compose({
+    database: service(postgres),
+    server: service({
+      ...localServer(),
+      depends_on: [postgres],
+    }),
+  })
+);
+```
 
 ### Functions
 
@@ -181,7 +210,7 @@ import { createQueryBuilder, exists } from '@extensions/postgresql';
 const qb = createQueryBuilder(tables.blogs, 'blogs').where('id = :id', {
   id: trigger.path.id,
 });
-const exists = await exists(qb)
+const exists = await exists(qb);
 ```
 
 **Check if a blog exists by title**:
@@ -213,7 +242,7 @@ await upsertEntity(
     title: trigger.body.title,
     content: trigger.body.content,
   },
-  ['id'], // unique key
+  ['id'] // unique key
 );
 ```
 
@@ -246,7 +275,7 @@ await upsertEntity(
     title: trigger.body.title,
     content: trigger.body.content,
   },
-  ['title'], // unique key
+  ['title'] // unique key
 );
 ```
 
@@ -278,7 +307,7 @@ await upsertEntity(
     title: trigger.body.title,
     content: trigger.body.content,
   },
-  ['title', 'author'], // unique key
+  ['title', 'author'] // unique key
 );
 ```
 
@@ -297,7 +326,7 @@ const qb = createQueryBuilder(tables.blogs, 'blogs').where(
   'title ILIKE :search OR content ILIKE :search',
   {
     search: `%${trigger.query.search}%`,
-  },
+  }
 );
 const paginationMetadata = limitOffsetPagination(qb, {
   pageSize: trigger.query.pageSize,
@@ -355,7 +384,7 @@ workflow('ListBlogsWorkflow', {
   }),
   output: output('return {data: steps.records}'),
   actions: {
-    list: async (trigger) => {
+    list: async trigger => {
       const records = await sql`
           SELECT * FROM blogs
           WHERE title = '${trigger.query.title}'
