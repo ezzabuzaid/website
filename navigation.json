@@ -143,24 +143,16 @@
               "link": "/learn/extensions/hono",
               "label": "Hono.dev"
             },
-            "koa": {
-              "link": "/learn/extensions/koa",
-              "label": "Koa.js"
-            },
             "vercel": {
               "link": "/learn/extensions/vercel",
               "label": "Vercel"
-            },
-            "firebaseFunctions": {
-              "link": "/learn/extensions/firebase-functions",
-              "label": "Firebase Functions"
             },
             "fly": {
               "link": "/learn/extensions/fly",
               "label": "Fly.io"
             },
             "githubWebhooks": {
-              "link": "/learn/extensions/github-webhooks",
+              "link": "/learn/extensions/github",
               "label": "Github Webhooks"
             },
             "nodeCron": {

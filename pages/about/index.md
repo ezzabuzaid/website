@@ -8,17 +8,17 @@ layout: about
 January is an API development platform designed to simplify the process of creating and running APIs by leveraging a powerful declarative language that integrates various tools and services, acting as an intermediary between business logic and server-side code.
 
 ```ts
+import { saveEntity } from '@extensions/postgresql';
 workflow('HelloWorld', {
   tag: 'example',
   trigger: trigger.http({
     method: 'post',
     path: '/hello',
   }),
-  actions: {
-    sayHello: action.database.insert({
-      table: useTable('greetings'),
-      columns: [useField('message', '@trigger:body.message')],
-    }),
+  execute: async trigger => {
+    await saveEntity(tables.greetings, {
+      message: trigger.body.message,
+    });
   },
 });
 ```

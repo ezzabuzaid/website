@@ -99,6 +99,7 @@ There are two parts to this extension:
 A simple example of a workflow that listens to a `issues.labeled` event and creates a new record in a database:
 
 ```ts
+import { saveEntity } from '@extensions/postgresql'; 
 feature('Roadmap', {
   workflows: [
     workflow('RecordIssuedLabeled', {
@@ -106,15 +107,12 @@ feature('Roadmap', {
       trigger: trigger.github({
         event: 'issues.labeled',
       }),
-      actions: {
-        createIssue: action.database.insert({
-          table: useTable('posts'),
-          columns: [
-            useField('title', '@trigger:issue.title'),
-            useField('description', '@trigger:issue.body'),
-            useField('issueUrl', '@trigger:issue.url'),
-          ],
-        }),
+      execute: async trigger => {
+        await saveEntity(tables.posts, {
+          title: trigger.issue.title,
+          description: trigger.issue.body,
+          issueUrl: trigger.issue.url,
+        });
       },
     }),
   ],

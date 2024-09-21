@@ -378,18 +378,17 @@ You can execute raw queries using the `sql` function.
 import { sql } from '@extensions/postgresql';
 
 workflow('ListBlogsWorkflow', {
+  tag: 'blogs',
   trigger: trigger.http({
     method: 'get',
-    path: '/blogs',
+    path: '/',
   }),
-  output: output('return {data: steps.records}'),
-  actions: {
-    list: async trigger => {
-      const records = await sql`
-          SELECT * FROM blogs
-          WHERE title = '${trigger.query.title}'
-        `;
-    },
+  execute: async trigger => {
+    const records = await sql`
+        SELECT * FROM blogs
+        WHERE title = '${trigger.query.title}'
+      `;
+    return records;
   },
 });
 ```

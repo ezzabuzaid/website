@@ -6,21 +6,11 @@ layout: learn
 
 Google Cloud Storage extension is a storage extension that allows you to interact with Google Cloud Storage.
 
-### Configuration
 
-#### Settings
-
-No settings for this extension.
-
-#### Environment Variables
 
 ```txt
 GOOGLE_CLOUD_STORAGE_SERVICE_ACCOUNT_KEY=The service account key to authenticate with Google Cloud Storage. It is required when not running in a Google Cloud environment.
 ```
-
-#### Build Variables
-
-No build variables for this extension.
 
 ### Actions
 

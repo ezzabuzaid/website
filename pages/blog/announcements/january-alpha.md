@@ -78,6 +78,7 @@ Technically speaking, CanonLang is an internal DSL built on top of TypeScript th
 You can get something ready to run with very small amount of code. Here is an example of a complete API project:
 
 ```ts
+import { saveEntity } from '@extensions/postgresql';
 export default project(
   feature('Blog', {
     tables: {
@@ -105,15 +106,12 @@ export default project(
           method: 'post',
           path: '/',
         }),
-        actions: {
-          insertPost: action.database.insert({
-            table: useTable('posts'),
-            columns: [
-              useField('title', '@trigger:body.title'),
-              useField('content', '@trigger:body.content'),
-              useField('author', '@trigger:body.author'),
-            ],
-          }),
+        execute: async trigger => {
+          await saveEntity(tables.posts, {
+            title: trigger.body.title,
+            content: trigger.body.content,
+            author: trigger.body.author,
+          });
         },
       }),
       workflow('AssignAuthorToPostWorkflow', {
@@ -122,12 +120,16 @@ export default project(
           method: 'patch',
           path: '/:id',
         }),
-        actions: {
-          deleteAuthor: action.database.set({
-            table: useTable('posts'),
-            query: query(where('id', 'equals', '@trigger:path.id')),
-            columns: [useField('author', '@trigger:body.authorId')],
-          }),
+        execute: async trigger => {
+          const qb = createQueryBuilder(tables.posts, 'posts').where(
+            'id = :id',
+            {
+              id: trigger.path.id,
+            }
+          );
+          await updateEntity(qb, {
+            author: trigger.body.authorId,
+          });
         },
       }),
     ],

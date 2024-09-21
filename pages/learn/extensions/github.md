@@ -63,20 +63,18 @@ trigger.github({
 Usage within a workflow:
 
 ```ts
+import { saveEntity } from '@extensions/postgresql';
 workflow('RecordIssuedLabeled', {
   tag: 'posts',
   trigger: trigger.github({
     event: 'issues.labeled',
   }),
-  actions: {
-    createIssue: action.database.insert({
-      table: useTable('posts'),
-      columns: [
-        useField('title', '@trigger:issue.title'),
-        useField('description', '@trigger:issue.body'),
-        useField('issueUrl', '@trigger:issue.url'),
-      ],
-    }),
+  execute: async trigger => {
+    await saveEntity(tables.posts, {
+      title: trigger.issue.title,
+      description: trigger.issue.body,
+      issueUrl: trigger.issue.url,
+    });
   },
 });
 ```
@@ -92,6 +90,7 @@ The following policies are available:
 You can use the `policy.github` policy to police the workflow.
 
 ```ts
+import { saveEntity } from '@extensions/postgresql';
 feature('Roadmap', {
   policies: {
     isBug: policy.github({
@@ -106,15 +105,12 @@ feature('Roadmap', {
         event: 'issues.labeled',
         policies: ['isBug'],
       }),
-      actions: {
-        createIssue: action.database.insert({
-          table: useTable('posts'),
-          columns: [
-            useField('title', '@trigger:issue.title'),
-            useField('description', '@trigger:issue.body'),
-            useField('issueUrl', '@trigger:issue.url'),
-          ],
-        }),
+      execute: async trigger => {
+        await saveEntity(tables.posts, {
+          title: trigger.issue.title,
+          description: trigger.issue.body,
+          issueUrl: trigger.issue.url,
+        });
       },
     }),
   ],

@@ -1,18 +1,15 @@
 ```ts
+import { saveEntity } from '@extensions/postgresql';
 workflow('IssueLabeledWorkflow', {
   tag: 'github',
   trigger: trigger.github({
     event: 'issues.labeled',
   }),
-  actions: {
-    recordIssue: trigger =>
-      action.database.insert({
-        table: useTable('Issues'),
-        columns: [
-          useField('title', trigger.issue.title),
-          useField('body', trigger.issue.body),
-        ],
-      }),
+  execute: async trigger => {
+    await saveEntity(tables.issues, {
+      title: trigger.issue.title,
+      body: trigger.issue.body,
+    });
   },
 });
 ```

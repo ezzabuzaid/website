@@ -1,20 +1,16 @@
 ```ts
+import { saveEntity } from '@extensions/postgresql';
 workflow('CreateUserWorkflow', {
   tag: 'users',
   trigger: trigger.http({
     method: 'post',
     path: '/',
   }),
-  actions: {
-    createUser: trigger =>
-      action.database.insert({
-        table: useTable('Users'),
-        columns: [
-          useField('name', trigger.body.name),
-          useField('email', trigger.body.email),
-        ],
-      }),
-  },
+  execute: async trigger => {
+    await saveEntity(tables.users, {
+      name: trigger.body.name,
+      email: trigger.body.email,
+    });
 });
 ```
 

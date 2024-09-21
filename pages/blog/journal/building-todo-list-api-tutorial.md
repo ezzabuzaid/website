@@ -83,31 +83,25 @@ The first workflow is “create task workflow“ that will accept title in the r
 POST /todo/tasks {title: string}
 
 ```ts
+import { saveEntity } from '@extensions/postgresql';
+
 workflow('AddTaskWorkflow', {
   tag: 'tasks',
   trigger: trigger.http({
     method: 'post',
     path: '/',
   }),
-  sequence: sequenceFor('AddTaskWorkflow', 'addTask'),
-  actions: {
-    addTask: action.database.insert({
-      table: useTable('tasks'),
-      columns: [useField('title', '@trigger:body.title')],
-    }),
+  execute: async trigger => {
+    await saveEntity(tables.tasks, {
+      title: trigger.body.title,
+    });
   },
 });
 ```
 
-- Tag is used to namespace group of workflows.
-
-- Trigger is how you want your client to call this endpoint.
-
-- Sequence is to define the order of actions execution.
-
-- Actions are what actually gets executed once the endpoint is called. The extensions dictates what actions are available, for instance `action.database.insert` is available because you installed the **PostgreSQL Extension** from above.
-
-> When you look at the columns array you’ll notice a second argument `@trigger:body.title` which tells the workflow that the value for the title column will be in the request body.
+- `tag` is used to namespace group of workflows.
+- `trigger` is how you want your client to call this endpoint.
+- `execute` is the function that will be executed when the workflow is triggered.
 
 At the end you should be able to call the endpoint using CURL as following
 
@@ -120,24 +114,23 @@ curl -X POST \
 
 #### Update Task Endpoint
 
-Similar to create task, only change needed is the action. You’ll need `action.database.set` action which takes one additional property named “query“.
-
-Query is the PostgreSQL select statement without having to say “from <table>“
+Select the taks to be updated and update the title.
 
 ```ts
+import { createQueryBuilder, updateEntity } from '@extensions/postgresql';
 workflow('UpdateTaskWorkflow', {
   tag: 'tasks',
   trigger: trigger.http({
     method: 'patch',
     path: '/:id',
   }),
-  sequence: sequenceFor('UpdateTaskWorkflow', 'updateTask'),
-  actions: {
-    updateTask: action.database.set({
-      table: useTable('tasks'),
-      columns: [useField('title', '@fixed:true')],
-      query: query(where('id', 'equals', '@trigger:path.id')),
-    }),
+  execute: async trigger => {
+    const qb = createQueryBuilder(tables.tasks, 'tasks').where('id = :id', {
+      id: trigger.path.id,
+    });
+    await updateEntity(qb, {
+      title: trigger.body.title,
+    });
   },
 });
 ```
@@ -147,20 +140,30 @@ workflow('UpdateTaskWorkflow', {
 Similar to the other actions but now with the powerful **pagination** that will paginate the database record using “deferred_joins” strategy.
 
 ```ts
+import {
+  createQueryBuilder,
+  deferredJoinPagination,
+  execute,
+} from '@extensions/postgresql';
 workflow('ListTasksWorkflow', {
   tag: 'tasks',
   trigger: trigger.http({
     method: 'get',
     path: '/',
   }),
-  sequence: sequenceFor('ListTasksWorkflow', 'listTasks'),
-  actions: {
-    listTasks: action.database.list({
-      table: useTable('tasks'),
-      pagination: 'deferred_joins',
-      limit: 20,
-      query: query(),
-    }),
+  execute: async trigger => {
+    const qb = createQueryBuilder(tables.tasks, 'tasks');
+    const paginationMetadata = deferredJoinPagination(qb, {
+      pageSize: trigger.query.pageSize,
+      pageNo: trigger.query.pageNo,
+      count: await qb.getCount(),
+    });
+    const records = await execute(qb);
+    const output = {
+      meta: paginationMetadata(records),
+      records: records,
+    };
+    return output;
   },
 });
 ```
@@ -170,18 +173,19 @@ workflow('ListTasksWorkflow', {
 This one is similar to “Update Task Endpoint”
 
 ```ts
+import { createQueryBuilder, updateEntity } from '@extensions/postgresql';
 workflow('ListTasksWorkflow', {
   tag: 'tasks',
   trigger: trigger.http({
     method: 'get',
     path: '/',
   }),
-  sequence: sequenceFor('ListTasksWorkflow', 'listTasks'),
-  actions: {
-    listTasks: action.database.single({
-      table: useTable('tasks'),
-      query: query(where('id', 'equals', '@trigger:path.id')),
-    }),
+  execute: async trigger => {
+    const qb = createQueryBuilder(tables.tasks, 'tasks').where('id = :id', {
+      id: trigger.path.id,
+    });
+    const [task] = await execute(qb);
+    return task;
   },
 });
 ```

@@ -65,18 +65,17 @@ POST /todo/tasks {title: string}
 ```
 
 ```ts
+import { saveEntity } from '@extensions/postgresql';
 workflow('AddTaskWorkflow', {
   tag: 'tasks',
   trigger: trigger.http({
     method: 'post',
     path: '/',
   }),
-  actions: {
-    addTask: trigger =>
-      action.database.insert({
-        table: useTable('tasks'),
-        columns: [useField('title', trigger.body.title)],
-      }),
+  execute: async trigger => {
+    await saveEntity(tables.tasks, {
+      title: trigger.body.title,
+    });
   },
 });
 ```

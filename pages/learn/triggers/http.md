@@ -5,7 +5,7 @@ layout: learn
 
 ## HTTP Trigger
 
-The `http` trigger is used to trigger workflows based on HTTP requests. You can specify the HTTP method, path to match against.
+The HTTP trigger is used to create workflows that respond to HTTP requests, process data, and return responses allowing you to build RESTful APIs and web services.
 
 ```ts
 workflow('CreateTodo', {
@@ -18,30 +18,29 @@ workflow('CreateTodo', {
     return {
       statusCode: 200,
       body: {
-        message: 'Hello, world!',
+        message: 'Todo created successfully',
+        id: crypto.randomUUID(),
       },
     };
   },
 });
 ```
 
-_This workflow will be triggered by an HTTP request to the path `/{featureName}/tasks` and using http method `post`._
+_This workflow will be triggered by a `POST` request to the path `/{featureName}/tasks`._
 
 #### How it works
 
-The HTTP trigger is implemented through a routing extension (e.g., Hono.dev, Express, Koa) that's included in every project. It translates the workflow into an HTTP endpoint following this pattern:
-
-An HTTP trigger workflow will be translated to the following endpoint:
+The HTTP trigger is implemented through a routing extension (e.g., Hono.dev, Express, Koa) included in every project. It translates the workflow into an HTTP endpoint following this pattern:
 
 ```bash
 /{featureName}/{workflowTag}/{triggerPath}
 ```
 
-The trigger supports common HTTP methods (GET, POST, PUT, PATCH, DELETE, HEAD, OPTIONS), though available methods may vary depending on the specific routing extension used.
+Supported HTTP methods include GET, POST, PUT, PATCH, DELETE, HEAD, and OPTIONS, though availability may vary based on the routing extension used.
 
 ### How to use it?
 
-You can access the request body, query parameters, and headers in the workflow actions using the trigger object.
+You can access the request body, query parameters, and headers using the trigger object.
 
 ```ts
 workflow('UpdateTodo', {

@@ -11,9 +11,9 @@ Speaking in terms of generated code, a workflow is the controller endpoint (http
 
 You can define a workflow by using the `workflow` function. A workflow is composed of the following elements:
 
-1. Trigger that starts the workflow
-2. Action that are executed in the workflow
-3. Tag that is used to group workflows
+- `tag` is used to namespace group of workflows.
+- `trigger` is how you want your client to call this endpoint.
+- `execute` is the function that will be executed when the workflow is triggered.
 
 ```ts
 import { saveEntity } from '@extensions/postgresql';

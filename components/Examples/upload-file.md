@@ -1,14 +1,15 @@
 ```ts
+import { uploadFile } from '@extensions/google-cloud-storage';
 workflow('UploadFile', {
   trigger: trigger.http({
     method: 'post',
     path: '/upload',
   }),
-  actions: {
-    uploadFile: action.googleCloudStorage.uploadSingle({
-      outputName: 'fileUrl',
+  execute: async trigger => {
+    const url = await uploadFile({
       maxFileSize: '5mb',
-    }),
+    });
+    return url;
   },
 });
 ```

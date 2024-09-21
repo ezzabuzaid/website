@@ -10,6 +10,7 @@ In this recipe, we will create a workflow that uploads a file to Google Cloud St
 - Define a "posts" table with a "cover" field of type "url".
 
 ```ts
+import { createQueryBuilder, updateEntity } from '@extensions/postgresql';
 table({
   fields: {
     title: field({ type: 'short-text' }),
@@ -21,22 +22,24 @@ table({
 - Create a workflow with a trigger that accepts a file and an ID.
 
 ```ts
+import { uploadFile } from '@extensions/google-cloud-storage';
+import { createQueryBuilder, updateEntity } from '@extensions/postgresql';
 workflow('UploadPostCoverWorkflow', {
   tag: 'tasks',
   trigger: trigger.http({
     method: 'post',
     path: '/:id',
   }),
-  output: output('return {file: steps.fileUrl}'),
-  actions: {
-    uploadFile: action.googleCloudStorage.uploadSingle({
-      outputName: 'fileUrl',
-    }),
-    setPostCover: action.database.set({
-      columns: [useField('cover', '@workflow:fileUrl')],
-      table: useTable('posts'),
-      query: query(where('id', 'equals', '@trigger:path.id')),
-    }),
+  execute: async trigger => {
+    const qb = createQueryBuilder(tables.posts, 'posts').where('id = :id', {
+      id: trigger.path.id,
+    });
+    const url = await uploadFile({
+      maxFileSize: '5mb',
+    });
+    await updateEntity(qb, {
+      cover: url,
+    });
   },
 });
 ```
@@ -48,6 +51,8 @@ The `action.googleCloudStorage.uploadSingle` action expects multipart/form-data 
 Complete code:
 
 ```ts
+import { createQueryBuilder, updateEntity } from '@extensions/postgresql';
+import { uploadFile } from '@extensions/google-cloud-storage';
 export default project(
   feature('blogs', {
     workflows: [
@@ -57,16 +62,19 @@ export default project(
           method: 'post',
           path: '/:id',
         }),
-        output: output('return {file: steps.fileUrl}'),
-        actions: {
-          uploadFile: action.googleCloudStorage.uploadSingle({
-            outputName: 'fileUrl',
-          }),
-          setPostCover: action.database.set({
-            columns: [useField('cover', '@workflow:fileUrl')],
-            table: useTable('posts'),
-            query: query(where('id', 'equals', '@trigger:path.id')),
-          }),
+        execute: async trigger => {
+          const qb = createQueryBuilder(tables.posts, 'posts').where(
+            'id = :id',
+            {
+              id: trigger.path.id,
+            }
+          );
+          const url = await uploadFile({
+            maxFileSize: '5mb',
+          });
+          await updateEntity(qb, {
+            cover: url,
+          });
         },
       }),
     ],
@@ -78,6 +86,6 @@ export default project(
         },
       }),
     },
-  }),
+  })
 );
 ```

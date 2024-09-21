@@ -1,17 +1,18 @@
 ```ts
+import { resend } from '@extensions/resend';
 workflow('AddUserWorkflow', {
   tag: 'users',
   trigger: trigger.http({
     path: '/',
     method: 'post',
   }),
-  actions: {
-    sendWelcomEmail: trigger => action.resend.sendEmail({
-      to: trigger:body.email,
+  execute: async trigger => {
+    await resend.sendEmail({
+      to: trigger.body.email,
       from: 'welcom@org.com',
       subject: 'Welcome dear user',
       html: '<p>Welcome to January! You have successfully signed up.</p>',
-    }),
+    });
   },
 });
 ```

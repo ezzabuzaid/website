@@ -47,8 +47,8 @@ workflow('ReportServerHealth', {
   trigger: trigger.schedule({
     pattern: '0 0 * * *',
   }),
-  actions: {
-    ...
+  execute: async () => {
+    // do something
   },
 });
 ```

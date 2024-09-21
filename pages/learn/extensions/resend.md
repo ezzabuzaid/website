@@ -4,6 +4,9 @@ layout: learn
 ---
 
 ```ts
+import { resend } from '@extensions/resend';
+import { saveEntity } from '@extensions/postgresql';
+
 feature('UserFeature', {
   tables: {
     users: table({
@@ -26,25 +29,22 @@ feature('UserFeature', {
         path: '/',
         method: 'post',
       }),
-      actions: {
-        sendWelcomEmail: action.resend.sendEmail({
-          to: '@trigger:body.email',
+      execute: async trigger => {
+        await resend.sendEmail({
+          to: trigger.body.email,
           from: 'welcom@org.com',
           subject: 'Welcome dear user',
           html: '<p>Welcome to January! You have successfully signed up.</p>',
-        }),
-        addUserToContact: action.resend.createContact({
-          email: '@trigger:body.email',
-          firstName: '@trigger:body.name',
+        });
+        await resend.contacts.create({
+          email: trigger.body.email,
+          firstName: trigger.body.name,
           audienceId: '008ed46c-82bb-427d-8fbd-256f9703f643',
-        }),
-        addUser: action.database.insert({
-          table: useTable('users'),
-          columns: [
-            useField('name', '@trigger:body.name'),
-            useField('email', '@trigger:body.email'),
-          ],
-        }),
+        });
+        await saveEntity(tables.users, {
+          name: trigger.body.name,
+          email: trigger.body.email,
+        });
       },
     }),
   ],

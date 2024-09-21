@@ -1,8 +1,9 @@
 import glob from 'fast-glob';
 import { createReadStream, statSync } from 'fs';
 import { OpenAI } from 'openai';
+import { join } from 'path';
 
-const DOCS_VECTORSTORE_ID = 'vs_YyCuanTAV01erLARFE2rb9f6';
+const DOCS_VECTORSTORE_ID = 'vs_DaG3hxiWNCceWCfjdBcYjGAY';
 
 async function uploadToAssistant(assistantId) {
   const openai = new OpenAI();
@@ -17,7 +18,9 @@ async function uploadToAssistant(assistantId) {
     await openai.beta.vectorStores.files.del(assistantId, file.id);
   }
 
-  const files = glob.globSync('pages/**/*.{md,mdx}');
+  const files = await glob(
+    join(process.cwd(), 'pages/**/!(*archive)/*.{md,mdx}')
+  );
   const filesStreams = files
     .filter(path => statSync(path).size)
     .filter(

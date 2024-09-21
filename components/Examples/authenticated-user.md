@@ -10,7 +10,9 @@ feature('UsersFeature', {
         method: 'get',
         path: '/user/:id',
       }),
-      actions: {...},
+      execute: async (trigger) => {
+        // do something
+      },
     }),
   ],
 });
