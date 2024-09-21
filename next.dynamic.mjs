@@ -52,7 +52,10 @@ const getDynamicRouter = async () => {
   // Keeps the map of pathnames to filenames
   const pathnameToFilename = new Map();
 
-  const websitePages = await getMarkdownFiles(process.cwd(), `pages`);
+  const websitePages = (await getMarkdownFiles(process.cwd(), `pages`))
+    .filter(file => !file.includes('archive/'))
+    .filter(file => !file.startsWith('learn/'));
+  // console.log(websitePages);
   websitePages.forEach(filename => {
     // This Regular Expression is used to remove the `index.md(x)` suffix
     // of a name and to remove the `.md(x)` extensions of a filename.
