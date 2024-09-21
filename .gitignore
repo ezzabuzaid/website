@@ -32,3 +32,4 @@ cache
 
 # TypeScript
 tsconfig.tsbuildinfo
+flattened-dir/

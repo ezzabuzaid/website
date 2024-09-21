@@ -45,23 +45,28 @@ For the purpose of this tutorial, we will define two tables: **fruits** and **fa
 2. `family`: Categorizes fruits into families
 
 ```ts
-feature('Fruits', {
-  fruits: table({
-    fields: {
-      name: field.shortText(),
-      price: field.price()
-      family: field.relation({
-        references: useTable('family'),
-        relationship: 'many-to-one',
+export default project(
+  feature('Fruits', {
+    workflows: [],
+    tables: {
+      fruits: table({
+        fields: {
+          name: field.shortText(),
+          price: field({ type: 'price' }),
+          family: field.relation({
+            references: useTable('family'),
+            relationship: 'many-to-one',
+          }),
+        },
+      }),
+      family: table({
+        fields: {
+          name: field.enum({ values: ['berries', 'citrus', 'other'] }),
+        },
       }),
     },
   }),
-  family: table({
-    fields: {
-      name: field.enum(['berries', 'citrus', 'other']),
-    },
-  }),
-});
+);
 ```
 
 ## Add Workflows

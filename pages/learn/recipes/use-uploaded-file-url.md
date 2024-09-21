@@ -11,52 +11,33 @@ In this recipe, we will create a workflow that uploads a file to Google Cloud St
 
 ```ts
 import { createQueryBuilder, updateEntity } from '@extensions/postgresql';
-table({
-  fields: {
-    title: field({ type: 'short-text' }),
-    cover: field({ type: 'url' }),
-  },
-});
+export default project(
+  feature('Blog', {
+    workflows: [],
+    tables: {
+      posts: table({
+        fields: {
+          title: field({ type: 'short-text' }),
+          cover: field({ type: 'url' }),
+        },
+      }),
+    },
+  })
+);
 ```
 
 - Create a workflow with a trigger that accepts a file and an ID.
 
 ```ts
-import { uploadFile } from '@extensions/google-cloud-storage';
+import { upload } from '@extensions/google-cloud-storage';
 import { createQueryBuilder, updateEntity } from '@extensions/postgresql';
-workflow('UploadPostCoverWorkflow', {
-  tag: 'tasks',
-  trigger: trigger.http({
-    method: 'post',
-    path: '/:id',
-  }),
-  execute: async trigger => {
-    const qb = createQueryBuilder(tables.posts, 'posts').where('id = :id', {
-      id: trigger.path.id,
-    });
-    const url = await uploadFile({
-      maxFileSize: '5mb',
-    });
-    await updateEntity(qb, {
-      cover: url,
-    });
-  },
-});
-```
-
-In this example, the fileUrl is returned from the uploadFile action and saved to the cover field of the post with the ID specified in the trigger path.
-
-The `action.googleCloudStorage.uploadSingle` action expects multipart/form-data with a field.
-
-Complete code:
-
-```ts
-import { createQueryBuilder, updateEntity } from '@extensions/postgresql';
-import { uploadFile } from '@extensions/google-cloud-storage';
 export default project(
-  feature('blogs', {
+  feature('Blog', {
+    tables: {
+      // ...
+    },
     workflows: [
-      workflow('UploadSingleFileWorkflow', {
+      workflow('UploadPostCoverWorkflow', {
         tag: 'tasks',
         trigger: trigger.http({
           method: 'post',
@@ -69,7 +50,46 @@ export default project(
               id: trigger.path.id,
             }
           );
-          const url = await uploadFile({
+          const [url] = await upload({
+            maxFileSize: '5mb',
+          });
+          await updateEntity(qb, {
+            cover: url,
+          });
+        },
+      }),
+    ],
+  })
+);
+```
+
+In this example, the fileUrl is returned from the uploadFile action and saved to the cover field of the post with the ID specified in the trigger path.
+
+The `action.googleCloudStorage.uploadSingle` action expects multipart/form-data with a field.
+
+Complete code:
+
+```ts
+import { createQueryBuilder, updateEntity } from '@extensions/postgresql';
+import { upload } from '@extensions/google-cloud-storage';
+
+export default project(
+  feature('blogs', {
+    workflows: [
+      workflow('UploadPostCoverWorkflow', {
+        tag: 'tasks',
+        trigger: trigger.http({
+          method: 'post',
+          path: '/:id',
+        }),
+        execute: async trigger => {
+          const qb = createQueryBuilder(tables.posts, 'posts').where(
+            'id = :id',
+            {
+              id: trigger.path.id,
+            }
+          );
+          const [url] = await upload({
             maxFileSize: '5mb',
           });
           await updateEntity(qb, {
