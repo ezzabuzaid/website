@@ -5,6 +5,7 @@ import { redirects, rewrites } from './next.rewrites.mjs';
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  productionBrowserSourceMaps: true,
   // To import ESM-only packages with next dev --turbo. Source: https://github.com/vercel/next.js/issues/63318#issuecomment-2079677098
   transpilePackages: ['next-mdx-remote'],
   // Just to ensure that React is always on strict mode

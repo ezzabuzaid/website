@@ -27,15 +27,15 @@ export function NEXT_REHYPE_PLUGINS(props = { hideCopyButton: false }) {
     // Automatically add anchor links to headings (H1, ...)
     [rehypeAutolinkHeadings, { behavior: 'wrap' }],
     // Transforms sequential code elements into code tabs and
-    // [
-    //   rehypeShiki,
-    //   {
-    //     themes: {
-    //       light: 'nord',
-    //       dark: 'nord',
-    //     },
-    //   },
-    // ],
+    [
+      rehypeShiki,
+      {
+        themes: {
+          light: 'nord',
+          dark: 'nord',
+        },
+      },
+    ],
     // [
     //   rehypeExpressiveCode,
     //   {
