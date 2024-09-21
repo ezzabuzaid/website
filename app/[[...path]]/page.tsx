@@ -9,6 +9,7 @@ import { ENABLE_STATIC_EXPORT, VERCEL_REVALIDATE } from '@/next.constants.mjs';
 import { DYNAMIC_ROUTES, PAGE_VIEWPORT } from '@/next.dynamic.constants.mjs';
 import { dynamicRouter } from '@/next.dynamic.mjs';
 import { MatterProvider } from '@/providers/matterProvider';
+import type { ClientSharedServerContext } from '@/types';
 
 type DynamicStaticPaths = { path: Array<string> };
 type DynamicParams = { params: DynamicStaticPaths };
@@ -102,7 +103,7 @@ const getPage: FC<DynamicParams> = async ({ params }) => {
       pathname: `/${pathname}`,
       readingTime,
       filename,
-    };
+    } satisfies Partial<ClientSharedServerContext>;
 
     // Defines a shared Server Context for the Client-Side
     // That is shared for all pages under the dynamic router

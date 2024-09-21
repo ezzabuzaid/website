@@ -19,7 +19,7 @@ const reactRuntime = { Fragment, jsx, jsxs };
  * @returns {Promise<{
  *   MDXContent: import('mdx/types').MDXContent;
  *   headings: Array<import('@vcarl/remark-headings').Heading>;
- *   frontmatter: Record<string, any>;
+ *   frontmatter: import('./types').LegacyFrontMatter;
  *   readingTime: import('reading-time').ReadTimeResults;
  * }>}
  */

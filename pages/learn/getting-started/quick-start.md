@@ -17,7 +17,6 @@ Once done, you should see a new directory called `my-project`
 
 ```bash
 cd my-project
-
 ```
 
 Run the build command and keep it running.

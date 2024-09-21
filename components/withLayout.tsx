@@ -21,10 +21,12 @@ const layouts = {
   download: DownloadLayout,
 } satisfies Record<Layouts, FC>;
 
-type WithLayoutProps<L = Layouts> = PropsWithChildren<{ layout: L }>;
+type WithLayoutProps<L = Layouts> = PropsWithChildren<{ layout?: L }>;
 
 const WithLayout: FC<WithLayoutProps<Layouts>> = ({ layout, children }) => {
-  const LayoutComponent = layouts[layout] ?? DefaultLayout;
+  const LayoutComponent = layout
+    ? layouts[layout] ?? DefaultLayout
+    : DefaultLayout;
 
   return <LayoutComponent>{children}</LayoutComponent>;
 };

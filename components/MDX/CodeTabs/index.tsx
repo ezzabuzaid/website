@@ -58,7 +58,7 @@ const NestedTabs: FC<{ examples: Array<NestedExampleTab> }> = props => {
       >
         {props.examples.map(item => (
           <TabsPrimitive.Content
-            className={classNames(styles.tabsRoot)}
+            className={classNames(styles.tabsRoot, 'text-sm')}
             value={item.id}
             key={item.id}
           >

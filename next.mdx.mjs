@@ -1,4 +1,6 @@
 'use strict';
+import remarkRehype from 'remark-rehype';
+import rehypeShiki from '@shikijs/rehype';
 
 import { nodeTypes } from '@mdx-js/mdx';
 import remarkHeadings from '@vcarl/remark-headings';
@@ -25,30 +27,40 @@ export function NEXT_REHYPE_PLUGINS(props = { hideCopyButton: false }) {
     // Automatically add anchor links to headings (H1, ...)
     [rehypeAutolinkHeadings, { behavior: 'wrap' }],
     // Transforms sequential code elements into code tabs and
+
     [
-      rehypeExpressiveCode,
+      rehypeShiki,
       {
-        themes: ['nord'],
-        logger: console,
-        frames: {
-          showCopyToClipboardButton: !props.hideCopyButton,
-          extractFileNameFromCode: false,
-        },
-        styleOverrides: {
-          frames: {
-            frameBoxShadowCssValue: '0 0 0 0',
-          },
-          borderColor: 'hsl(var(--border))',
-          codeFontFamily: 'var(--font-mono)',
-          codeBackground: 'rgb(13 18 28)',
-          uiFontFamily: 'var(--font-mono)',
-          borderWidth: '1px',
-          borderRadius: '0.0rem',
-          codePaddingInline: '0.75rem',
-          codePaddingBlock: '0.75rem',
+        themes: {
+          light: 'nord',
+          dark: 'nord',
         },
       },
     ],
+    // [
+    //   rehypeExpressiveCode,
+    //   {
+    //     themes: ['nord'],
+    //     logger: console,
+    //     frames: {
+    //       showCopyToClipboardButton: !props.hideCopyButton,
+    //       extractFileNameFromCode: false,
+    //     },
+    //     styleOverrides: {
+    //       frames: {
+    //         frameBoxShadowCssValue: '0 0 0 0',
+    //       },
+    //       borderColor: 'hsl(var(--border))',
+    //       codeFontFamily: 'var(--font-mono)',
+    //       codeBackground: 'rgb(13 18 28)',
+    //       uiFontFamily: 'var(--font-mono)',
+    //       borderWidth: '1px',
+    //       borderRadius: '0.0rem',
+    //       codePaddingInline: '0.75rem',
+    //       codePaddingBlock: '0.75rem',
+    //     },
+    //   },
+    // ],
   ];
 }
 
