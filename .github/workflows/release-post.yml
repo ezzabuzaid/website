@@ -1,0 +1,83 @@
+name: New File Notification to Discord
+
+on:
+  push:
+    paths:
+      - 'pages/blog/whats-new/**' # Monitor changes in this directory
+    types:
+      - added # Only trigger when new files are added
+
+jobs:
+  process-and-notify:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checkout App Repo
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 2
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Cache Or Restore Node Modules
+        id: cache
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
+
+      - name: Install dependencies
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: npm install  --no-audit --no-fund
+
+      - name: Find new files
+        id: find_new_files
+        run: |
+          NEW_FILES=$(git diff --name-only --diff-filter=A HEAD^ HEAD -- 'pages/blog/whats-new/' | tr '\n' ' ')
+          echo "NEW_FILES=${NEW_FILES}" >> $GITHUB_OUTPUT
+
+      - name: Setup Node.js
+        if: steps.find_new_files.outputs.NEW_FILES != ''
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        if: steps.find_new_files.outputs.NEW_FILES != ''
+        run: npm ci
+
+      - name: Process new files
+        if: steps.find_new_files.outputs.NEW_FILES != ''
+        id: process_files
+        run: |
+          for file in ${{ steps.find_new_files.outputs.NEW_FILES }}; do
+            echo "Processing new file: $file"
+            node .github/scripts/processFile.js "$file" >> cleaned-content.txt
+            echo "---" >> cleaned-content.txt  # Add separator between files
+          done
+
+      - name: Send notification to Discord
+        if: steps.find_new_files.outputs.NEW_FILES != ''
+        env:
+          DISCORD_WEBHOOK: https://discord.com/api/webhooks/1102520462011027486/SyXN4msDHQhxhRnJcLeJ4qWVno39TPFGfHi45vOym2XGHDpARW23rQGzjRkjuJu6YDk2
+        run: |
+          NEW_FILES="${{ steps.find_new_files.outputs.NEW_FILES }}"
+          CONTENT=$(cat cleaned-content.txt)
+          curl -H "Content-Type: application/json" -X POST $DISCORD_WEBHOOK -d @- << EOF
+          {
+            "embeds": [{
+              "title": "New Blog Post(s) Added",
+              "description": "The following new files were added:\n$NEW_FILES",
+              "color": 5814783,
+              "fields": [
+                {
+                  "name": "Content Preview",
+                  "value": "$(echo "$CONTENT" | cut -c1-1024)..."
+                }
+              ]
+            }]
+          }
+          EOF
