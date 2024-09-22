@@ -1,5 +1,6 @@
 ```ts
 import { saveEntity } from '@extensions/postgresql';
+
 workflow('CreateUserWorkflow', {
   tag: 'users',
   trigger: trigger.http({

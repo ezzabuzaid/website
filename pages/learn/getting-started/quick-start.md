@@ -47,6 +47,7 @@ npx tsx compose.ts
 docker compose \
   -f "compose.dev.yml" \
   up \
+  --build \
   --watch \
   --remove-orphans
 ```

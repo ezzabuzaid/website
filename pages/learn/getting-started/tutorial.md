@@ -45,6 +45,8 @@ For the purpose of this tutorial, we will define two tables: **fruits** and **fa
 2. `family`: Categorizes fruits into families
 
 ```ts
+import { feature, project, table, workflow, field } from '@january/core';
+
 export default project(
   feature('Fruits', {
     workflows: [],
@@ -65,7 +67,7 @@ export default project(
         },
       }),
     },
-  }),
+  })
 );
 ```
 
@@ -91,28 +93,34 @@ import {
   deferredJoinPagination,
   execute,
 } from '@extensions/postgresql';
-
-workflow('ListFruitsWorkflow', {
-  tag: 'fruits',
-  trigger: trigger.http({
-    method: 'get',
-    path: '/',
-  }),
-  execute: async trigger => {
-    const qb = createQueryBuilder(tables.fruits, 'fruits');
-    const paginationMetadata = deferredJoinPagination(qb, {
-      pageSize: trigger.query.pageSize,
-      pageNo: trigger.query.pageNo,
-      count: await qb.getCount(),
-    });
-    const records = await execute(qb);
-    const output = {
-      meta: paginationMetadata(records),
-      records: records,
-    };
-    return output;
-  },
-});
+export default project(
+  feature('Fruits', {
+    tables: {...},
+    workflows: [
+      workflow('ListFruitsWorkflow', {
+        tag: 'fruits',
+        trigger: trigger.http({
+          method: 'get',
+          path: '/',
+        }),
+        execute: async trigger => {
+          const qb = createQueryBuilder(tables.fruits, 'fruits');
+          const paginationMetadata = deferredJoinPagination(qb, {
+            pageSize: trigger.query.pageSize,
+            pageNo: trigger.query.pageNo,
+            count: await qb.getCount(),
+          });
+          const records = await execute(qb);
+          const output = {
+            meta: paginationMetadata(records),
+            records: records,
+          };
+          return output;
+        },
+      }),
+    ],
+  })
+);
 ```
 
 The `execute` function is used to execute the query and return the result once the workflow is triggered by an HTTP request.
@@ -128,19 +136,26 @@ curl http://localhost:3000/fruits
 ```ts
 import { saveEntity } from '@extensions/postgresql';
 
-workflow('SaveFruitWorkflow', {
-  tag: 'fruits',
-  trigger: trigger.http({
-    method: 'post',
-    path: '/',
-  }),
-  execute: async trigger => {
-    await saveEntity(tables.fruits, {
-      name: trigger.body.name,
-      price: trigger.body.price,
-    });
-  },
-});
+export default project(
+  feature('Fruits', {
+    tables: {...},
+    workflows: [
+      workflow('SaveFruitWorkflow', {
+        tag: 'fruits',
+        trigger: trigger.http({
+          method: 'post',
+          path: '/',
+        }),
+        execute: async trigger => {
+          await saveEntity(tables.fruits, {
+            name: trigger.body.name,
+            price: trigger.body.price,
+          });
+        },
+      }),
+    ],
+  })
+);
 ```
 
 To learn more about the functionality of the postgresql extension, check out the [postgresql extension documentation](../extensions/postgresql.md).

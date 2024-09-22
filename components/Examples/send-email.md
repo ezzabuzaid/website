@@ -1,5 +1,6 @@
 ```ts
 import { resend } from '@extensions/resend';
+
 workflow('AddUserWorkflow', {
   tag: 'users',
   trigger: trigger.http({
