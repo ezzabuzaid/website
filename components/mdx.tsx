@@ -27,20 +27,7 @@ export const Mdx = async (props: {
           ...combinedComponents,
           h1: () => <></>,
           h2: () => <></>,
-          pre: ({ children }) => (
-            <pre
-              style={
-                {
-                  '--ec-frm-frameBoxShdCssVal': '0 0 0 0',
-                  '--ec-brdCol': 'hsl(var(--border))',
-                  '--ec-brdRad': '0.0rem',
-                  '--ec-frm-edBg': 'rgb(13 18 28)', //bg-natural-900
-                } as React.CSSProperties
-              }
-            >
-              {children}
-            </pre>
-          ),
+          pre: ({ children }) => <pre>{children}</pre>,
         }
       }
       source={props.source}
