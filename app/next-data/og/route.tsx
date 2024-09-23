@@ -1,4 +1,3 @@
-import Logo from '@/components/Icons/Logos/logo.png';
 import { ImageResponse } from 'next/og';
 
 import JsIconWhite from '@/components/Icons/Logos/JsIconWhite';
@@ -7,7 +6,6 @@ import {
   VERCEL_ENV,
   VERCEL_REVALIDATE,
 } from '@/next.constants.mjs';
-import Image from 'next/image';
 
 // This is the Route Handler for the `GET` method which handles the request
 // for generating OpenGrapgh images for Blog Posts and Pages
@@ -22,8 +20,7 @@ export const GET = async (request: Request) => {
   return new ImageResponse(
     (
       <div tw="relative flex items-center justify-center bg-black w-[1200px] h-[600px]">
-        <Image src={Logo} alt="Logo" />
-
+        <img src={'/public/logo.png'} alt="Logo" />
         <div tw="absolute mx-auto flex max-w-xl flex-col text-center text-3xl font-semibold text-white">
           <JsIconWhite width={71} height={80} tw="mx-auto" />
 

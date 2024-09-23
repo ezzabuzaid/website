@@ -66,6 +66,8 @@ POST /todo/tasks {title: string}
 
 ```ts
 import { saveEntity } from '@extensions/postgresql';
+import { tables } from '@workspace/entities';
+
 workflow('AddTaskWorkflow', {
   tag: 'tasks',
   trigger: trigger.http({

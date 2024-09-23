@@ -79,6 +79,8 @@ You can get something ready to run with very small amount of code. Here is an ex
 
 ```ts
 import { saveEntity } from '@extensions/postgresql';
+import { tables } from '@workspace/entities';
+
 export default project(
   feature('Blog', {
     tables: {

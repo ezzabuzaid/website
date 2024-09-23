@@ -6,6 +6,7 @@ layout: learn
 ```ts
 import { resend } from '@extensions/resend';
 import { saveEntity } from '@extensions/postgresql';
+import { tables } from '@workspace/entities';
 
 feature('UserFeature', {
   tables: {

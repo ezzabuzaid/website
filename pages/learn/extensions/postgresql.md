@@ -85,6 +85,7 @@ import {
   deferredJoinPagination,
   execute,
 } from '@extensions/postgresql';
+import { tables } from '@workspace/entities';
 
 const qb = createQueryBuilder(tables.blogs, 'blogs');
 const paginationMetadata = deferredJoinPagination(qb, {
@@ -107,6 +108,7 @@ import {
   cursorPagination,
   execute,
 } from '@extensions/postgresql';
+import { tables } from '@workspace/entities';
 
 const qb = createQueryBuilder(tables.blogs, 'blogs');
 const paginationMetadata = cursorPagination(qb, {
@@ -125,6 +127,7 @@ import {
   execute,
   limitOffsetPagination,
 } from '@extensions/postgresql';
+import { tables } from '@workspace/entities';
 
 const qb = createQueryBuilder(tables.blogs, 'blogs');
 const paginationMetadata = limitOffsetPagination(qb, {
@@ -143,6 +146,7 @@ Insert a record in a table.
 
 ```ts
 import { saveEntity } from '@extensions/postgresql';
+import { tables } from '@workspace/entities';
 
 await saveEntity(tables.blogs, {
   title: trigger.body.title,
@@ -160,6 +164,7 @@ Set a column or more in a record in a table.
 
 ```ts
 import { createQueryBuilder, updateEntity } from '@extensions/postgresql';
+import { tables } from '@workspace/entities';
 
 const qb = createQueryBuilder(tables.blogs, 'blogs').where('id = :id', {
   id: trigger.path.id,
@@ -177,6 +182,7 @@ Delete a record or many in a table given a query.
 
 ```ts
 import { createQueryBuilder, removeEntity } from '@extensions/postgresql';
+import { tables } from '@workspace/entities';
 
 const qb = createQueryBuilder(tables.blogs, 'blogs').where('id = :id', {
   id: trigger.path.id,
@@ -191,6 +197,7 @@ This function will delete one blog that has the id from the request path.
 
 ```ts
 import { createQueryBuilder, removeEntity } from '@extensions/postgresql';
+import { tables } from '@workspace/entities';
 
 const qb = createQueryBuilder(tables.blogs, 'blogs');
 await removeEntity(qb);
@@ -206,6 +213,7 @@ Check if at least one record exists in a table given a query.
 
 ```ts
 import { createQueryBuilder, exists } from '@extensions/postgresql';
+import { tables } from '@workspace/entities';
 
 const qb = createQueryBuilder(tables.blogs, 'blogs').where('id = :id', {
   id: trigger.path.id,
@@ -217,6 +225,7 @@ const exists = await exists(qb);
 
 ```ts
 import { createQueryBuilder } from '@extensions/postgresql';
+import { tables } from '@workspace/entities';
 
 const qb = createQueryBuilder(tables.blogs, 'blogs').where('title = :title', {
   title: trigger.body.title,
@@ -234,6 +243,7 @@ Insert a record if it does not exist, or update it if it already exists, based o
 
 ```ts
 import { createQueryBuilder, upsertEntity } from '@extensions/postgresql';
+import { tables } from '@workspace/entities';
 
 await upsertEntity(
   tables.blogs,
@@ -344,6 +354,7 @@ Increment a column in a record in a table.
 
 ```ts
 import { createQueryBuilder, increment } from '@extensions/postgresql';
+import { tables } from '@workspace/entities';
 
 const qb = createQueryBuilder(tables.blogs, 'blogs').where('id = :id', {
   id: trigger.path.id,
@@ -360,6 +371,7 @@ Decrement a column in a record in a table.
 
 ```ts
 import { createQueryBuilder, decrement } from '@extensions/postgresql';
+import { tables } from '@workspace/entities';
 
 const qb = createQueryBuilder(tables.blogs, 'blogs').where('id = :id', {
   id: trigger.path.id,

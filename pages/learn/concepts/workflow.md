@@ -17,6 +17,7 @@ You can define a workflow by using the `workflow` function. A workflow is compos
 
 ```ts
 import { saveEntity } from '@extensions/postgresql';
+import { tables } from '@workspace/entities';
 
 workflow('AddOrderWorkflow', {
   tag: 'orders',

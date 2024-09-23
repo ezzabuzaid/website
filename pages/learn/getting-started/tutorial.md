@@ -93,6 +93,8 @@ import {
   deferredJoinPagination,
   execute,
 } from '@extensions/postgresql';
+import { tables } from '@workspace/entities';
+
 export default project(
   feature('Fruits', {
     tables: {...},
@@ -135,6 +137,7 @@ curl http://localhost:3000/fruits
 
 ```ts
 import { saveEntity } from '@extensions/postgresql';
+import { tables } from '@workspace/entities';
 
 export default project(
   feature('Fruits', {

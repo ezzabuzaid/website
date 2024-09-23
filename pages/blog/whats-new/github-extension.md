@@ -99,7 +99,9 @@ There are two parts to this extension:
 A simple example of a workflow that listens to a `issues.labeled` event and creates a new record in a database:
 
 ```ts
-import { saveEntity } from '@extensions/postgresql'; 
+import { saveEntity } from '@extensions/postgresql';
+import { tables } from '@workspace/entities';
+
 feature('Roadmap', {
   workflows: [
     workflow('RecordIssuedLabeled', {

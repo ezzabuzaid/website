@@ -31,6 +31,8 @@ export default project(
 ```ts
 import { upload } from '@extensions/google-cloud-storage';
 import { createQueryBuilder, updateEntity } from '@extensions/postgresql';
+import { tables } from '@workspace/entities';
+
 export default project(
   feature('Blog', {
     tables: {

@@ -64,6 +64,8 @@ Usage within a workflow:
 
 ```ts
 import { saveEntity } from '@extensions/postgresql';
+import { tables } from '@workspace/entities';
+
 workflow('RecordIssuedLabeled', {
   tag: 'posts',
   trigger: trigger.github({
@@ -91,6 +93,8 @@ You can use the `policy.github` policy to police the workflow.
 
 ```ts
 import { saveEntity } from '@extensions/postgresql';
+import { tables } from '@workspace/entities';
+
 feature('Roadmap', {
   policies: {
     isBug: policy.github({

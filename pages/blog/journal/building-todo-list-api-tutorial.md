@@ -84,6 +84,8 @@ POST /todo/tasks {title: string}
 
 ```ts
 import { saveEntity } from '@extensions/postgresql';
+import { tables } from '@workspace/entities';
+
 
 workflow('AddTaskWorkflow', {
   tag: 'tasks',
@@ -145,6 +147,8 @@ import {
   deferredJoinPagination,
   execute,
 } from '@extensions/postgresql';
+import { tables } from '@workspace/entities';
+
 workflow('ListTasksWorkflow', {
   tag: 'tasks',
   trigger: trigger.http({
@@ -174,6 +178,8 @@ This one is similar to “Update Task Endpoint”
 
 ```ts
 import { createQueryBuilder, updateEntity } from '@extensions/postgresql';
+import { tables } from '@workspace/entities';
+
 workflow('ListTasksWorkflow', {
   tag: 'tasks',
   trigger: trigger.http({

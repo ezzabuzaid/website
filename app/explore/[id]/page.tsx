@@ -8,12 +8,7 @@ import { Fragment } from 'react';
 import { SiGithub } from 'react-icons/si';
 
 export async function generateStaticParams() {
-  const projects = await getProjects();
-  return projects.map(project => ({
-    params: {
-      id: project.id,
-    },
-  }));
+  return getProjects();
 }
 
 export default async function Page({

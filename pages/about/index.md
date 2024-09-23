@@ -9,6 +9,8 @@ January is an API development platform designed to simplify the process of creat
 
 ```ts
 import { saveEntity } from '@extensions/postgresql';
+import { tables } from '@workspace/entities';
+
 workflow('HelloWorld', {
   tag: 'example',
   trigger: trigger.http({

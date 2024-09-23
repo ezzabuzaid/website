@@ -1,5 +1,6 @@
 ```ts
 import { saveEntity } from '@extensions/postgresql';
+import { tables } from '@workspace/entities';
 
 workflow('CreateUserWorkflow', {
   tag: 'users',

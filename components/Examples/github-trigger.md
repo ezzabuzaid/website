@@ -1,5 +1,7 @@
 ```ts
 import { saveEntity } from '@extensions/postgresql';
+import { tables } from '@workspace/entities';
+
 workflow('IssueLabeledWorkflow', {
   tag: 'github',
   trigger: trigger.github({
