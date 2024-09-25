@@ -96,6 +96,10 @@
             "workflow": {
               "link": "/learn/essentials/workflow",
               "label": "Workflow"
+            },
+            "validation": {
+              "link": "/learn/essentials/validation",
+              "label": "Validation"
             }
           }
         },
