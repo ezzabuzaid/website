@@ -14,7 +14,7 @@ workflow('CreateTodo', {
     method: 'post',
     path: '/',
   }),
-  execute: async trigger => {
+  execute: async ({ trigger }) => {
     return {
       statusCode: 200,
       body: {
@@ -49,7 +49,7 @@ workflow('UpdateTodo', {
     method: 'patch',
     path: '/:id',
   }),
-  execute: async trigger => {
+  execute: async ({ trigger }) => {
     return {
       id: trigger.path.id,
       title: trigger.body.title,

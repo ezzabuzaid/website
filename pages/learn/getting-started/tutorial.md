@@ -105,7 +105,7 @@ export default project(
           method: 'get',
           path: '/',
         }),
-        execute: async trigger => {
+        execute: async ({ trigger }) => {
           const qb = createQueryBuilder(tables.fruits, 'fruits');
           const paginationMetadata = deferredJoinPagination(qb, {
             pageSize: trigger.query.pageSize,
@@ -149,7 +149,7 @@ export default project(
           method: 'post',
           path: '/',
         }),
-        execute: async trigger => {
+        execute: async ({ trigger }) => {
           await saveEntity(tables.fruits, {
             name: trigger.body.name,
             price: trigger.body.price,

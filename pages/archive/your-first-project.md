@@ -74,7 +74,7 @@ workflow('AddTaskWorkflow', {
     method: 'post',
     path: '/',
   }),
-  execute: async trigger => {
+  execute: async ({ trigger }) => {
     await saveEntity(tables.tasks, {
       title: trigger.body.title,
     });

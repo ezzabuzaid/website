@@ -13,7 +13,6 @@ Triggers are used to start workflows based on specific events or conditions.
 - Github
 - Schedule
 
-
 ### SSE
 
 The `sse` trigger is used to trigger workflows based on Server-Sent Events (SSE). You can specify the path to match against.
@@ -25,7 +24,7 @@ workflow('StreamSSE', {
   trigger: trigger.sse({
     path: '/',
   }),
-  execute: async trigger => {
+  execute: async ({ trigger }) => {
     const { channel } = trigger.query;
     const stream = new PassThrough();
     setInterval(() => {
@@ -46,7 +45,7 @@ workflow('StreamWebsocket', {
     path: '/',
     topic: 'chat',
   }),
-  execute: async trigger => {
+  execute: async ({ trigger }) => {
     const { channel } = trigger.query;
     const stream = new PassThrough();
     setInterval(() => {

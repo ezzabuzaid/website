@@ -10,7 +10,7 @@ feature('InventoryFeature', {
         method: 'post',
         path: '/',
       }),
-      execute: async trigger => {
+      execute: async ({ trigger }) => {
         // do something
       },
     }),

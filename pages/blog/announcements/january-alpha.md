@@ -108,7 +108,7 @@ export default project(
           method: 'post',
           path: '/',
         }),
-        execute: async trigger => {
+        execute: async ({ trigger }) => {
           await saveEntity(tables.posts, {
             title: trigger.body.title,
             content: trigger.body.content,
@@ -122,7 +122,7 @@ export default project(
           method: 'patch',
           path: '/:id',
         }),
-        execute: async trigger => {
+        execute: async ({ trigger }) => {
           const qb = createQueryBuilder(tables.posts, 'posts').where(
             'id = :id',
             {

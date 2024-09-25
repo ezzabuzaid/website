@@ -1,13 +1,14 @@
 ```ts
 import { on } from 'node:stream';
 import { merge } from 'rxjs';
+import { workflow, trigger } from '@january/declarative';
 
 workflow('StreamErrors', {
   tag: 'realtime',
   trigger: trigger.sse({
     path: '/errors',
   }),
-  execute: async (trigger) => {
+  execute: async ({trigger}) => {
     return merge(
       on(process, 'uncaughtException'),
       on(process, 'unhandledRejection'),

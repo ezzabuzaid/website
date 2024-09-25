@@ -86,14 +86,13 @@ POST /todo/tasks {title: string}
 import { saveEntity } from '@extensions/postgresql';
 import { tables } from '@workspace/entities';
 
-
 workflow('AddTaskWorkflow', {
   tag: 'tasks',
   trigger: trigger.http({
     method: 'post',
     path: '/',
   }),
-  execute: async trigger => {
+  execute: async ({ trigger }) => {
     await saveEntity(tables.tasks, {
       title: trigger.body.title,
     });
@@ -126,7 +125,7 @@ workflow('UpdateTaskWorkflow', {
     method: 'patch',
     path: '/:id',
   }),
-  execute: async trigger => {
+  execute: async ({ trigger }) => {
     const qb = createQueryBuilder(tables.tasks, 'tasks').where('id = :id', {
       id: trigger.path.id,
     });
@@ -155,7 +154,7 @@ workflow('ListTasksWorkflow', {
     method: 'get',
     path: '/',
   }),
-  execute: async trigger => {
+  execute: async ({ trigger }) => {
     const qb = createQueryBuilder(tables.tasks, 'tasks');
     const paginationMetadata = deferredJoinPagination(qb, {
       pageSize: trigger.query.pageSize,
@@ -186,7 +185,7 @@ workflow('ListTasksWorkflow', {
     method: 'get',
     path: '/',
   }),
-  execute: async trigger => {
+  execute: async ({ trigger }) => {
     const qb = createQueryBuilder(tables.tasks, 'tasks').where('id = :id', {
       id: trigger.path.id,
     });

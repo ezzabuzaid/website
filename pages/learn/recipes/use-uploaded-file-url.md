@@ -45,7 +45,7 @@ export default project(
           method: 'post',
           path: '/:id',
         }),
-        execute: async trigger => {
+        execute: async ({ trigger }) => {
           const qb = createQueryBuilder(tables.posts, 'posts').where(
             'id = :id',
             {
@@ -84,7 +84,7 @@ export default project(
           method: 'post',
           path: '/:id',
         }),
-        execute: async trigger => {
+        execute: async ({ trigger }) => {
           const qb = createQueryBuilder(tables.posts, 'posts').where(
             'id = :id',
             {

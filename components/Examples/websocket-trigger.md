@@ -7,7 +7,7 @@ workflow('StreamErrors', {
   trigger: trigger.websocket({
     topic: 'chat',
   }),
-  execute: async trigger => {
+  execute: async ({ trigger }) => {
     return merge(
       on(process, 'uncaughtException'),
       on(process, 'unhandledRejection')

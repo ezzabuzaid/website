@@ -17,7 +17,7 @@ workflow('StreamSSE', {
   trigger: trigger.sse({
     path: '/',
   }),
-  execute: async trigger => {
+  execute: async ({ trigger }) => {
     const stream = new PassThrough();
     setInterval(() => {
       stream.push(`data: ${trigger.query.channel}\n\n`);
@@ -43,7 +43,7 @@ workflow('EchoWebsocket', {
   trigger: trigger.websocket({
     topic: 'chat',
   }),
-  execute: async trigger => {
+  execute: async ({ trigger }) => {
     return trigger.channel;
   },
 });
@@ -57,7 +57,7 @@ workflow('BroadcastWebsocket', {
   trigger: trigger.websocket({
     topic: 'chat',
   }),
-  execute: async trigger => {
+  execute: async ({ trigger }) => {
     return trigger.channel;
   },
 });
@@ -71,7 +71,7 @@ workflow('OneToOneWebsocket', {
   trigger: trigger.websocket({
     topic: 'chat',
   }),
-  execute: async trigger => {
+  execute: async ({ trigger }) => {
     return trigger.channel;
   },
 });
@@ -88,7 +88,7 @@ workflow('StreamChatWebsocket', {
   trigger: trigger.websocket({
     topic: 'chat',
   }),
-  execute: async trigger => {
+  execute: async ({ trigger }) => {
     return merge(
       on(process, 'uncaughtException'),
       on(process, 'unhandledRejection')
@@ -107,7 +107,7 @@ workflow('StreamErrorsLogging', {
   trigger: trigger.sse({
     path: '/errors',
   }),
-  execute: async trigger => {
+  execute: async ({ trigger }) => {
     return merge(
       on(process, 'uncaughtException').pipe(
         tap(error => console.error('Uncaught Exception:', error))

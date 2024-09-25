@@ -109,7 +109,7 @@ feature('Roadmap', {
       trigger: trigger.github({
         event: 'issues.labeled',
       }),
-      execute: async trigger => {
+      execute: async ({ trigger }) => {
         await saveEntity(tables.posts, {
           title: trigger.issue.title,
           description: trigger.issue.body,

@@ -388,6 +388,7 @@ You can execute raw queries using the `sql` function.
 
 ```ts
 import { sql } from '@extensions/postgresql';
+import { workflow, trigger } from '@january/declarative';
 
 workflow('ListBlogsWorkflow', {
   tag: 'blogs',
@@ -395,7 +396,7 @@ workflow('ListBlogsWorkflow', {
     method: 'get',
     path: '/',
   }),
-  execute: async trigger => {
+  execute: async ({ trigger }) => {
     const records = await sql`
         SELECT * FROM blogs
         WHERE title = '${trigger.query.title}'

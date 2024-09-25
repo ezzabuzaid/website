@@ -7,7 +7,7 @@ workflow('IssueLabeledWorkflow', {
   trigger: trigger.github({
     event: 'issues.labeled',
   }),
-  execute: async trigger => {
+  execute: async ({ trigger }) => {
     await saveEntity(tables.issues, {
       title: trigger.issue.title,
       body: trigger.issue.body,

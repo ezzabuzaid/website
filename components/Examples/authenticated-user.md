@@ -1,4 +1,6 @@
 ```ts
+import { workflow, trigger, policy } from '@january/declarative';
+
 feature('UsersFeature', {
   policies: {
     isAuthenticated: policy.authenticate(),
@@ -10,7 +12,7 @@ feature('UsersFeature', {
         method: 'get',
         path: '/user/:id',
       }),
-      execute: async (trigger) => {
+      execute: async ({trigger}) => {
         // do something
       },
     }),

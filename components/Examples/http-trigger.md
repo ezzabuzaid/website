@@ -8,7 +8,7 @@ workflow('CreateUserWorkflow', {
     method: 'post',
     path: '/',
   }),
-  execute: async trigger => {
+  execute: async ({ trigger }) => {
     await saveEntity(tables.users, {
       name: trigger.body.name,
       email: trigger.body.email,

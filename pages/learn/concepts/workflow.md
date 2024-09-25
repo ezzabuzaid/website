@@ -25,7 +25,7 @@ workflow('AddOrderWorkflow', {
     method: 'post',
     path: '/',
   }),
-  execute: async trigger => {
+  execute: async ({ trigger }) => {
     await saveEntity(tables.orders, {
       name: trigger.body.name,
     });

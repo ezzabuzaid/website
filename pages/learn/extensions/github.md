@@ -71,7 +71,7 @@ workflow('RecordIssuedLabeled', {
   trigger: trigger.github({
     event: 'issues.labeled',
   }),
-  execute: async trigger => {
+  execute: async ({ trigger }) => {
     await saveEntity(tables.posts, {
       title: trigger.issue.title,
       description: trigger.issue.body,
@@ -109,7 +109,7 @@ feature('Roadmap', {
         event: 'issues.labeled',
         policies: ['isBug'],
       }),
-      execute: async trigger => {
+      execute: async ({ trigger }) => {
         await saveEntity(tables.posts, {
           title: trigger.issue.title,
           description: trigger.issue.body,

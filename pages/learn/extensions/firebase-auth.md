@@ -47,9 +47,9 @@ feature('UsersFeature', {
       trigger: trigger.http({
         policies: ['isAuthenticated'],
         method: 'get',
-          path: '/user/:id',
+        path: '/user/:id',
       }),
-      execute: async trigger => {
+      execute: async ({ trigger }) => {
         // do something
       },
     }),

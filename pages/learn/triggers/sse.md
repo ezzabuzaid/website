@@ -15,7 +15,7 @@ workflow('StreamSSE', {
   trigger: trigger.sse({
     path: '/',
   }),
-  execute: async trigger => {
+  execute: async ({ trigger }) => {
     const stream = new PassThrough();
     setInterval(() => {
       stream.push(`data: ${trigger.query.channel}\n\n`);
@@ -53,7 +53,7 @@ workflow('StreamErrorsLogging', {
   trigger: trigger.sse({
     path: '/errors',
   }),
-  execute: async trigger => {
+  execute: async ({ trigger }) => {
     return merge(
       on(process, 'uncaughtException').pipe(
         tap(error => console.error('Uncaught Exception:', error))

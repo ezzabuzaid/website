@@ -16,7 +16,7 @@ workflow('GetUserProfileWorkflow', {
     method: 'post',
     path: '/',
   }),
-  execute: async trigger => {
+  execute: async ({ trigger }) => {
     const records = await sql`
         SELECT * FROM users
         WHERE email = '${trigger.body.email}'

@@ -30,7 +30,7 @@ feature('UserFeature', {
         path: '/',
         method: 'post',
       }),
-      execute: async trigger => {
+      execute: async ({ trigger }) => {
         await resend.sendEmail({
           to: trigger.body.email,
           from: 'welcom@org.com',
