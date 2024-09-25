@@ -45,14 +45,12 @@ export default project(
           method: 'post',
           path: '/:id',
         }),
-        execute: async ({ trigger }) => {
+        execute: async ({ trigger }, request) => {
           const qb = createQueryBuilder(tables.posts, 'posts').where(
             'id = :id',
-            {
-              id: trigger.path.id,
-            }
+            { id: trigger.path.id }
           );
-          const [url] = await upload({
+          const [url] = await upload(request, {
             maxFileSize: '5mb',
           });
           await updateEntity(qb, {

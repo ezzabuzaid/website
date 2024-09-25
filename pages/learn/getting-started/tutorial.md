@@ -37,7 +37,7 @@ Tables are used to define the structure of the database, such as tables, columns
 
 To define a table, you can use the `table` function which accepts map of fields and their configurations.
 
-Refer to the [Fields](../concepts/tables#what-is-a-field) section for more information.
+Refer to the [Fields](../essentials/tables#what-is-a-field) section for more information.
 
 For the purpose of this tutorial, we will define two tables: **fruits** and **family** with many-to-one relationship.
 

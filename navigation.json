@@ -78,23 +78,23 @@
             }
           }
         },
-        "concepts": {
-          "label": "Concepts",
+        "essentials": {
+          "label": "Essentials",
           "items": {
             "feature": {
-              "link": "/learn/concepts/feature",
+              "link": "/learn/essentials/feature",
               "label": "Feature"
             },
             "extensions": {
-              "link": "/learn/concepts/extensions",
+              "link": "/learn/essentials/extensions",
               "label": "Extensions"
             },
             "tables": {
-              "link": "/learn/concepts/tables",
+              "link": "/learn/essentials/tables",
               "label": "Tables"
             },
             "workflow": {
-              "link": "/learn/concepts/workflow",
+              "link": "/learn/essentials/workflow",
               "label": "Workflow"
             }
           }
@@ -114,13 +114,13 @@
               "link": "/learn/triggers/websocket",
               "label": "WebSocket"
             },
-            "github": {
-              "link": "/learn/triggers/github",
-              "label": "GitHub"
-            },
             "schedule": {
               "link": "/learn/triggers/schedule",
               "label": "Schedule"
+            },
+            "github": {
+              "link": "/learn/triggers/github",
+              "label": "GitHub"
             }
           }
         },
