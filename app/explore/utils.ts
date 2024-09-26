@@ -4,6 +4,7 @@ const octokit = new Octokit();
 export type Project = {
   id: string;
   readme: string;
+  repo: string;
   url: string;
   config: {
     projectName: string;
@@ -51,10 +52,14 @@ async function getFile(projectName: string, fileName: string) {
 }
 
 export async function getProject(projectName: string): Promise<Project> {
+  const projectRepo = projectName.startsWith('project')
+    ? projectName
+    : `project-${projectName}`;
   return {
     id: projectName,
     config: JSON.parse(await getFile(projectName, 'config.json')),
     readme: await getFile(projectName, 'readme.md'),
-    url: `https://github.com/JanuaryLabs/${projectName.startsWith('project') ? projectName : `project-${projectName}`}`,
+    url: `https://github.com/JanuaryLabs/${projectRepo}`,
+    repo: `januarylabs/${projectRepo}`,
   };
 }

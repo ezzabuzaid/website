@@ -74,9 +74,7 @@ export default async function Page({
                   />
                 </picture>
               </a>
-              <a
-                href={`https://codespaces.new/JanuaryLabs/${project.url}?quickstart=1`}
-              >
+              <a href={`https://codespaces.new/${project.repo}?quickstart=1`}>
                 <img
                   src="https://github.com/codespaces/badge.svg"
                   alt="Open in GitHub Codespaces"
