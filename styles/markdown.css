@@ -60,7 +60,7 @@ main {
 
   code {
     @apply font-mono
-      px-0.5
+      
       font-semibold
       text-neutral-900
       dark:text-white

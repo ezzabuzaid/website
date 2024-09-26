@@ -49,6 +49,16 @@ body {
   }
 }
 
+pre.shiki {
+  @apply min-h-fit overflow-auto;
+  background-color: rgb(13 18 28) !important;
+  border: 1px solid rgb(44 52 55);
+  @apply p-3 text-sm;
+  code {
+    background-color: rgb(13 18 28) !important;
+  }
+}
+
 .separator {
   @apply w-px
     bg-neutral-200
