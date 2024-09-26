@@ -4,6 +4,7 @@ const octokit = new Octokit();
 export type Project = {
   id: string;
   readme: string;
+  url: string;
   config: {
     projectName: string;
     title: string;
@@ -54,5 +55,6 @@ export async function getProject(projectName: string): Promise<Project> {
     id: projectName,
     config: JSON.parse(await getFile(projectName, 'config.json')),
     readme: await getFile(projectName, 'readme.md'),
+    url: `https://github.com/JanuaryLabs/${projectName.startsWith('project') ? projectName : `project-${projectName}`}`,
   };
 }

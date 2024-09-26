@@ -3,9 +3,8 @@ import Button from '@/components/Common/Button';
 import { Mdx } from '@/components/mdx';
 import WithFooter from '@/components/withFooter';
 import WithNavBar from '@/components/withNavBar';
-import Link from 'next/link';
 import { Fragment } from 'react';
-import { SiGithub } from 'react-icons/si';
+import { SiGithub, SiSwagger } from 'react-icons/si';
 
 export async function generateStaticParams() {
   return getProjects();
@@ -37,37 +36,57 @@ export default async function Page({
             <p className="mt-8 text-neutral-800 dark:text-neutral-600/80">
               {project.config.description}
             </p>
-            <Link
-              href={project.config.sourceCode}
-              className="my-4 flex items-center gap-x-2"
-            >
-              <SiGithub size={18} />
-              Source code
-            </Link>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="mt-4 flex flex-col items-start gap-3.5">
               <Button
-                href={
-                  process.env.NODE_ENV === 'development'
-                    ? `http://localhost:1234?project=${project.id}`
-                    : `https://app.january.sh?project=${project.id}`
-                }
                 kind="special"
-                className="flex justify-center"
-              >
-                Use project
-              </Button>
-              <Button
-                kind="neutral"
-                className="flex justify-center"
+                className="flex items-center gap-x-2 !px-2 !py-1 text-sm"
                 href={
                   process.env.NODE_ENV === 'development'
                     ? `http://localhost:1234?project=${project.id}`
                     : `https://app.january.sh?project=${project.id}`
                 }
               >
-                View demo
+                <SiSwagger size={16} className="!size-4" />
+                API Docs
               </Button>
+              <Button
+                kind="primary"
+                href={project.url}
+                className="flex items-center gap-x-2 !px-2 !py-1 text-sm"
+              >
+                <SiGithub size={16} className="!size-4" />
+                Source code
+              </Button>
+              <a href={`https://idx.google.com/import?url=${project.url}`}>
+                <picture>
+                  <source
+                    media="(prefers-color-scheme: light)"
+                    srcSet="https://cdn.idx.dev/btn/open_dark_32.svg"
+                  />
+                  <source
+                    media="(prefers-color-scheme: dark)"
+                    srcSet="https://cdn.idx.dev/btn/open_light_32.svg"
+                  />
+                  <img
+                    height="32"
+                    alt="Open in IDX"
+                    src="https://cdn.idx.dev/btn/open_purple_32.svg"
+                  />
+                </picture>
+              </a>
+              <a
+                href={`https://codespaces.new/JanuaryLabs/${project.url}?quickstart=1`}
+              >
+                <img
+                  src="https://github.com/codespaces/badge.svg"
+                  alt="Open in GitHub Codespaces"
+                  style={{
+                    maxWidth: '100%',
+                  }}
+                />
+              </a>
             </div>
+
             <ul className="my-4 px-0">
               {Object.entries(info).map(([key, value]) => (
                 <Fragment key={key}>
