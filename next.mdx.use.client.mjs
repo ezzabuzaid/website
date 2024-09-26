@@ -3,6 +3,7 @@
 import Blockquote from './components/Common/Blockquote';
 import Button from './components/Common/Button';
 import Link from './components/Link';
+import MDXCodeBox from './components/MDX/CodeBox';
 import MDXCodeTabs from './components/MDX/CodeTabs';
 import MDXImage from './components/MDX/Image';
 import Mermaid from './components/MDX/Mermaid';
@@ -30,6 +31,8 @@ export const htmlComponents = {
   a: Link,
   // Renders a Blockquote Component for `blockquote` tags
   blockquote: Blockquote,
+  // Renders a CodeBox Component for `pre` tags
+  pre: MDXCodeBox,
   // Renders an Image Component for `img` tags
   img: MDXImage,
 };

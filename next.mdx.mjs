@@ -1,11 +1,9 @@
 'use strict';
-import remarkRehype from 'remark-rehype';
 import rehypeShiki from '@shikijs/rehype';
 
 import { nodeTypes } from '@mdx-js/mdx';
 import remarkHeadings from '@vcarl/remark-headings';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
-import rehypeExpressiveCode from 'rehype-expressive-code';
 import rehypeRaw from 'rehype-raw';
 import rehypeSlug from 'rehype-slug';
 import remarkGfm from 'remark-gfm';
@@ -31,6 +29,8 @@ export function NEXT_REHYPE_PLUGINS(props = { hideCopyButton: false }) {
       rehypeShiki,
       {
         themes: {
+          // light: 'vesper',
+          // dark: 'vesper',
           light: 'nord',
           dark: 'nord',
         },

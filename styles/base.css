@@ -49,25 +49,6 @@ body {
   }
 }
 
-.expressive-code pre {
-  --ec-frm-frameBoxShdCssVal: '0 0 0 0';
-  --ec-brdCol: rgb(44 52 55);
-  --ec-brdRad: '0.0rem';
-  --ec-codeFontFml: var(--font-mono);
-  --code-background: rgb(13 18 28);
-}
-.shiki {
-  background-color: rgb(13 18 28) !important;
-  border: 1px solid rgb(44 52 55);
-  @apply p-3 text-sm;
-}
-.shiki code {
-  background-color: rgb(13 18 28) !important;
-}
-pre {
-  @apply min-h-fit overflow-auto;
-}
-
 .separator {
   @apply w-px
     bg-neutral-200

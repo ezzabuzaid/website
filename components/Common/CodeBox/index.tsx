@@ -15,7 +15,7 @@ import styles from './index.module.css';
 
 // Transforms a code element with plain text content into a more structured
 // format for rendering with line numbers
-const transformCode = (code: ReactNode, language: string): ReactNode => {
+const transformCode = (code: ReactNode): ReactNode => {
   if (!isValidElement(code)) {
     // Early return when the `CodeBox` child is not a valid element since the
     // type is a ReactNode, and can assume any value
@@ -33,10 +33,8 @@ const transformCode = (code: ReactNode, language: string): ReactNode => {
   // being an empty string, so we need to remove it
   const lines = content.split('\n');
 
-  const extraStyle = language.length === 0 ? { fontFamily: 'monospace' } : {};
-
   return (
-    <code style={extraStyle}>
+    <code>
       {lines
         .flatMap((line, lineIndex) => {
           const columns = line.split(' ');
@@ -103,7 +101,7 @@ const CodeBox: FC<PropsWithChildren<CodeBoxProps>> = ({
         tabIndex={0}
         dir="ltr"
       >
-        {transformCode(children, language)}
+        {transformCode(children)}
       </pre>
 
       {language && (
