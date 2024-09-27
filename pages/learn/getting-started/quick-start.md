@@ -7,29 +7,35 @@ layout: learn
 
 January CLI helps you to scaffold a new project configured with all bits and pieces you need to start building your API.
 
-Use the `init` command followed by the name of your project to create a new project.
-
 ```bash
-npx https://github.com/JanuaryLabs/dist/raw/main/canary.tar.gz init my-project
+npm create january@latest project-winter
 ```
 
-Once done, you should see a new directory called `my-project`
+Once done, you should see a new directory called `project-winter`
 
 ```bash
-cd my-project
+cd project-winter
 ```
 
-Run the build command and keep it running.
+Open it in your favorite code editor with two terminal windows.
+
+The first terminal window will be used to run the build command and keep it running.
 
 ```bash
 npm run build
+```
+
+The second terminal window will be used to run the server command and keep it running.
+
+```bash
+npm run dev
 ```
 
 ## Prepare the development environment
 
 By default, the project is configured to use PostgreSQL as the database, Hono as the framework, and Fly.io as the cloud provider.
 
-For development you need to have a database server running locally.
+To setup the database, you need to have a database server running locally which can be via either of the following methods:
 
 ### Using pre-configured docker compose
 

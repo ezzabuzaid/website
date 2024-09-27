@@ -17,6 +17,8 @@
   },
   "packageManager": "npm@10.7.0",
   "scripts": {
+    "serverize": "NODE_ENV=development node --watch-path=build ./node_modules/.bin/remote deploy -k nodejs",
+    "build:watch": "cross-env NODE_NO_WARNINGS=1 npx nodemon --ext=ts,md --watch . --ignore build/ --exec 'npm run deploy'",
     "scripts:release-post": "cross-env NODE_NO_WARNINGS=1 node scripts/release-post/index.mjs",
     "dev": "cross-env NODE_NO_WARNINGS=1 next dev",
     "serve": "npm run dev",
