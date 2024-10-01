@@ -39,12 +39,12 @@ To setup the database, you need to have a database server running locally which 
 
 ### Using pre-configured docker compose
 
-The scaffolding process creates a `compose.ts` file that is pre-configured to prepare the development environment for you. Just run it and you shall be set.
+The scaffolding process creates a `tools/compose.ts` file that is pre-configured to prepare the development environment for you. Just run it and you shall be set.
 
 - Open another terminal window and run the following command:
 
 ```bash
-npx tsx compose.ts
+npx tsx tools/compose.ts
 ```
 
 - Run postgres container, start the server, and watch for changes
@@ -96,8 +96,9 @@ Every project is a TypeScript project with the following structure:
 ```bash
 .
 ├── package.json
-├── extensions.json
-├── compose.ts
+├── tools
+│   ├── extensions.js
+│   └── compose.ts
 ├── src
 │   ├── extensions
 │   │   └── user
@@ -108,9 +109,9 @@ Every project is a TypeScript project with the following structure:
 
 - `project.ts` file is the entry point and the only file (for now) that you use to build your project.
 - `src/extensions` is user-defined extensions that you can use to extend the functionality of the project.
-- `extensions.json` file is used to configure the extensions.
+- `tools/extensions.js` file is used to configure the extensions.
 
-- `compose.ts` is a TypeScript file that is used to generate a docker compose file for your project to ease the development on your local machine.
+- `tools/compose.ts` is a TypeScript file that is used to generate a docker compose file for your project to ease the development on your local machine.
 
 <!-- ```ts title="compose.ts"
 import { writeCompose } from '@january/extensions';

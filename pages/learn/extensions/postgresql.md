@@ -34,23 +34,7 @@ docker run \
   postgres:16
 ```
 
-Or leverage January development toolchain. At project creation, a file named `compose.ts` is created. If you don't have one, simply create it and add the following content:
-
-```ts
-import { writeCompose } from '@january/extensions';
-import { localServer } from '@january/extensions/fly';
-import { postgres } from '@january/extensions/postgresql';
-
-writeCompose(
-  compose({
-    database: service(postgres),
-    server: service({
-      ...localServer(),
-      depends_on: [postgres],
-    }),
-  })
-);
-```
+Or you can build compose file using TypeScript, you can find an example in `tools/compose.ts` file.
 
 ### Functions
 
