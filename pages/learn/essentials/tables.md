@@ -53,8 +53,10 @@ field({ type: 'long-text' });
 
 There are two kind of fields:
 
-- Semantic fields: These fields are used to store data that has a specific meaning and usually have implicit validation. For example, `short-text`, `email`, and `price`.
-- Generic fields: These fields are used to store data that doesn't have a specific meaning. For example, `integer`, `decimal`, and `json`.
+- **Semantic fields**: These fields are used to store data that has a specific meaning and usually have implicit validation. For example, `short-text`, `email`, and `price`.
+- **Generic fields**: These fields are used to store data that doesn't have a specific meaning. For example, `integer`, `decimal`, and `json`.
+
+#### Semantic Fields
 
 Semantical fields are common across all database extensions, while generic fields are specific to the database extension.
 
@@ -73,9 +75,22 @@ Semantical fields are common across all database extensions, while generic field
 - `price`: A field for storing monetary values with currency precision.
 - `latitude`: A field for storing latitude coordinates.
 - `longitude`: A field for storing longitude coordinates.
-- `uuid`: A field for storing universally unique identifiers (UUIDs).
+- `uuid` and `primary-key-uuid`: A field for storing universally unique identifiers (UUIDs), with the later being specifically for primary keys.
+- `primary-key-number`: A field for storing the auto-incremented numerical primary key.
+- `single-select` and `multi-select`: Fields for selecting one or many values from a list of predefined list of values.
+- `json`: A field that contains a JSON-encoded value.
 
 The configuration for each field can be found in the installed database extension documentation.
+
+#### Generic Fields
+
+Generic fields are a fundamental aspect of January's field namespace. These fields provide basic data types that can be used across different database extensions. Currently, the following generic field declarations are supported:
+
+- `field.integer()`: A field for storing whole numbers.
+- `field.decimal()`, `field.price()`: Fields for storing decimal numbers, They take optional `precision` and `scale` value in their config argument.
+- `field.shortText()`, `field.longText()`, `field.url()`: Fields for storing text strings, they take optional `length` argument in their config argument.
+- `field.datetime()`: A field for storing date and time.
+- `field.enum()`: An enumeration of values of which only one can be selected. It takes mandatory `values` array of strings in their config parameter.
 
 ### Validations
 
