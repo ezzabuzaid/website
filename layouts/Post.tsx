@@ -37,12 +37,11 @@ const PostLayout: FC<PropsWithChildren> = ({ children }) => {
               <Preview title={frontmatter.title!} type={type} />
             )}
             <div className="rounded border p-4 font-semibold">
-              We're developing January, a comprehensive platform that enables
-              you to build, integrate, test, and deploy APIs all in one place.
-              <a href="https://dev.january.sh">
-                Try it for free in the playground
-              </a>{' '}
-              and have an API that you can share in seconds.{' '}
+              We're building <a href="/">January</a>, an all-in-one API
+              development framework that enables you to build, integrate, test,
+              and deploy APIs in one place.
+              <br />
+              <a href="/learn/getting-started/quick-start">Read more</a>
             </div>
 
             {children}

@@ -1,5 +1,5 @@
 ```ts
-import { upload } from '@extensions/google-cloud-storage';
+import { upload } from '@extensions/gcs';
 workflow('UploadFile', {
   trigger: trigger.http({
     method: 'post',

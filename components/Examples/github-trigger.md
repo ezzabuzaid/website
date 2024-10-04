@@ -19,5 +19,5 @@ workflow('IssueLabeledWorkflow', {
 <Footer
  gist="57e6042b98a45ba46c396bb1354180f5"
  >
-Receive events from GitHub repositories such as `push`, `pull_request`, `issues`, and more. This trigger is available in the GitHub extension.
+Receive events from GitHub repositories such as `push`, `pull_request`, `issues`, and more.
 </Footer>

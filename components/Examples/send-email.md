@@ -19,5 +19,5 @@ workflow('AddUserWorkflow', {
 ```
 
 <Footer>
-You can send an email using the `sendEmail` action. This action is available in the email extension. This example uses Resend.com extension.
+You can send an email using the `sendEmail` action. This action is available in the email extension.
 </Footer>
