@@ -1,22 +1,20 @@
 ---
 date: '2024-10-04T00:00:00'
-title: 'Using Github Repository as Package Registry'
+title: 'Using Github Repository To Host NPM Packages'
 category: journal
 layout: blog-post
 author: ezzabuzaid
 ---
 
-## Using Github Repository as Package Registry
-
-I was excited to release the first half-working version of **January** and share it on social media, yet I was surprised to discover that the name was not available. I made a rookie mistake and forgot to check if the “**@january**” scope was available on npm. “Who would pick January as a package name?" I thought. Well, someone had—seven years ago.
+I was excited to release the first half-working version of **January** and share it with world, but to my surprise, the name was already taken. I made a mistake of not checking if the **“@january”** scope was available on npm. “Who would pick January as a package name?" I thought. Well, someone had—seven years ago.
 
 ### The Name Game
 
 It’s difficult to choose otherwise. I can, but I’d rather not. So, I reached out to npm support, making a case that the original owner hadn't published anything under that name in seven years. It was a long shot, but worth trying.
 
-In the meantime, I have **@januarylabs** as a backup option. However, using the company name for the framework does not sit well with me.
+_I have **@januarylabs** as a backup option but the name is not sitting well with me._
 
-While waiting for npm's response, I needed a way to make January available to developers. From a little research I gathered that I can do with:
+While waiting for npm's response, I needed a way to make January available to developers. So googled for a solution and found that I can do with:
 
 1. Self-hosted package registry
 2. Github Packages
@@ -31,11 +29,9 @@ The **first option** is about having your own npm on a server so that you can pr
 @january:registry=https://packages.january.sh/
 ```
 
-I only know about [**_Verdaccio_**](~https://verdaccio.org/~), which can make it possible for you without having to set up the API for publishing and installing.
+I only know about [Verdaccio](~https://verdaccio.org/~), which can make it possible for you without having to set up the API for publishing and installing.
 
-The **second option** is to use [Github Packages](~https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-npm-registry~); I used it a few times to host packages for our clients internally but never for public packages.
-
-After quickly glancing at the docs, I saw that it needs an auth token for essentially any operation (publish, install, etc.)., so I had to pass.
+The **second option** was to use [GitHub Packages](~https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-npm-registry~). I've used it a few times to host internal packages for clients but never for public ones. After looking deeper into the documentation, it seems that an authentication token is required for almost every action (publishing, installing, etc.), so I had to pass.
 
 The **third option**, which I’m using at the moment, is to manually tar the packages, publish them to a file storage, and have the developers reference the full URL in package.json instead of the version.
 
@@ -50,10 +46,8 @@ The **third option**, which I’m using at the moment, is to manually tar the pa
 }
 ```
 
-It is a brilliant choice, really is, for how easily you can get it working.
-
-I'm using GitHub as file storage. Created a repository named **dist** and commit the packages (tar files) with each release.
-Although this works and gets the job done, it has an important caveat: **You cannot instruct ￼`npm i￼ ` to install the latest version** because npm will try to use the cached version if available.
+I'm using GitHub repository as file storage. basically, I've created a repository named **dist** and commit the packages (tar files) with each release.
+Although this works and gets the job done, it has an important caveat: **You cannot instruct `npm i` to install the latest version** because npm will try to use the cached version if available.
 
 To get around this, you need to upload the tar files with the version in the name so that instead of
 
@@ -63,9 +57,11 @@ You need
 
 `https://github.com/JanuaryLabs/dist/raw/main/1.2.3/canary.tar.gz`
 
-Where _1.2.3_ is the version, you can add a random query param every time you want to perform an update.
+Where _1.2.3_ is the version, you can also add a random query param every time you want to perform an update.
 
-Even `npm update` won’t work, as far as I know, given that it uses semver checks to determine whether a package should be updated.
+**Note: The point here is to workaround npm cache.**
+
+Even `npm update` won’t work AFAIK given that it uses semver checks to determine whether a package should be updated.
 
 ---
 
@@ -75,8 +71,8 @@ It works by manually running the script below, that will
 
 - Look up the latest release tag to determine the version.
 - Tar the package and store it in the tmp directory.
-- Make sure the package.json version is the same as the latest release version
-- Publish to the root repository.
+- Make sure the `package.json` version for each package is the same as the latest release version.
+- Publish to the root "dist" repository.
 - Publish to a folder named by the version to avoid the issue outlined before.
 - If you try to publish the same version or file, it’ll update the existing one. _It works as an upsert operation._
 
@@ -168,4 +164,4 @@ async function publish(path: string, tarPath: string) {
 
 ### Future plans
 
-I'm sticking with the URL approach for now. Still, I’ll do better using GitHub releases instead of creating a dedicated repository to store the packages, which also have excellent presentations for release notes and are commonly used for this kind of thing.
+I'm sticking with the URL approach for now. However, using GitHub releases instead of creating a dedicated repository to store the packages, which also have excellent presentations for release notes and are commonly used for this kind of thing would be a better solution.
