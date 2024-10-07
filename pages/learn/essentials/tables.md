@@ -88,6 +88,17 @@ The compiler auto-generates the following fields in each table:
 
 These fields are automatically added to each table and can be used in queries and other database operations.
 
+#### Manually Specifying the primary key
+
+This default primary key field can be overridden if you explicitly define a primary key using a different data type, such as number or string.
+
+The primary key can be defined using the `field.primary()` declarative which takes two config values:
+
+- `type`: One of `uuid`, `number`, `string`.
+- `generated`: An optional boolean to indicate wether the primary key should be auto generated for new records.
+
+Every table can have only one primary key, compound primary keys are currently not supported.
+
 ### Validations
 
 The following list of validations can be applied to a field:
