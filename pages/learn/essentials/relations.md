@@ -9,7 +9,7 @@ Relations allow you to define relationships between tables, They are defined by 
 
 To use the `field.relation()` function in your table, you must specify these props in the argument object:
 
-- `refereces`: Here you specify the table to which this column reference using the built-in `useTable()` declarative passing the table name as argument.
+- `references`: Here you specify the table to which this column reference using the built-in `useTable()` declarative passing the table name as argument.
 - `relationship`: One of `one-to-one`, `many-to-one`.
 
 You can also pass a `validations` array which currently accepts the built-in declaratives `mandatory()` and `unique()`.
