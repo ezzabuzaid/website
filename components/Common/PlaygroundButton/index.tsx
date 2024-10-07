@@ -17,7 +17,7 @@ const PlaygroundButton: FC<PropsWithChildren<DownloadButtonProps>> = ({
     <>
       <Button
         kind="special"
-        href={'https://app.january.sh'}
+        href={'/learn'}
         className={classNames(styles.downloadButton, styles.special, 'w-full')}
       >
         {children}
@@ -25,7 +25,7 @@ const PlaygroundButton: FC<PropsWithChildren<DownloadButtonProps>> = ({
 
       <Button
         kind="primary"
-        href={'https://app.january.sh'}
+        href={'/learn'}
         className={classNames(styles.downloadButton, styles.primary, 'w-full')}
       >
         {children}

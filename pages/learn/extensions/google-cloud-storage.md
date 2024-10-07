@@ -17,9 +17,8 @@ GOOGLE_CLOUD_STORAGE_SERVICE_ACCOUNT_KEY=The service account key to authenticate
 
 Upload a single file to Google Cloud Storage. It uses Node.js streams which makes memory efficient for large files.
 
-
 ```ts
-import { upload } from '@extensions/google-cloud-storage';
+import { upload } from '@extensions/gcs';
 
 workflow('UploadFile', {
   tag: 'posts',
@@ -37,7 +36,7 @@ workflow('UploadFile', {
 **Limit the file size**:
 
 ```ts
-import { upload } from '@extensions/google-cloud-storage';
+import { upload } from '@extensions/gcs';
 
 workflow('UploadFile', {
   tag: 'posts',

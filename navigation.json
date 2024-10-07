@@ -140,7 +140,7 @@
               "label": "Firebase Auth"
             },
             "googleStorage": {
-              "link": "/learn/extensions/google-cloud-storage",
+              "link": "/learn/extensions/gcs",
               "label": "Google Cloud Storage"
             },
             "hono": {

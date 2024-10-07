@@ -29,7 +29,7 @@ export default project(
 - Create a workflow with a trigger that accepts a file and an ID.
 
 ```ts
-import { upload } from '@extensions/google-cloud-storage';
+import { upload } from '@extensions/gcs';
 import { createQueryBuilder, updateEntity } from '@extensions/postgresql';
 import { tables } from '@workspace/entities';
 
@@ -71,7 +71,7 @@ Complete code:
 
 ```ts
 import { createQueryBuilder, updateEntity } from '@extensions/postgresql';
-import { upload } from '@extensions/google-cloud-storage';
+import { upload } from '@extensions/gcs';
 
 export default project(
   feature('blogs', {

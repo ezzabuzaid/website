@@ -1,5 +1,7 @@
 ```ts
-import { upload } from '@extensions/google-cloud-storage';
+import { upload } from '@extensions/gcs';
+import { workflow, trigger, policy } from '@january/declarative';
+
 workflow('UploadFile', {
   trigger: trigger.http({
     method: 'post',
