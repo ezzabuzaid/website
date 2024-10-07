@@ -7,6 +7,6 @@ h1.special {
     [-webkit-text-fill-color:transparent]
     dark:bg-gradient-subtle-white
     md:text-5xl
-    md:leading-[4rem]
+    md:leading-[3rem]
     md:-tracking-[0.06rem];
 }

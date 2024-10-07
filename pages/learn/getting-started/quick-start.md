@@ -112,22 +112,4 @@ Every project is a TypeScript project with the following structure:
 - `tools/extensions.js` file is used to configure the extensions.
 
 - `tools/compose.ts` is a TypeScript file that is used to generate a docker compose file for your project to ease the development on your local machine.
-
-<!-- ```ts title="compose.ts"
-import { writeCompose } from '@january/extensions';
-import { localServer } from '@january/extensions/fly';
-import { postgres, pgadmin } from '@january/extensions/postgresql';
-
-writeCompose(
-  compose({
-    database: service(postgres),
-    pgadmin: service(pgadmin),
-    server: service({
-      ...localServer(),
-      depends_on: [postgres],
-    }),
-  })
-);
-```
-
-This sample code will generate a docker compose file that will start a PostgreSQL database, a pgadmin instance, and create a local server. -->
+ 

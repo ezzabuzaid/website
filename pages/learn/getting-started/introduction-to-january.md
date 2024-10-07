@@ -5,7 +5,7 @@ layout: learn
 
 # Introduction to January
 
-January is the comprehensive platform for backend API development, enabling you to build, integrate, test, and deploy all in one place. It stands out by not locking you into its ecosystem, as it's portable by design.
+January is the comprehensive framework for backend API development, enabling you to build, integrate, test, and deploy all in one place. It stands out by not locking you into its ecosystem, as it's portable by design.
 
 At the heart of January is a powerful compiler that generates code for you. This compiler works based on a declarative syntax, which employs the concept of primitives that serve as instructions to the compiler, telling it what code to generate and how to generate it.
 

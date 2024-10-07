@@ -11,5 +11,5 @@ workflow('ReportServerHealth', {
 ```
 
 <Footer>
-Schedules a workflow to run at a specific time or at regular intervals. This trigger is available in a Schedule extension.
+Schedules a workflow to run at a specific time or at regular intervals.
 </Footer>
