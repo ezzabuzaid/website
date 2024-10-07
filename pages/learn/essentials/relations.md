@@ -5,14 +5,14 @@ layout: learn
 
 # Relations
 
-Relations allow you to define relationships between tables, They are declared by using the built-in `field.relation()` declarative.
+Relations allow you to define relationships between tables, They are defined by using the built-in `field.relation()` declarative.
 
-To use the `field.relation()` declarative in your table, you must specify these props in the argument object:
+To use the `field.relation()` function in your table, you must specify these props in the argument object:
 
-- `refereces`: Here you specify which table does this column relate to using the built-in `useTable()` declarative passing the table name as argument.
-- `relationship`: Here you specify the relationship type whether it is `one-to-one` or `many-to-one` according to your needs.
+- `refereces`: Here you specify the table to which this column reference using the built-in `useTable()` declarative passing the table name as argument.
+- `relationship`: One of `one-to-one`, `many-to-one`.
 
-You can also pass a `validations` array which currently only accepts the built-in declarative `mandatory()`.
+You can also pass a `validations` array which currently accepts the built-in declaratives `mandatory()` and `unique()`.
 
 **Example 1: One-To-One Relation**
 
@@ -85,5 +85,3 @@ tables: {
 ```
 
 In this scenario, the `listItemLink` table serves as a junction between `list` and `item`. Each item can be associated with multiple lists, and each list can have multiple items. The `item` and `list` fields in the `listItemLink` table establish the many-to-many relation.
-
-These examples demonstrate how relations work in January. By using the `field.relation()` declarative, you can now easily define complex relationships between your tables.
