@@ -77,6 +77,28 @@ Semantical fields are common across all database extensions, while generic field
 
 The configuration for each field can be found in the installed database extension documentation.
 
+### Primary and Audit fields
+
+The compiler auto-generates the following fields in each table:
+
+- `id`: A UUID field that serves as the primary key for each record.
+- `createdAt`: A timestamp field that represents when the record was created.
+- `updatedAt`: A timestamp field that represents the last time the record was updated.
+- `deletedAt`: A timestamp field that indicates when the record was deleted (if applicable).
+
+These fields are automatically added to each table and can be used in queries and other database operations.
+
+#### Manually Specifying the primary key
+
+This default primary key field can be overridden if you explicitly define a primary key using a different data type, such as number or string.
+
+The primary key can be defined using the `field.primary()` declarative which takes two config values:
+
+- `type`: One of `uuid`, `number`, `string`.
+- `generated`: An optional boolean to indicate wether the primary key should be auto generated for new records.
+
+Every table can have only one primary key, compound primary keys are currently not supported.
+
 ### Validations
 
 The following list of validations can be applied to a field:
