@@ -17,8 +17,8 @@ You can define a feature using the `feature` function. A feature is composed of 
 
 Here's an example of how a feature can be defined using the `feature` function:
 
-```ts
-feature('Tree', {
+```ts title="features/hello.ts"
+export default feature({
   workflows: [workflow(...)],
   tables: {
     leaves: table(...),
